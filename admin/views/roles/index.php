@@ -1,6 +1,8 @@
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Bảng phân quyền tài khoản</h1>
+    <h1 class="h3 mb-2 text-gray-800">
+        <?= $title ?>
+    </h1>
     <!-- <p class="mb-4">
         DataTables is a third party plugin that is used to generate the
         demo table below. For more information about DataTables, please
@@ -11,10 +13,16 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-        <a href="<?= BASE_URL_ADMIN?>?act=role-create" type="submit" class="btn btn-success">Thêm </a>
-            
+            <a href="<?= BASE_URL_ADMIN ?>?act=role-create" type="submit" class="btn btn-success">Thêm </a>
+
         </div>
         <div class="card-body">
+            <?php if (isset ($_SESSION['success'])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION['success']?>
+                </div>
+                <?php unset($_SESSION['success'])?>
+            <?php endif; ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -35,9 +43,13 @@
                                     <?= $value['ten_chuc_vu'] ?>
                                 </td>
                                 <td>
-                                    <a href="<?= BASE_URL_ADMIN?>?act=role-detail&id=<?= $value['id'] ?>" class="btn btn-info">Chi tiết</a>
-                                    <a href="<?= BASE_URL_ADMIN?>?act=role-update&id=<?= $value['id'] ?>" class="btn btn-warning">Sửa</a>
-                                    <a href="<?= BASE_URL_ADMIN?>?act=role-delete&id=<?= $value['id'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không')" class="btn btn-danger">Xóa</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=role-detail&id=<?= $value['id'] ?>"
+                                        class="btn btn-info">Chi tiết</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=role-update&id=<?= $value['id'] ?>"
+                                        class="btn btn-warning">Sửa</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=role-delete&id=<?= $value['id'] ?>"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa không')"
+                                        class="btn btn-danger">Xóa</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

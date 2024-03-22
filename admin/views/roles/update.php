@@ -18,15 +18,33 @@
             </h6>
         </div>
         <div class="card-body">
+            <?php if (isset ($_SESSION['success'])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION['success']?>
+                    <?php unset($_SESSION['success']) ?>
+                </div>
+            <?php endif; ?>
+            <?php if (isset ($_SESSION['errors'])): ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php foreach ($_SESSION['errors'] as $error): ?>
+                            <li>
+                                <?= $error ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php unset($_SESSION['errors']) ?>
+                </div>
+            <?php endif; ?>
             <form action="" method="POST">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Tên phân quyền</label>
-                    <input type="text" class="form-control" name="ten_chuc_vu" value="<?= $role['ten_chuc_vu']?>"
+                    <input type="text" class="form-control" name="ten_chuc_vu" value="<?= $role['ten_chuc_vu'] ?>"
                         placeholder="Nhập tên phân quyền">
                 </div>
-                
+
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
-                <a href="<?= BASE_URL_ADMIN?>?act=roles" type="submit" class="btn btn-warning">Quay lại </a>
+                <a href="<?= BASE_URL_ADMIN ?>?act=roles" type="submit" class="btn btn-warning">Quay lại </a>
             </form>
         </div>
     </div>
