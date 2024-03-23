@@ -10,6 +10,7 @@ require_once '../commons/model.php';
 
 // require các file trong model và controller 
 require_file(PATH_CONTROLLER_ADMIN);
+require_file(PATH_MODEL_ADMIN);
 
 $act = $_GET['act'] ?? '/';
 match($act){
@@ -17,6 +18,10 @@ match($act){
 
     // user
     'users' => userListAll(),
+    'user-detail' => userShowOne($_GET['id']),
+    'user-create' => userCreate(),
+    'user-update' => userUpdate($_GET['id']),
+    'user-delete' => userDelete($_GET['id']),
 
     // roles
     'roles' => roleListAll(),

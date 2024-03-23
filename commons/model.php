@@ -40,13 +40,14 @@ if (!function_exists('insert')) {
         try {
             $strKeys = get_str_keys($data);
             $virtualParams = get_virtual_params($data);
-            $sql = "INSERT INTO $tableName($strKeys) VALUES($virtualParams) ";
-
+            $sql = "INSERT INTO $tableName($strKeys) VALUES ($virtualParams)";
+            
             $stmt = $GLOBALS['conn'] -> prepare($sql);
-
-            foreach($data as $fieldName => $value){
+            
+            foreach($data as $fieldName => &$value){
                 $stmt->bindParam(":$fieldName",$value);
             }
+            // debug($sql);
             $stmt->execute();
         } catch (\Exception $e) {
             debug($e);
@@ -54,6 +55,7 @@ if (!function_exists('insert')) {
 
     }
 }
+
 
 if (!function_exists('listAll')) {
     function listAll($tableName)
