@@ -68,6 +68,7 @@
                 <input type="submit" name="gui" class="btn btn-success" value="Thêm">
                 <a href="<?= BASE_URL_ADMIN?>?act=vouchers" type="submit" class="btn btn-warning">Quay lại </a>
             </form>
+            <!-- thử xem có lỗi không -->
         </div>
     </div>
 </div>
