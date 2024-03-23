@@ -59,10 +59,14 @@ function validateRole($data)
 
 function roleUpdate($id)
 {
+    $role = showOne('tb_phan_quyen', $id);
+    if(empty($role)){
+        e404();
+    }
     if (!empty ($_POST)) {
 
         $data = [
-            'ten_chuc_vu' => $_POST['ten_chuc_vu'] ?? null,
+            'ten_chuc_vu' => $_POST['ten_chuc_vu'] ?? $role['ten_chuc_vu'],
         ];
 
         $errors = validateRole($data);
@@ -77,7 +81,6 @@ function roleUpdate($id)
         exit();
 
     }
-    $role = showOne('tb_phan_quyen', $id);
     $title = "Sửa phân quyền: " . $role['ten_chuc_vu'];
     $view = 'roles/update';
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
