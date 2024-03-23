@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 //require các file trong commons
 require_once '../commons/env.php';
@@ -13,7 +13,7 @@ require_file(PATH_CONTROLLER_ADMIN);
 require_file(PATH_MODEL_ADMIN);
 
 $act = $_GET['act'] ?? '/';
-match($act){
+match ($act) {
     '/' => dashboard(),
 
     // user
@@ -37,7 +37,12 @@ match($act){
     'category-update' => categoryUpdate($_GET['id']),
     'category-delete' => categoryDelete($_GET['id']),
 
-
+    // vouchers
+    'vouchers' => voucherListAll(),
+    'voucher-detail' => voucherShowOne($_GET['id']),
+    'voucher-create' => voucherCreate(),
+    'voucher-update' => voucherUpdate($_GET['id']),
+    'voucher-delete' => voucherDelete($_GET['id']),
 };
 
 
