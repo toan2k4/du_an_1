@@ -38,36 +38,25 @@
             <?php endif; ?>
             <form action="" method="POST">
                 <div class="mb-3">
-                    <label class="form-label">Tên khuyến mại</label>
-                    <input type="text" class="form-control" name="ten_km" placeholder="Nhập tên khuyến mại"
-                        value="<?= $voucher['ten_km'] ?>">
+                    <label class="form-label">Tên tài khoản</label>
+                    <input type="text" class="form-control" readonly 
+                        value="<?= $comment['ten_tk'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Nội dung khuyến mại</label>
-                    <input type="text" class="form-control" name="nd_km" placeholder="Nhập nội dung khuyến mại"
-                        value="<?= $voucher['nd_km'] ?>">
+                    <label class="form-label">Tên sản phẩm</label>
+                    <input type="text" class="form-control" readonly  
+                        value="<?= $comment['ten_sp'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Giá khuyến mại</label>
-                    <input type="text" class="form-control" name="gia_km" placeholder="Nhập Giá khuyến mại"
-                        value="<?= $voucher['gia_km'] ?>">
+                    <label class="form-label">Nội dung bình luận</label>
+                    <input type="text" class="form-control" name="noi_dung" placeholder="Nhập nội dung bình luận"
+                        value="<?= $comment['noi_dung'] ?>">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Số lượng</label>
-                    <input type="text" class="form-control" name="so_luong" placeholder="Nhập Số lượng"
-                        value="<?= $voucher['so_luong'] ?>">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">ngày bắt đầu</label>
-                    <input type="date" class="form-control" name="ngay_batdau" value="<?= $voucher['ngay_batdau'] ?>">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Ngày kết thúc</label>
-                    <input type="date" class="form-control" name="ngay_ketthuc" value="<?= $voucher['ngay_ketthuc'] ?>">
-                </div>
+                
+                
 
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
-                <a href="<?= BASE_URL_ADMIN ?>?act=vouchers" type="submit" class="btn btn-warning">Quay lại </a>
+                <a href="<?= BASE_URL_ADMIN ?>?act=comments" type="submit" class="btn btn-warning">Quay lại </a>
             </form>
         </div>
     </div>
