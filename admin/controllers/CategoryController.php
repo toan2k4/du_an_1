@@ -6,6 +6,7 @@ function categoryListAll()
     $script = 'datatable';
     $script2 = 'categories/script';
     $style = 'datatable';
+    
     $categories = listAll('tb_danh_muc');
 
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
