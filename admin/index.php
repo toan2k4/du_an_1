@@ -43,6 +43,11 @@ match ($act) {
     'voucher-create' => voucherCreate(),
     'voucher-update' => voucherUpdate($_GET['id']),
     'voucher-delete' => voucherDelete($_GET['id']),
+
+    // comments
+    'comments' => commentListAll(),
+    'comment-detail' => commentShowOne($_GET['id']),
+    'comment-update' => commentUpdate($_GET['id']),
 };
 
 

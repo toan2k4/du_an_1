@@ -28,6 +28,8 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+
+    <!-- roles  -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
@@ -43,6 +45,7 @@
         </div>
     </li>
 
+     <!-- users  -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoUser" aria-expanded="true"
             aria-controls="collapseTwoUser">
@@ -58,6 +61,7 @@
         </div>
     </li>
 
+    <!-- categories -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoCategory" aria-expanded="true"
             aria-controls="collapseTwoCategory">
@@ -73,6 +77,7 @@
         </div>
     </li>
 
+    <!-- vouchers  -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoVoucher" aria-expanded="true"
             aria-controls="collapseTwoVoucher">
@@ -84,6 +89,21 @@
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                 <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=vouchers">Danh sách vouchers</a>
                 <a class="collapse-item"  href="<?= BASE_URL_ADMIN?>?act=voucher-create">Thêm voucher</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- vouchers  -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoComment" aria-expanded="true"
+            aria-controls="collapseTwoComment">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Comments</span>
+        </a>
+        <div id="collapseTwoComment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=comments">Danh sách comments</a>
             </div>
         </div>
     </li>
