@@ -92,6 +92,8 @@ function validatevoucher($data)
         $errors[] = "Trường ngày kết thúc là bắt buộc";
     } else if (!strtotime($data['ngay_ketthuc'])) {
         $errors[] = "Trường ngày kết thúc không hợp lệ";
+    }else if (strtotime($data['ngay_batdau']) >= strtotime($data['ngay_ketthuc'])) {
+        $errors[] = "Trường ngày kết thúc phải lớn hơn ngày bắt đầu";
     }
 
 
