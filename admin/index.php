@@ -30,6 +30,13 @@ match($act){
     'role-update' => roleUpdate($_GET['id']),
     'role-delete' => roleDelete($_GET['id']),
 
+    // categories
+    'categories' => categoryListAll(),
+    'category-detail' => categoryShowOne($_GET['id']),
+    'category-create' => categoryCreate(),
+    'category-update' => categoryUpdate($_GET['id']),
+    'category-delete' => categoryDelete($_GET['id']),
+
 
 };
 

@@ -163,14 +163,16 @@ function userUpdate($id)
 
                 $data['anh_tk'] = upload_file($avata, 'uploads/accounts/');
 
-                if(!empty($avata)           // có upload
-                    && !empty($user['anh_tk']) // có giá trị
-                    && !empty($data['anh_tk']) // upload file thành công
-                    && file_exists(PATH_UPLOAD.$user['anh_tk'])){ // có tồn tại file cũ
-                        unlink(PATH_UPLOAD.$user['anh_tk']);
+                if (
+                    !empty ($avata)           // có upload
+                    && !empty ($user['anh_tk']) // có giá trị
+                    && !empty ($data['anh_tk']) // upload file thành công
+                    && file_exists(PATH_UPLOAD . $user['anh_tk'])
+                ) { // có tồn tại file cũ
+                    unlink(PATH_UPLOAD . $user['anh_tk']);
                 }
             }
-            
+
             update('tb_tai_khoan', $id, $data);
             $_SESSION['success'] = "thao tác thành công!";
 
@@ -258,6 +260,9 @@ function userDelete($id)
         e404();
     }
     delete2('tb_tai_khoan', $id);
+    if ( !empty ($user['anh_tk']) && file_exists(PATH_UPLOAD . $user['anh_tk'])) { // có tồn tại file cũ
+        unlink(PATH_UPLOAD . $user['anh_tk']);
+    }
     $_SESSION['success'] = "thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=users");
     exit();
