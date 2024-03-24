@@ -75,7 +75,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Mô tả</label>
-                    <textarea name="mo_ta" class="form-control" id="" cols="10" rows="5" placeholder="Nhập mô tả sản phẩm"><?= isset($_SESSION['data'])?$_SESSION['data']['mo_ta']:null ?></textarea>
+                    <textarea name="mo_ta" class="form-control" id="default" cols="10" rows="5" placeholder="Nhập mô tả sản phẩm"><?= isset($_SESSION['data'])?$_SESSION['data']['mo_ta']:null ?></textarea>
                     
                 </div>
                 <input type="submit" name="gui" class="btn btn-success" value="Thêm">

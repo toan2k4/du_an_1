@@ -22,6 +22,8 @@ function productShowOne($id)
 
 function productCreate()
 {
+    $script = 'datatable';
+    $script2 = 'products/script';
     $title = "Form thêm sản phẩm";
     $view = 'products/create';
     $categories = listAll('tb_danh_muc', false);
@@ -156,10 +158,12 @@ function validateproduct($data, $dataImg)
 
 function productUpdate($id)
 {
+    $script = 'datatable';
+    $script2 = 'products/script';
     $categories = listAll('tb_danh_muc', false);
     $product = showOne('tb_san_pham', $id);
     $imgPro = listAllImage('tb_hinh_anh', $product['id']);
-    // debug($imgPro['anh_phu']);
+// debug($imgPro['anh_phu']);
     if (empty ($product)) {
         e404();
     }
@@ -211,7 +215,7 @@ function productUpdate($id)
                     $file_name = $_FILES['anh_phu']['name'][$key];
                     $file_tmp = $_FILES['anh_phu']['tmp_name'][$key];
                     $dataImg['anh_phu'] = upload_multiple_file($file_name, $file_tmp, 'uploads/products/');
-                    // debug( );
+
                     insert('tb_hinh_anh', $dataImg);
                 }
             }
@@ -311,6 +315,7 @@ function productDelete($id)
     if (empty ($product)) {
         e404();
     }
+
     delete2('tb_san_pham', $id);
     if (!empty ($product['hinh_sp']) && file_exists(PATH_UPLOAD . $product['hinh_sp'])) { // có tồn tại file cũ
         unlink(PATH_UPLOAD . $product['hinh_sp']);
@@ -319,6 +324,7 @@ function productDelete($id)
         }
         deleteAllImgPhu('tb_hinh_anh', $id);
     }
+
     $_SESSION['success'] = "thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=products");
     exit();
