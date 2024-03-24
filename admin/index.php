@@ -23,6 +23,13 @@ match ($act) {
     'user-update' => userUpdate($_GET['id']),
     'user-delete' => userDelete($_GET['id']),
 
+    // product
+    'products' => productListAll(),
+    'product-detail' => productShowOne($_GET['id']),
+    'product-create' => productCreate(),
+    'product-update' => productUpdate($_GET['id']),
+    'product-delete' => productDelete($_GET['id']),
+
     // roles
     'roles' => roleListAll(),
     'role-detail' => roleShowOne($_GET['id']),

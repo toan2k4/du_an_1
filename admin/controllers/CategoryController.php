@@ -6,13 +6,15 @@ function categoryListAll()
     $script = 'datatable';
     $script2 = 'categories/script';
     $style = 'datatable';
-    
-    $categories = listAll('tb_danh_muc');
+
+    $categories = listAll('tb_danh_muc', false);
+
 
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 function categoryShowOne($id)
 {
+    
     $title = "Bảng chi tiết phân quyền";
     $view = 'categories/show';
     $style = 'datatable';
@@ -89,7 +91,14 @@ function categoryUpdate($id)
 
 function categoryDelete($id)
 {
-    delete2('tb_danh_muc', $id);
+    // delete2('tb_danh_muc', $id);
+    $check = checkProductByIdCate($id);
+    if(!empty($check)){
+        foreach($check as $pro){
+            update('tb_san_pham', $pro['id'], ["id_danh_muc" => 0]);
+            // debug($pro['id']);
+        }
+    }
     $_SESSION['success'] = "thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=categories");
     exit();

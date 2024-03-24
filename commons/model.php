@@ -58,10 +58,13 @@ if (!function_exists('insert')) {
 
 
 if (!function_exists('listAll')) {
-    function listAll($tableName)
+    function listAll($tableName, $check = true) // nếu mà truyền false thì câu lệnh sql sẽ bỏ qua id bằng 0
     {
         try {
-            $sql = "SELECT * FROM $tableName";
+            $sql = "SELECT * FROM $tableName ";
+            if($check == false){
+                $sql .= "WHERE id <> 0";
+            }
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt -> execute();
             return $stmt->fetchAll();
@@ -126,5 +129,28 @@ if (!function_exists('delete2')) {
             debug($e);
         }
 
+    }
+}
+
+if (!function_exists('insert_get_last_id')) {
+    function insert_get_last_id($tableName, $data = []) {
+        try {
+            $strKeys = get_str_keys($data);
+            $virtualParams = get_virtual_params($data);
+
+            $sql = "INSERT INTO $tableName($strKeys) VALUES ($virtualParams)";
+
+            $stmt = $GLOBALS['conn']->prepare($sql);
+
+            foreach ($data as $fieldName => &$value) {
+                $stmt->bindParam(":$fieldName", $value);
+            }
+
+            $stmt->execute();
+
+            return $GLOBALS['conn']->lastInsertId();
+        } catch (\Exception $e) {
+            debug($e);
+        }
     }
 }

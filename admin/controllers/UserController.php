@@ -104,14 +104,14 @@ function validateUser($data)
 
     $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
     if ($data['anh_tk'] && $data['anh_tk']['size'] > 0) {
-        if (empty ($data['anh_tk'])) {
-            $errors[] = "Trường ảnh là bắt buộc";
-        } else if ($data['anh_tk']['size'] > 2 * 1024 * 1024) {
+        if ($data['anh_tk']['size'] > 2 * 1024 * 1024) {
             $errors[] = "file ảnh nhỏ hơn 2mb";
         } else if (!in_array($data['anh_tk']['type'], $typeImage)) {
             $errors[] = "file ảnh không đúng đinh danh jpg, png, jpeg";
         }
 
+    } else {
+        $errors[] = "Trường ảnh là bắt buộc";
     }
 
 
@@ -153,7 +153,7 @@ function userUpdate($id)
             'gioi_tinh' => $_POST['gioi_tinh'] ?? $user['gioi_tinh'],
         ];
 
-        $errors = validateUpdate($id, $data);
+        $errors = validateUserUpdate($id, $data);
         if (!empty ($errors)) {
             $_SESSION['errors'] = $errors;
 
@@ -184,7 +184,7 @@ function userUpdate($id)
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 
-function validateUpdate($id, $data)
+function validateUserUpdate($id, $data)
 {
     $errors = [];
     if (empty ($data['ten_tk'])) {
@@ -260,7 +260,7 @@ function userDelete($id)
         e404();
     }
     delete2('tb_tai_khoan', $id);
-    if ( !empty ($user['anh_tk']) && file_exists(PATH_UPLOAD . $user['anh_tk'])) { // có tồn tại file cũ
+    if (!empty ($user['anh_tk']) && file_exists(PATH_UPLOAD . $user['anh_tk'])) { // có tồn tại file cũ
         unlink(PATH_UPLOAD . $user['anh_tk']);
     }
     $_SESSION['success'] = "thao tác thành công";
