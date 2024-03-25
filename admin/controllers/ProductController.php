@@ -35,6 +35,7 @@ function productCreate()
             'hinh_sp' => $_FILES['hinh_sp']['size'] > 0 ? $_FILES['hinh_sp'] : null,
             'ngay_nhap' => $_POST['ngay_nhap'] ?? null,
             'id_danh_muc' => $_POST['id_danh_muc'] ?? null,
+            'so_luong' => $_POST['so_luong'] ?? null,
             'mo_ta' => $_POST['mo_ta'] ?? null,
         ];
         $dataImg = [
@@ -92,6 +93,14 @@ function validateproduct($data, $dataImg)
         $errors[] = "Trường giá san phẩm là bắt buộc";
     } else if (!is_numeric($data['gia_sp'])) {
         $errors[] = "Trường giá sản phẩm phải là số";
+    }
+
+    if (empty ($data['so_luong'])) {
+        $errors[] = "Trường số lượng san phẩm là bắt buộc";
+    } else if (!is_numeric($data['so_luong'])) {
+        $errors[] = "Trường số lượng sản phẩm phải là số";
+    }else if ($data['so_luong'] > 0) {
+        $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
     if (empty ($data['giam_gia'])) {
@@ -179,6 +188,7 @@ function productUpdate($id)
             'hinh_sp' => $_FILES['hinh_sp']['size'] > 0 ? $_FILES['hinh_sp'] : $product['hinh_sp'],
             'ngay_nhap' => $_POST['ngay_nhap'] ?? $product['ngay_nhap'],
             'id_danh_muc' => $_POST['id_danh_muc'] ?? $product['id_danh_muc'],
+            'so_luong' => $_POST['so_luong'] ?? $product['so_luong'],
             'mo_ta' => $_POST['mo_ta'] ?? $product['mo_ta'],
         ];
         $dataImg = [
@@ -253,6 +263,14 @@ function validateProductUpdate($data, $dataImg)
         $errors[] = "Trường giá bán sản phẩm phải là số";
     } else if ($data['giam_gia'] > $data['gia_sp']) {
         $errors[] = "Trường giá bán sản phẩm phải nhỏ hơn hoặc bằng giá sản phẩm";
+    }
+    
+    if (empty ($data['so_luong'])) {
+        $errors[] = "Trường số lượng san phẩm là bắt buộc";
+    } else if (!is_numeric($data['so_luong'])) {
+        $errors[] = "Trường số lượng sản phẩm phải là số";
+    }else if ($data['so_luong'] > 0) {
+        $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
     $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
