@@ -23,7 +23,7 @@ if (!function_exists('showOneProduct')) {
     function showOneProduct($tableName, $id)
     {
         try {
-            $sql = "SELECT $tableName.id, hinh_sp, tb_danh_muc.ten_dm, so_luot_xem, ten_sp, gia_sp, mo_ta, giam_gia, ngay_nhap FROM $tableName 
+            $sql = "SELECT $tableName.id, hinh_sp, so_luong, tb_danh_muc.ten_dm, so_luot_xem, ten_sp, gia_sp, mo_ta, giam_gia, ngay_nhap FROM $tableName 
             JOIN tb_danh_muc ON $tableName.id_danh_muc = tb_danh_muc.id
             WHERE $tableName.id = :id
             ORDER BY $tableName.id DESC";

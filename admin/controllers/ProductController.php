@@ -99,7 +99,7 @@ function validateproduct($data, $dataImg)
         $errors[] = "Trường số lượng san phẩm là bắt buộc";
     } else if (!is_numeric($data['so_luong'])) {
         $errors[] = "Trường số lượng sản phẩm phải là số";
-    }else if ($data['so_luong'] > 0) {
+    }else if ($data['so_luong'] < 0) {
         $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
@@ -269,7 +269,7 @@ function validateProductUpdate($data, $dataImg)
         $errors[] = "Trường số lượng san phẩm là bắt buộc";
     } else if (!is_numeric($data['so_luong'])) {
         $errors[] = "Trường số lượng sản phẩm phải là số";
-    }else if ($data['so_luong'] > 0) {
+    }else if ($data['so_luong'] < 0) {
         $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
