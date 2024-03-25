@@ -54,6 +54,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Số lượng</td>
+                    <td>
+                        <?= $product['so_luong'] ?>
+                    </td>
+                </tr>
+                <tr>
                     <td>Mô tả</td>
                     <td>
                         <?= $product['mo_ta'] ?>

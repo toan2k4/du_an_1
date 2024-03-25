@@ -56,6 +56,12 @@
                     placeholder="Nhập giá bán">
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Số lượng</label>
+                    <input type="text" class="form-control" name="so_luong"
+                    value="<?= $product['so_luong'] ?>"
+                    placeholder="Nhập số lượng">
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Ảnh chính sản phẩm</label>
                     <input type="file" class="form-control" name="hinh_sp" >
                     <img src="<?= BASE_URL. $product['hinh_sp']?>" width="100">

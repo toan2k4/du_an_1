@@ -27,15 +27,30 @@ if (!function_exists('upload_file')) {
         if (move_uploaded_file($file['tmp_name'], PATH_UPLOAD . $imgPath)) {
             return $imgPath;
         }
-        
+
         return null;
 
     }
 }
 
 if (!function_exists('e404')) {
-    function e404() {
+    function e404()
+    {
         echo "404 - Not found";
         die;
+    }
+}
+
+if (!function_exists('middleware_auth_check')) {
+    function middleware_auth_check($act)
+    {
+        if ($act == 'login') {
+            if (!empty ($_SESSION['user'])) {
+                header('location: ' . BASE_URL_ADMIN);
+                exit();
+            }
+        } elseif (empty ($_SESSION['user'])) {
+            header('location: ' . BASE_URL_ADMIN . '?act=login');
+        }
     }
 }
