@@ -120,6 +120,7 @@
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                 <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=products">Danh sách products</a>
                 <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=product-create">Thêm products</a>
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=variant-create">Thêm biến thể</a>
             </div>
         </div>
     </li>
