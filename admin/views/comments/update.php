@@ -56,7 +56,7 @@
                 
 
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
-                <a href="<?= BASE_URL_ADMIN ?>?act=comments" type="submit" class="btn btn-warning">Quay lại </a>
+                <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $comment['id_sp'] ?>" type="submit" class="btn btn-warning">Quay lại </a>
             </form>
         </div>
     </div>
