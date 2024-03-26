@@ -59,8 +59,9 @@ match ($act) {
 
     // comments
     'comments' => commentListAll(),
-    'comment-detail' => commentShowOne($_GET['id']),
+    'comments-list' => commentListAllProduct($_GET['id_sp']),
     'comment-update' => commentUpdate($_GET['id']),
+    'comment-delete' => commentDelete($_GET['id']),
 };
 
 
