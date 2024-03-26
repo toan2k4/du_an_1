@@ -41,7 +41,7 @@ function blogCreate()
 
         $avata = $data['img_blog'];
         if (!empty ($avata) && $avata['size'] > 0) {
-            $data['img_blog'] = upload_file($avata, 'uploads/accounts/');
+            $data['img_blog'] = upload_file($avata, 'uploads/blogs/');
         }
 
         insert('tb_bai_viet', $data);
@@ -115,7 +115,7 @@ function blogUpdate($id)
             $avata = $data['img_blog'];
             if (!empty ($avata) && is_array($avata) && $avata['size'] > 0) {
 
-                $data['img_blog'] = upload_file($avata, 'uploads/accounts/');
+                $data['img_blog'] = upload_file($avata, 'uploads/blogs/');
 
                 if (
                     !empty ($avata)           // có upload
