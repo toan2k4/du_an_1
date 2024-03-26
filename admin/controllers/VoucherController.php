@@ -37,6 +37,16 @@ function voucherCreate()
         ];
 
         $errors = validatevoucher($data);
+        if ($data['ngay_batdau'] < date('Y-m-d') && date('Y-m-d') < $data['ngay_ketthuc']) {
+            $data['trang_thai'] = 1;
+
+        } else {
+            $data['trang_thai'] = 0;
+        }
+
+        if ($data['so_luong'] - 0 == 0) {
+            $data['trang_thai'] = 0;
+        }
         if (!empty ($errors)) {
             $_SESSION['errors'] = $errors;
             $_SESSION['data'] = $data;
@@ -75,7 +85,7 @@ function validatevoucher($data)
         $errors[] = "Trường giá khuyến mại > 0";
     }
 
-    if (empty ($data['so_luong'])) {
+    if (empty($data['so_luong'])) {
         $errors[] = "Trường số lượng là bắt buộc";
     } else if (is_int($data['so_luong'])) {
         $errors[] = "Trường số lượng không phải là số";
