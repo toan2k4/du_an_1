@@ -47,9 +47,11 @@
                                         class="btn btn-info">Chi tiết</a>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=role-update&id=<?= $value['id'] ?>"
                                         class="btn btn-warning">Sửa</a>
+                                    <?php if($value['id'] != 1):?>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=role-delete&id=<?= $value['id'] ?>"
                                         onclick="return confirm('Bạn có chắc chắn muốn xóa không')"
                                         class="btn btn-danger">Xóa</a>
+                                    <?php endif;?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

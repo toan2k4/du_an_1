@@ -66,7 +66,6 @@ match ($act) {
     'voucher-delete' => voucherDelete($_GET['id']),
 
     // comments
-    'comments' => commentListAll(),
     'comments-list' => commentListAllProduct($_GET['id_sp']),
     'comment-update' => commentUpdate($_GET['id']),
     'comment-delete' => commentDelete($_GET['id']),
@@ -91,7 +90,7 @@ match ($act) {
     'contact-update' => contactUpdate($_GET['id']),
     'contact-delete' => contactDelete($_GET['id']),
 
-    // evaluate
+    //evaluate
     'evaluates' => evaluateListAll(),
     'evaluate-detail' => evaluateShowOne($_GET['id']),
     'evaluate-create' => evaluateCreate(),

@@ -1,6 +1,6 @@
 <?php 
 
-if (!function_exists('checkProductByIdCate($id)')) {
+if (!function_exists('checkProductByIdCate')) {
     function checkProductByIdCate($id)
     {
         try {

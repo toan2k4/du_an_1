@@ -42,6 +42,14 @@
                     <td><div class="badge badge-info"><?= $voucher['so_luong']?></div></td>
                 </tr>
                 <tr>
+                    <td>Trạng thái</td>
+                    <td><?php if ($voucher['trang_thai'] == 1) {
+                        echo '<div class="badge badge-success">Đang hoạt động</div>';
+                    } else {
+                        echo '<div class="badge badge-danger">Không hoạt động</div>';
+                    } ?></td>
+                </tr>
+                <tr>
                     <td>Ngày bắt đầu</td>
                     <td><?= $voucher['ngay_batdau']?></td>
                 </tr>

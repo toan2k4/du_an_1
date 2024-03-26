@@ -87,7 +87,9 @@
                     </td>
                 </tr>
             </table>
-            <a href="<?= BASE_URL_ADMIN ?>?act=products" type="submit" class="btn btn-warning">Quay lại </a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=products"  class="btn btn-warning">Quay lại </a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $product['id']?>"  class="btn btn-info">Bình Luận </a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=products"  class="btn btn-primary">Đánh giá </a>
         </div>
     </div>
 </div>

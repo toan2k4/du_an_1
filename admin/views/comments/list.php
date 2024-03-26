@@ -65,7 +65,7 @@
 
                     </tbody>
                 </table>
-                <a href="<?= BASE_URL_ADMIN ?>?act=comments" class="btn btn-info">Quay lại</a>
+                <a href="<?= BASE_URL_ADMIN ?>?act=products" class="btn btn-info">Quay lại</a>
             </div>
         </div>
     </div>

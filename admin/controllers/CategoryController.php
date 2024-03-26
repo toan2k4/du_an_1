@@ -91,7 +91,7 @@ function categoryUpdate($id)
 
 function categoryDelete($id)
 {
-    // delete2('tb_danh_muc', $id);
+    delete2('tb_danh_muc', $id);
     $check = checkProductByIdCate($id);
     if(!empty($check)){
         foreach($check as $pro){

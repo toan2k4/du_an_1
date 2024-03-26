@@ -74,7 +74,8 @@ if (!function_exists('listCommentForProduct')) {
                         bl.id        as bl_id ,
                         tk.ten_tk    as tk_ten,
                         bl.noi_dung  as bl_nd,
-                        bl.ngay_bl   as bl_ngaybl
+                        bl.ngay_bl   as bl_ngaybl,
+                        bl.id_sp     as bl_id_sp
                     FROM 
                         tb_binh_luan as  bl 
                     JOIN 
