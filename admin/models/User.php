@@ -2,10 +2,30 @@
 
 
 if (!function_exists('listAllUsers')) {
-    function listAllUsers($tableName)
+    function listAllUsers()
     {
         try {
-            $sql = "SELECT $tableName.id, gioi_tinh, ten_tk, ho_va_ten, mat_khau, anh_tk, email_tk, dien_thoai_tk, dia_chi, tb_phan_quyen.ten_chuc_vu FROM $tableName JOIN tb_phan_quyen ON $tableName.id_chuc_vu = tb_phan_quyen.id ORDER BY $tableName.id_chuc_vu DESC";
+            $sql = "SELECT 
+                        tb_tai_khoan.id,    
+                        gioi_tinh,
+                        ten_tk,
+                        ho_va_ten, 
+                        mat_khau, 
+                        anh_tk, 
+                        email_tk, 
+                        dien_thoai_tk, 
+                        dia_chi, 
+                        tb_phan_quyen.ten_chuc_vu,
+                        tb_phan_quyen.id as pq_id
+                    FROM 
+                        tb_tai_khoan 
+                    JOIN 
+                        tb_phan_quyen 
+                    ON 
+                        tb_tai_khoan.id_chuc_vu = tb_phan_quyen.id 
+                    ORDER BY 
+                        tb_tai_khoan.id_chuc_vu 
+                    DESC";
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();

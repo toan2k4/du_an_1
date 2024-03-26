@@ -32,6 +32,7 @@
                             <th>Giá khuyến mại</th>
                             <th>Ngày bắt đầu</th>
                             <th>Ngày kết thúc</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>
@@ -47,7 +48,7 @@
                                 </td>
                               
                                 <td>
-                                <div class="badge badge-danger"><?= $value['gia_km']?>K</div>
+                                <div class="badge badge-info"><?= $value['gia_km']?>K</div>
                                 </td>
                                
                                 <td>
@@ -56,7 +57,14 @@
                                 <td>
                                     <?= date('d-m-Y', strtotime($value['ngay_ketthuc'])) ?>
                                 </td>
-
+                                <td>
+                                    <?php if($value['trang_thai'] == 1){
+                                        echo '<div class="badge badge-success">Đang hoạt động</div>';
+                                    }else{
+                                        echo '<div class="badge badge-danger">Không hoạt động</div>';
+                                    }?>
+                                </td>
+                                    
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=voucher-detail&id=<?= $value['id'] ?>"
                                         class="btn btn-info">Chi tiết</a>

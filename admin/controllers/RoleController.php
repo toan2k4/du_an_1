@@ -7,7 +7,7 @@ function roleListAll()
     $script = 'datatable';
     $script2 = 'roles/script';
     $style = 'datatable';
-    $roles = listAll('tb_phan_quyen');
+    $roles = listAll('tb_phan_quyen', false);
 
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
@@ -89,6 +89,14 @@ function roleUpdate($id)
 
 function roleDelete($id)
 {
+
+    $check = checkUserByIdRole($id);
+    if(!empty($check)){
+        foreach($check as $user){
+            update('tb_tai_khoan', $user['id'], ["id_chuc_vu" => 0]);
+            // debug($pro['id']);
+        }
+    }
     delete2('tb_phan_quyen', $id);
     $_SESSION['success'] = "thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=roles");

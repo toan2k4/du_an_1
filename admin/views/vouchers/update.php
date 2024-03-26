@@ -66,6 +66,15 @@
                     <input type="date" class="form-control" name="ngay_ketthuc" value="<?= $voucher['ngay_ketthuc'] ?>">
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-label me-3">Trạng thái</label>
+                    <?php if ($voucher['trang_thai'] == 1) {
+                        echo '<div class="badge badge-success">Đang hoạt động</div>';
+                    } else {
+                        echo '<div class="badge badge-danger">Không hoạt động</div>';
+                    } ?>
+                </div>
+
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
                 <a href="<?= BASE_URL_ADMIN ?>?act=vouchers" type="submit" class="btn btn-warning">Quay lại </a>
             </form>

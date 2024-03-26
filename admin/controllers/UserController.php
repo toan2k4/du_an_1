@@ -7,7 +7,7 @@ function userListAll()
     $script = 'datatable';
     $script2 = 'users/script';
     $style = 'datatable';
-    $users = listAllUsers('tb_tai_khoan');
+    $users = listAllUsers();
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 function userShowOne($id)

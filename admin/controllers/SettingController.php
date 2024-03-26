@@ -38,7 +38,7 @@ function settingSave() {
 
 
 function settingPluckKeyValue() {
-    $data = listAll('settings');
+    $data = listAll('tb_noi_dung');
 
     $settings = [];
     foreach ($data as $item) {
