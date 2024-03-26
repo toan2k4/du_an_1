@@ -13,6 +13,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
+            <a href="<?= BASE_URL_ADMIN ?>?act=status-create" type="submit" class="btn btn-success">Thêm </a>
 
         </div>
         <div class="card-body">
@@ -27,40 +28,26 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Hình sản phẩm</th>
-                            <th>Giá sản phẩm</th>
-                            <th>Tổng số bình luận</th>
-                            <th>Hành động</th>
+                            <th>Tên trạng thái</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php foreach ($products as $key => $value): ?>
+                        <?php foreach ($statuses as $key => $value): ?>
                             <tr>
                                 <td>
                                     <?= $key + 1 ?>
                                 </td>
                                 <td>
-                                    <?= $value['sp_ten'] ?>
-                                </td>
-                              
-                                <td>
-                                    <img src="<?= BASE_URL . $value['sp_anh'] ?>" width="100">
-                                </td>
-
-                                <td>
-                                    <?= $value['sp_gia'] ?>
+                                    <?= $value['trang_thai'] ?>
                                 </td>
                                 <td>
-                                    <?= $value['bl_count'] ?>
-                                </td>
-
-                                <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $value['sp_id'] ?>"
-                                        class="btn btn-info">Chi tiết</a>
-                                   
-                                    
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=status-update&id=<?= $value['id'] ?>"
+                                        class="btn btn-warning">Sửa</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=status-delete&id=<?= $value['id'] ?>"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa không')"
+                                        class="btn btn-danger">Xóa</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

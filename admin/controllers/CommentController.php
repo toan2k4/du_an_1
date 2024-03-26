@@ -2,15 +2,27 @@
 
 function commentListAll()
 {
-    $title = "Bảng danh sách bình luận";
+    $title = "Bảng thống kê bình luận theo sản phẩm";
     $view = 'comments/index';
     $script = 'datatable';
     $script2 = 'comments/script';
     $style = 'datatable';
-    $comments = listAllComments('tb_binh_luan');
+    $products = listProductCountComment();
 
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
+
+function commentListAllProduct($id){
+    $title = "Bảng danh sách bình luận theo sản phẩm";
+    $view = 'comments/list';
+    $script = 'datatable';
+    $script2 = 'comments/script';
+    $style = 'datatable';
+    $comments = listCommentForProduct($id);
+
+    require_once PATH_VIEW_ADMIN . 'layouts/master.php';
+}
+
 function commentShowOne($id)
 {
     $title = "Bảng chi tiết bình luận";
@@ -60,5 +72,16 @@ function commentUpdate($id)
     $view = 'comments/update';
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 
+}
+
+function commentDelete($id){
+    $comment = showOne('tb_binh_luan', $id);
+    if(empty($comment)){
+        e404();
+    }
+    delete2('tb_binh_luan', $id);
+    $_SESSION['success'] = "thao tác thành công";
+    header("location: " . BASE_URL_ADMIN . "?act=comments-list&id_sp=" . $comment['id_sp']);
+    exit();
 }
 

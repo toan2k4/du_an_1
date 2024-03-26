@@ -21,7 +21,6 @@ match ($act) {
     'user-detail' => userShowOne($_GET['id']),
     'user-create' => userCreate(),
     'user-update' => userUpdate($_GET['id']),
-    'user-delete' => userDelete($_GET['id']),
 
     // product
     'products' => productListAll(),
@@ -29,6 +28,13 @@ match ($act) {
     'product-create' => productCreate(),
     'product-update' => productUpdate($_GET['id']),
     'product-delete' => productDelete($_GET['id']),
+
+    // variant
+    'variants' => variantListAll($_GET['id_sp']),
+    'variant-create' => variantCreate(),
+    'variant-update' => variantUpdate($_GET['id']),    
+    'variant-delete' => variantDelete($_GET['id']),    
+
 
     // roles
     'roles' => roleListAll(),

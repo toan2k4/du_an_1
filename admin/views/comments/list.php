@@ -18,55 +18,54 @@
         <div class="card-body">
             <?php if (isset ($_SESSION['success'])): ?>
                 <div class="alert alert-success">
-                    <?= $_SESSION['success']?>
+                    <?= $_SESSION['success'] ?>
                 </div>
-                <?php unset($_SESSION['success'])?>
+                <?php unset($_SESSION['success']) ?>
             <?php endif; ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Hình sản phẩm</th>
-                            <th>Giá sản phẩm</th>
-                            <th>Tổng số bình luận</th>
+                            <th>Tên người bình luận</th>
+                            <th>nội dung</th>
+                            <th>Ngày bình luận</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php foreach ($products as $key => $value): ?>
+                        <?php foreach ($comments as $key => $value): ?>
                             <tr>
                                 <td>
                                     <?= $key + 1 ?>
                                 </td>
                                 <td>
-                                    <?= $value['sp_ten'] ?>
-                                </td>
-                              
-                                <td>
-                                    <img src="<?= BASE_URL . $value['sp_anh'] ?>" width="100">
+                                    <?= $value['tk_ten'] ?>
                                 </td>
 
                                 <td>
-                                    <?= $value['sp_gia'] ?>
-                                </td>
-                                <td>
-                                    <?= $value['bl_count'] ?>
+                                    <?= $value['bl_nd'] ?>
                                 </td>
 
                                 <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $value['sp_id'] ?>"
-                                        class="btn btn-info">Chi tiết</a>
-                                   
-                                    
+                                    <?= $value['bl_ngaybl'] ?>
+                                </td>
+
+
+                                <td>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=comment-update&id=<?= $value['bl_id'] ?>"
+                                        class="btn btn-warning">Sửa</a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=comment-delete&id=<?= $value['bl_id'] ?>"
+                                        class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa chứ?')">Xóa</a>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
 
                     </tbody>
                 </table>
+                <a href="<?= BASE_URL_ADMIN ?>?act=comments" class="btn btn-info">Quay lại</a>
             </div>
         </div>
     </div>

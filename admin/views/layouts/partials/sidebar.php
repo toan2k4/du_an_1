@@ -120,6 +120,23 @@
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                 <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=products">Danh sách products</a>
                 <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=product-create">Thêm products</a>
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=variant-create">Thêm biến thể</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- order status  -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoStatus" aria-expanded="true"
+            aria-controls="collapseTwoStatus">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Order status</span>
+        </a>
+        <div id="collapseTwoStatus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=statuses">Danh sách status</a>
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=status-create">Thêm status</a>
             </div>
         </div>
     </li>

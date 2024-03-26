@@ -20,8 +20,8 @@
         <div class="card-body">
             <?php if (isset ($_SESSION['success'])): ?>
                 <div class="alert alert-success">
-                    <?php echo $_SESSION['success'];
-                    unset($_SESSION['success']) ?>
+                    <?= $_SESSION['success']?>
+                    <?php unset($_SESSION['success']) ?>
                 </div>
             <?php endif; ?>
             <?php if (isset ($_SESSION['errors'])): ?>
@@ -38,25 +38,13 @@
             <?php endif; ?>
             <form action="" method="POST">
                 <div class="mb-3">
-                    <label class="form-label">Tên tài khoản</label>
-                    <input type="text" class="form-control" readonly 
-                        value="<?= $comment['ten_tk'] ?>">
+                    <label for="exampleFormControlInput1" class="form-label">Tên phân quyền</label>
+                    <input type="text" class="form-control" name="trang_thai" value="<?= $status['trang_thai'] ?>"
+                        placeholder="Nhập tên trạng thái">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Tên sản phẩm</label>
-                    <input type="text" class="form-control" readonly  
-                        value="<?= $comment['ten_sp'] ?>">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Nội dung bình luận</label>
-                    <input type="text" class="form-control" name="noi_dung" placeholder="Nhập nội dung bình luận"
-                        value="<?= $comment['noi_dung'] ?>">
-                </div>
-                
-                
 
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
-                <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $comment['id_sp'] ?>" type="submit" class="btn btn-warning">Quay lại </a>
+                <a href="<?= BASE_URL_ADMIN ?>?act=statuses" type="submit" class="btn btn-warning">Quay lại </a>
             </form>
         </div>
     </div>
