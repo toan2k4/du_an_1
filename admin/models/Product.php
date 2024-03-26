@@ -14,8 +14,7 @@ if (!function_exists('listAllProducts')) {
 
         } catch (\Exception $e) {
             debug($e);
-        }
-
+        }     
     }
 }
 

@@ -59,13 +59,13 @@ function validateBlog($data)
     $errors = [];
     if (empty ($data['tieu_de'])) {
         $errors[] = "Trường Tiêu đề bài viết là bắt buộc";
-    } else if (strlen($data['tieu_de']) > 50) {
+    } else if (strlen($data['tieu_de']) > 150) {
         $errors[] = "Trường Tiêu đề bài viết nhỏ hơn 50 ký tự";
     }
 
     if (empty ($data['nd_blog'])) {
         $errors[] = "Trường Nội dung là bắt buộc";
-    } else if (strlen($data['nd_blog']) > 50) {
+    } else if (strlen($data['nd_blog']) > 5550) {
         $errors[] = "Trường Nội dung nhỏ hơn 50 ký tự";
     }
 
@@ -85,9 +85,7 @@ function validateBlog($data)
         } else if (!in_array($data['img_blog']['type'], $typeImage)) {
             $errors[] = "file ảnh không đúng đinh danh jpg, png, jpeg";
         }
-
     }
-
     return $errors;
 }
 

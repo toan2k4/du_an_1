@@ -124,4 +124,47 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoBlog" aria-expanded="true"
+            aria-controls="collapseTwoBlog">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Blogs</span>
+        </a>
+        <div id="collapseTwoBlog" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=blogs">Danh sách bài viết</a>
+                <a class="collapse-item"  href="<?= BASE_URL_ADMIN?>?act=blog-create">Thêm bài viết</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoContact" aria-expanded="true"
+            aria-controls="collapseTwoContact">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Contact</span>
+        </a>
+        <div id="collapseTwoContact" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=contacts">Danh sách liên hệ</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoEvaluate" aria-expanded="true"
+            aria-controls="collapseTwoEvaluate">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Evaluate</span>
+        </a>
+        <div id="collapseTwoEvaluate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <a class="collapse-item" href="<?= BASE_URL_ADMIN?>?act=evaluates">Danh sách đánh giá</a>
+            </div>
+        </div>
+    </li>
+
 </ul>
