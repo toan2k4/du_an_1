@@ -184,4 +184,17 @@
         </div>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Setting - Nội dung-->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= BASE_URL_ADMIN?>?act=setting-form">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Setting-Content</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
 </ul>

@@ -1,9 +1,22 @@
 <?php
 
+// if (!function_exists('get_str_keys')) {
+//     function get_str_keys($data)
+//     {
+//         return implode(',', array_keys($data));
+//     }
+// }
+
+// CRUD -> Create/Read(Danh sách/Chi tiết)/Update/Delete
 if (!function_exists('get_str_keys')) {
-    function get_str_keys($data)
-    {
-        return implode(',', array_keys($data));
+    function get_str_keys($data) {    
+        $keys = array_keys($data);
+
+        $keysTenTen = array_map(function ($key) {
+            return "`$key`";
+        }, $keys);
+
+        return implode(',', $keysTenTen);
     }
 }
 
@@ -21,15 +34,28 @@ if (!function_exists('get_virtual_params')) {
     }
 }
 
-if (!function_exists('get_set_params')) {
-    function get_set_params($data)
-    {
-        $keys = array_keys($data);
-        $tmp = [];
-        foreach ($keys as $key) {
-            $tmp[] = "$key = :$key";
-        }
+// if (!function_exists('get_set_params')) {
+//     function get_set_params($data)
+//     {
+//         $keys = array_keys($data);
+//         $tmp = [];
+//         foreach ($keys as $key) {
+//             $tmp[] = "$key = :$key";
+//         }
 
+//         return implode(',', $tmp);
+//     }
+// }
+
+if (!function_exists('get_set_params')) {
+    function get_set_params($data) {     
+        $keys = array_keys($data);
+
+        $tmp = [];
+        foreach($keys as $key) {
+            $tmp[] = "`$key` = :$key";
+        }
+        
         return implode(',', $tmp);
     }
 }
