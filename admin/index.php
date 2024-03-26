@@ -68,6 +68,27 @@ match ($act) {
     'status-create' => statusCreate(),
     'status-update' => statusUpdate($_GET['id']),
     'status-delete' => statusDelete($_GET['id']),
+
+    // blog
+    'blogs' => blogListAll(),
+    'blog-detail' => blogShowOne($_GET['id']),
+    'blog-create' => blogCreate(),
+    'blog-update' => blogUpdate($_GET['id']),
+    'blog-delete' => blogDelete($_GET['id']),
+
+    // contact
+    'contacts' => contactListAll(),
+    'contact-detail' => contactShowOne($_GET['id']),
+    'contact-create' => contactCreate(),
+    'contact-update' => contactUpdate($_GET['id']),
+    'contact-delete' => contactDelete($_GET['id']),
+
+    // evaluate
+    'evaluates' => evaluateListAll(),
+    'evaluate-detail' => evaluateShowOne($_GET['id']),
+    'evaluate-create' => evaluateCreate(),
+    'evaluate-update' => evaluateUpdate($_GET['id']),
+    'evaluate-delete' => evaluateDelete($_GET['id']),
 };
 
 
