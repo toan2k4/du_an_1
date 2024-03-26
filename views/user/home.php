@@ -1,3 +1,3 @@
 <?php 
 
-echo 'ddaay laf trang vhur';
+echo 'TRANG CHỦ';

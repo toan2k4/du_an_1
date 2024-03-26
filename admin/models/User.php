@@ -75,3 +75,23 @@ if (!function_exists('checkUniqueEmailForUpdate')) {
 
     }
 }
+
+if (!function_exists('getUserAdminByEmailAndPassword')) {
+    function getUserAdminByEmailAndPassword($email, $password)
+    {
+        try {
+            $sql = "SELECT * FROM tb_tai_khoan WHERE email_tk = :email_tk AND mat_khau = :mat_khau AND id_chuc_vu = 1 LIMIT 1";
+
+            $stmt = $GLOBALS['conn']->prepare($sql);
+
+            $stmt->bindParam(":email_tk", $email);
+            $stmt->bindParam(":mat_khau", $password);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (\Exception $e) {
+            debug($e);
+        }
+    }
+}
