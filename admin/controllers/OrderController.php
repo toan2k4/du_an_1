@@ -16,7 +16,7 @@ function orderShowOne($id)
     $title = "Bảng chi tiết đơn hàng ";
     $view = 'orders/show';
     $style = 'datatable';
-    $order = showOne('tb_don_hang', $id);
+    $order = showOneOrder('tb_don_hang', $id);
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 

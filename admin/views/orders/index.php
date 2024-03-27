@@ -12,10 +12,7 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <a href="<?= BASE_URL_ADMIN ?>?act=order-create" type="submit" class="btn btn-success">Thêm </a>
-
-        </div>
+        
         <div class="card-body">
             <?php if (isset ($_SESSION['success'])): ?>
                 <div class="alert alert-success">

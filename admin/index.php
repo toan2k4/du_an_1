@@ -98,9 +98,7 @@ match ($act) {
     // orders
     'orders' => orderListAll(),
     'order-detail' => orderShowOne($_GET['id']),
-    'order-create' => orderCreate(),
-    'order-update' => orderUpdate($_GET['id']),
-    'order-delete' => orderDelete($_GET['id']),
+    
 
     // Setting - Nội dung
     'setting-form' => settingShowForm(),
