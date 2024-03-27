@@ -9,11 +9,11 @@ define('PATH_MODEL_ADMIN', __DIR__ . '/../admin/models/');
 define('PATH_VIEW_ADMIN', __DIR__ . '/../admin/views/');
 define('PATH_UPLOAD', __DIR__ . '/../');
 
-define('BASE_URL', 'http://localhost:81/DA1/duan1-lai/');
-define('BASE_URL_ADMIN', 'http://localhost:81/DA1/duan1-lai/admin/');
+define('BASE_URL', 'http://localhost/CODE/du_an_1/Gib_du_an_2/du_an_1/');
+define('BASE_URL_ADMIN', 'http://localhost/CODE/du_an_1/Gib_du_an_2/du_an_1/admin/');
 
 define('DB_HOST', 'localhost');
 define('DB_PORT', '3306');
-define('DB_NAME', 'du_an_1');
+define('DB_NAME', 'duan03');
 define('DB_PASSWORD', '');
 define('DB_USERNAME', 'root');

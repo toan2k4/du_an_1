@@ -12,53 +12,45 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-
-        </div>
         <div class="card-body">
             <?php if (isset ($_SESSION['success'])): ?>
                 <div class="alert alert-success">
                     <?= $_SESSION['success'] ?>
                 </div>
-                <?php unset($_SESSION['success']) ?>
+                <?php unset($_SESSION['success'])?>
             <?php endif; ?>
+
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên người bình luận</th>
+                            <th>Tài khoản</th>
                             <th>Nội dung</th>
-                            <th>Ngày bình luận</th>
-                            <th>Hành động</th>
+                            <th>Sao đánh giá</th>
+                            <th>Ngày đánh giá</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php foreach ($comments as $key => $value): ?>
+                        <?php foreach ($evaluates as $key => $value): ?>
                             <tr>
                                 <td>
                                     <?= $key + 1 ?>
                                 </td>
+                                <td> <?= $value['ho_va_ten']; ?> </td>
+                                <td> <?= $value['noi_dung']; ?>  </td>
+                                <td> <?php 
+                                $a = $value['sao_dg'];
+                                for($i = 0; $i < $a; $i++){
+                                    echo '<i class="bi bi-star-fill text-warning"></i>';
+                                }
+                                 ?> </td>
+                                <td> <?= date('d-m-Y', strtotime($value['ngay_dg'])) ?> </td>
                                 <td>
-                                    <?= $value['tk_ten'] ?>
-                                </td>
-
-                                <td>
-                                    <?= $value['bl_nd'] ?>
-                                </td>
-
-                                <td>
-                                    <?= $value['bl_ngaybl'] ?>
-                                </td>
-
-
-                                <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=comment-update&id=<?= $value['bl_id'] ?>"
-                                        class="btn btn-warning">Sửa</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=comment-delete&id=<?= $value['bl_id'] ?>"
-                                        class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa chứ?')">Xóa</a>
-
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=evaluate-detail&id=<?= $value['dg_id'] ?>"
+                                        class="btn btn-info">Chi tiết</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
