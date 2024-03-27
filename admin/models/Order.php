@@ -34,7 +34,7 @@ if (!function_exists('showOneOrder')) {
     {
         try {
             $sql = "SELECT 
-            $tableName.id as dh_id, 
+            $tableName.id, 
             tt.trang_thai as trang_thai, 
             id_trang_thai,
             tk.id as tk_id, 
@@ -53,12 +53,75 @@ if (!function_exists('showOneOrder')) {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             return $stmt->fetch();
-
         } catch (\Exception $e) {
             debug($e);
         }
     }
 }
+
+if (!function_exists('showProductOrder')) {
+    function showProductOrder($tableName, $id)
+    {
+        try {
+            $sql = "SELECT 
+            $tableName.id_don_hang,
+            sp.ten_sp,
+            sp.hinh_sp,
+            $tableName.so_luong,
+            mau,
+            size,
+            thanh_tien
+            FROM $tableName 
+            JOIN tb_san_pham as sp ON $tableName.id_sp = sp.id 
+            JOIN tb_don_hang as dh ON $tableName.id_don_hang = dh.id 
+            WHERE $tableName.id_don_hang = :id";
+            $stmt = $GLOBALS['conn']->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            debug($e);
+        }
+    }
+}
+
+// if (!function_exists('showOneProductOrder')) {
+//     function showOneProductOrder($tableName, $id)
+//     {
+//         try {
+//             $sql = "SELECT $tableName.id, hinh_sp, tb_danh_muc.ten_dm, ten_sp, gia_sp, mo_ta FROM $tableName 
+//             JOIN tb_danh_muc ON $tableName.id_danh_muc = tb_danh_muc.id
+//             WHERE $tableName.id = :id";
+//             $stmt = $GLOBALS['conn']->prepare($sql);
+//             $stmt->bindParam(':id', $id);
+//             $stmt->execute();
+//             return $stmt->fetchAll();
+//         } catch (\Exception $e) {
+//             debug($e);
+//         }
+//     }
+// }
+
+if (!function_exists('listImage')) {
+    function listImage($tableName, $id)
+    {
+        try {
+            $sql = "SELECT * FROM $tableName 
+            WHERE $tableName.id_sp = :id
+            ORDER BY $tableName.id DESC";
+            $stmt = $GLOBALS['conn']->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+
+        } catch (\Exception $e) {
+            debug($e);
+        }
+
+    }
+}
+
+
 
 
 
