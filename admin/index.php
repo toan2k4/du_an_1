@@ -98,10 +98,8 @@ match ($act) {
     // orders
     'orders' => orderListAll(),
     'order-detail' => orderShowOne($_GET['id']),
-    'order-create' => orderCreate(),
-    'order-update' => orderUpdate($_GET['id']),
-    'order-delete' => orderDelete($_GET['id']),
-
+    'order-detail-pro' => orderShowOneProduct($_GET['id']),
+    
     // Setting - Nội dung
     'setting-form' => settingShowForm(),
     'setting-save' => settingSave(),

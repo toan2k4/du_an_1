@@ -16,9 +16,21 @@ function orderShowOne($id)
     $title = "Bảng chi tiết đơn hàng ";
     $view = 'orders/show';
     $style = 'datatable';
-    $order = showOne('tb_don_hang', $id);
+    $order = showOneOrder('tb_don_hang', $id);
+    $order_pro = showProductOrder('tb_chi_tiet_don_hang', $id);
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
+
+function orderShowOneProduct($id)
+{
+    $title = "Bảng chi tiết sản phẩm đơn hàng ";
+    $view = 'orders/showpro';
+    $style = 'datatable';
+    $order_pro_detail = showOneProduct('tb_san_pham', $id);
+    $order_pro_img = listImage('tb_hinh_anh', $id);
+    require_once PATH_VIEW_ADMIN . 'layouts/master.php';
+}
+
 
 function orderCreate()
 {

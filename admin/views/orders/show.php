@@ -21,8 +21,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Tên trường</th>
-                        <th>Giá trị</th>
+                        <th colspan="2">Thông tin khách hàng</th>
                     </tr>
                 </thead>
                 <tr>
@@ -30,34 +29,88 @@
                     <td> <?= $order['ho_va_ten']?></td>
                 </tr>
                 <tr>
-                    <td>Nội dung khuyến mại</td>
+                    <td>Email</td>
+                    <td><?= $order['email_tk']?></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
                     <td><?= $order['dien_thoai_tk']?></td>
                 </tr>
                 <tr>
-                    <td>Giá khuyến mại</td>
-                    <td><div class="badge badge-danger"><?= $order['gia_km']?>K</div> </td>
+                    <td>Địa chỉ</td>
+                    <td><?= $order['dia_chi']?></td>
                 </tr>
                 <tr>
-                    <td>Số lượng</td>
-                    <td><div class="badge badge-info"><?= $order['so_luong']?></div></td>
+                    <td>Hình thức thanh toán</td>
+                    <td><?= $order['thanh_toan']?></td>
                 </tr>
-                <tr>
-                    <td>Trạng thái</td>
-                    <td><?php if ($order['trang_thai'] == 1) {
-                        echo '<div class="badge badge-success">Đang hoạt động</div>';
-                    } else {
-                        echo '<div class="badge badge-danger">Không hoạt động</div>';
-                    } ?></td>
-                </tr>
-                <tr>
-                    <td>Ngày bắt đầu</td>
-                    <td><?= $order['ngay_batdau']?></td>
-                </tr>
-                <tr>
-                    <td>Ngày kết thúc</td>
-                    <td><?= $order['ngay_ketthuc']?></td>
-                </tr>
-            </table>
+            </table> <br><br>
+
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th colspan="8">Danh sách sản phẩm</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Màu</th>
+                            <th>Kích thước</th>
+                            <th>Thành tiền</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                        $total = 0;
+                        foreach ($order_pro as $key => $value): ?>
+                            <tr>
+                                <td>
+                                    <?= $key + 1 ?>
+                                </td>
+                                <td>
+                                    <?= $value['ten_sp'] ?>
+                                </td>
+                                <td>
+                                    <img src="<?= BASE_URL . $value['hinh_sp'] ?>" width="100"> 
+                                </td>
+                                <td>
+                                    <?= $value['so_luong'] ?>
+                                </td>
+                                <td>
+                                    <?= $value['mau'] ?>
+                                </td>
+                                <td>
+                                    <?= $value['size'] ?>
+                                </td>
+                                <td>
+                                    <?= $value['thanh_tien'] ?>
+                                </td>                
+                                <td>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=order-detail-pro&id=<?= $value['id_don_hang'] ?>"
+                                        class="btn btn-info mb-2">Chi tiết</a>
+                                </td>
+                            </tr>
+                        <?php 
+                            $total += $value['thanh_tien'];
+                            endforeach;
+                        ?>
+                        <tr>
+                            <td colspan="6" class="text-center fw-bold fs-5 text">Tổng tiền</td>
+                            <td colspan="2" class="text-start text-danger fw-bold fs-5 text"><?= $total ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
             <a href="<?= BASE_URL_ADMIN?>?act=orders" type="submit" class="btn btn-warning">Quay lại </a>
         </div>
     </div>
