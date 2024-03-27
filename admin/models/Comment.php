@@ -22,7 +22,7 @@ if (!function_exists('showOneComment')) {
     function showOneComment($tableName, $id)
     {
         try {
-            $sql = "SELECT $tableName.id,$tableName.noi_dung,tb_san_pham.ten_sp,tb_tai_khoan.ten_tk,$tableName.id_sp   FROM $tableName 
+            $sql = "SELECT $tableName.id,$tableName.noi_dung, tb_san_pham.ten_sp, tb_tai_khoan.ten_tk, $tableName.id_sp FROM $tableName 
             JOIN tb_san_pham ON $tableName.id_sp = tb_san_pham.id
             JOIN tb_tai_khoan ON $tableName.id_tk = tb_tai_khoan.id
             WHERE $tableName.id=:id";

@@ -115,7 +115,6 @@ if (!function_exists('showOne')) {
         } catch (\Exception $e) {
             debug($e);
         }
-
     }
 }
 
@@ -137,7 +136,6 @@ if (!function_exists('update')) {
         } catch (\Exception $e) {
             debug($e);
         }
-
     }
 }
 

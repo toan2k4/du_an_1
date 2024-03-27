@@ -70,8 +70,13 @@ match ($act) {
     'comment-update' => commentUpdate($_GET['id']),
     'comment-delete' => commentDelete($_GET['id']),
 
+    // evaluates
+    'evaluates-list' => evaluateListAllProduct($_GET['id_sp']),
+    'evaluate-detail' => evaluateShowOne($_GET['id']),
+    
+
     // statuses
-    'statuses' => statusesListAll(),
+    'statuses' => statusesListAll(),'blog-detail' => blogShowOne($_GET['id']),
     'status-create' => statusCreate(),
     'status-update' => statusUpdate($_GET['id']),
     'status-delete' => statusDelete($_GET['id']),
@@ -90,12 +95,12 @@ match ($act) {
     'contact-update' => contactUpdate($_GET['id']),
     'contact-delete' => contactDelete($_GET['id']),
 
-    //evaluate
-    'evaluates' => evaluateListAll(),
-    'evaluate-detail' => evaluateShowOne($_GET['id']),
-    'evaluate-create' => evaluateCreate(),
-    'evaluate-update' => evaluateUpdate($_GET['id']),
-    'evaluate-delete' => evaluateDelete($_GET['id']),
+    // orders
+    'orders' => orderListAll(),
+    'order-detail' => orderShowOne($_GET['id']),
+    'order-create' => orderCreate(),
+    'order-update' => orderUpdate($_GET['id']),
+    'order-delete' => orderDelete($_GET['id']),
 
     // Setting - Nội dung
     'setting-form' => settingShowForm(),
