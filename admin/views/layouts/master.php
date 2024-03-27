@@ -9,15 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <title>SB Admin 2 - Dashboard</title>
     <?php
-        if(isset($style) && $style){
-            require_once PATH_VIEW_ADMIN .'styles/'. $style . '.php';
-        }
+    if (isset($style) && $style) {
+        require_once PATH_VIEW_ADMIN . 'styles/' . $style . '.php';
+    }
 
-        if(isset($style2) && $style2){
-            require_once PATH_VIEW_ADMIN . $style2 . '.php';
-        }
+    if (isset($style2) && $style2) {
+        require_once PATH_VIEW_ADMIN . $style2 . '.php';
+    }
     ?>
     <!-- Custom fonts for this template-->
     <link href="<?= BASE_URL ?>assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -87,13 +89,13 @@
     <script src="<?= BASE_URL ?>assets/admin/js/sb-admin-2.min.js"></script>
 
     <?php
-        if(isset($script) && $script){
-            require_once PATH_VIEW_ADMIN .'scripts/'. $script . '.php';
-        }
+    if (isset($script) && $script) {
+        require_once PATH_VIEW_ADMIN . 'scripts/' . $script . '.php';
+    }
 
-        if(isset($script2) && $script2){
-            require_once PATH_VIEW_ADMIN . $script2 . '.php';
-        }
+    if (isset($script2) && $script2) {
+        require_once PATH_VIEW_ADMIN . $script2 . '.php';
+    }
     ?>
 
 

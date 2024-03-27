@@ -4,3 +4,4 @@
 <!-- Page level custom scripts -->
 <script src="<?= BASE_URL ?>assets/admin/js/demo/chart-area-demo.js"></script>
 <script src="<?= BASE_URL ?>assets/admin/js/demo/chart-pie-demo.js"></script>
+<!-- <script src="<?= BASE_URL ?>assets/admin/js/demo/chart-bar-demo.js"></script> -->
