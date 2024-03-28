@@ -44,11 +44,7 @@
                     <input type="text" class="form-control" name="tieu_de" placeholder="Tiêu đề bài viết"
                         value="<?= $blog['tieu_de'] ?>">
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Nội dung</label>
-                    <input type="text" class="form-control" name="nd_blog" value="<?= $blog['nd_blog'] ?>"
-                        placeholder="Nhập Nội dung">
-                </div>
+                
                 
                 <div class="mb-3">
                     <label class="form-label">Ảnh</label>
@@ -61,8 +57,12 @@
                     <input type="date" class="form-control" name="time_blog" value="<?= $blog['time_blog'] ?>"
                         placeholder="Nhập Ngày đăng tải">
                 </div>
-                
+                <div class="mb-3">
+                    <label class="form-label">Nội dung</label>
+                    <textarea name="nd_blog" id="blog" cols="30" rows="10"><?= $blog['nd_blog'] ?></textarea>
 
+                </div>
+                
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
                 <a href="<?= BASE_URL_ADMIN ?>?act=blogs" type="submit" class="btn btn-warning">Quay lại </a>
             </form>

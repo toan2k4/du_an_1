@@ -18,13 +18,13 @@
             </h6>
         </div>
         <div class="card-body">
-            <?php if (isset ($_SESSION['success'])): ?>
+            <?php if (isset($_SESSION['success'])): ?>
                 <div class="alert alert-success">
                     <?php echo $_SESSION['success'];
                     unset($_SESSION['success']) ?>
                 </div>
             <?php endif; ?>
-            <?php if (isset ($_SESSION['errors'])): ?>
+            <?php if (isset($_SESSION['errors'])): ?>
                 <div class="alert alert-danger">
                     <ul>
                         <?php foreach ($_SESSION['errors'] as $error): ?>
@@ -38,45 +38,47 @@
             <?php endif; ?>
             <form action="" method="POST">
                 <div class="mb-3">
-                    <label class="form-label">Tên khuyến mại</label>
-                    <input type="text" class="form-control" name="ten_km" placeholder="Nhập tên khuyến mại"
-                        value="<?= $voucher['ten_km'] ?>">
+                    <label class="form-label">Tên tài khoản</label>
+                    <input type="text" class="form-control" readonly value="<?= $order['ho_va_ten'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Nội dung khuyến mại</label>
-                    <input type="text" class="form-control" name="nd_km" placeholder="Nhập nội dung khuyến mại"
-                        value="<?= $voucher['nd_km'] ?>">
+                    <label class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" readonly value="<?= $order['dien_thoai_tk'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Giá khuyến mại</label>
-                    <input type="text" class="form-control" name="gia_km" placeholder="Nhập Giá khuyến mại"
-                        value="<?= $voucher['gia_km'] ?>">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" readonly value="<?= $order['email_tk'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Số lượng</label>
-                    <input type="text" class="form-control" name="so_luong" placeholder="Nhập Số lượng"
-                        value="<?= $voucher['so_luong'] ?>">
+                    <label class="form-label">Thời gian</label>
+                    <input type="text" class="form-control" readonly value="<?= $order['thoi_gian'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">ngày bắt đầu</label>
-                    <input type="date" class="form-control" name="ngay_batdau" value="<?= $voucher['ngay_batdau'] ?>">
+                    <label class="form-label">Tổng tiền</label>
+                    <input type="text" class="form-control" readonly value="<?= $order['tong_tien'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Ngày kết thúc</label>
-                    <input type="date" class="form-control" name="ngay_ketthuc" value="<?= $voucher['ngay_ketthuc'] ?>">
+                    <label class="form-label">Phương thức thanh toán</label>
+                    <input type="text" class="form-control" readonly value="<?= $order['thanh_toan'] ?>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Trạng thái thanh toán</label>
+                    <select name="id_trang_thai" id="" class="form-control">
+                        <?php foreach ($statusOrder as $status): ?>
+                            
+                            <option value="<?= $status['id'] ?>" 
+                            <?= $order['id_trang_thai'] == $status['id'] ? 'selected' : null ?>
+                            <?= $order['ten_trang_thai'] != 'Chờ xác nhận' &&  $status['trang_thai'] == 'Đã hủy'? 'hidden' : null ?> 
+                            >
+                                    <?= $status['trang_thai'] ?>
+                                </option>   
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label me-3">Trạng thái</label>
-                    <?php if ($voucher['trang_thai'] == 1) {
-                        echo '<div class="badge badge-success">Đang hoạt động</div>';
-                    } else {
-                        echo '<div class="badge badge-danger">Không hoạt động</div>';
-                    } ?>
-                </div>
 
-                <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
-                <a href="<?= BASE_URL_ADMIN ?>?act=vouchers" type="submit" class="btn btn-warning">Quay lại </a>
+                <input type="submit" class="btn btn-success" value="Cập nhật">
+                <a href="<?= BASE_URL_ADMIN ?>?act=orders" type="submit" class="btn btn-warning">Quay lại </a>
             </form>
         </div>
     </div>

@@ -30,7 +30,6 @@
                         <tr>
                             <th>STT</th>
                             <th>Tiêu đề bài viết</th>
-                            <th>Nội dung</th>
                             <th>Hình ảnh</th>
                             <th>Thời gian đăng tải</th>
                             <th>Thao tác</th>
@@ -44,7 +43,6 @@
                                     <?= $key + 1 ?>
                                 </td>
                                 <td> <?= $value['tieu_de'] ?> </td>
-                                <td> <?= $value['nd_blog'] ?> </td>
                                 <td><img src=" <?= BASE_URL. $value['img_blog'] ?>" alt="image" width="150px"> </td>
                                 <td> <?= date('d-m-Y', strtotime($value['time_blog']))  ?> </td>
                                 <td>

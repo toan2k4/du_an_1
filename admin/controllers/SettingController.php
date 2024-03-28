@@ -23,7 +23,7 @@ function settingSave() {
             }
         } else {
             // insert
-            insert('settings', [
+            insert('tb_noi_dung', [
                 'key' => $key,
                 'value' => $value
             ]);

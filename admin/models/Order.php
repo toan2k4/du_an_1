@@ -1,23 +1,21 @@
 <?php
 if (!function_exists('showListOrder')) {
-    function showListOrder($tableName)
+    function showListOrder()
     {
         try {
             $sql = "SELECT 
-            $tableName.id as dh_id, 
-            tt.trang_thai as trang_thai, 
-            id_trang_thai,
-            tk.id as tk_id, 
-            tk.ho_va_ten as ho_va_ten, 
-            tk.dien_thoai_tk as dien_thoai_tk, 
-            tk.email_tk as email_tk, 
-            thoi_gian, 
-            tong_tien, 
-            thanh_toan   
-            FROM $tableName 
-            JOIN tb_trangthai_dh as tt ON $tableName.id_trang_thai = tt.id 
-            JOIN tb_tai_khoan as tk ON $tableName.id_tk = tk.id 
-            ORDER BY $tableName.id DESC";
+                         dh.id as dh_id,
+                         dh.ho_va_ten,
+                         dh.so_dien_thoai as dien_thoai_tk,
+                         dh.email as email_tk,
+                         dh.thoi_gian as thoi_gian,
+                         tt.trang_thai as ten_trang_thai
+                    FROM 
+                        tb_don_hang as dh
+                    JOIN 
+                        tb_trangthai_dh as tt ON dh.id_trang_thai = tt.id 
+                    ORDER BY 
+                        dh  .id DESC";
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -30,25 +28,28 @@ if (!function_exists('showListOrder')) {
 }
 
 if (!function_exists('showOneOrder')) {
-    function showOneOrder($tableName, $id)
+    function showOneOrder($id)
     {
         try {
             $sql = "SELECT 
-            $tableName.id, 
-            tt.trang_thai as trang_thai, 
-            id_trang_thai,
-            tk.id as tk_id, 
-            tk.ho_va_ten as ho_va_ten, 
-            tk.dien_thoai_tk as dien_thoai_tk, 
-            tk.email_tk as email_tk,
-            tk.dia_chi as dia_chi,
-            thoi_gian, 
-            tong_tien, 
-            thanh_toan 
-            FROM $tableName 
-            JOIN tb_trangthai_dh as tt ON $tableName.id_trang_thai = tt.id 
-            JOIN tb_tai_khoan as tk ON $tableName.id_tk = tk.id 
-            WHERE $tableName.id = :id";
+                        dh.id as dh_id,
+                        dh.ho_va_ten,
+                        dh.so_dien_thoai as dien_thoai_tk,
+                        dh.email as email_tk,
+                        dh.thoi_gian ,
+                        dh.tong_tien ,
+                        dh.thanh_toan,
+                        dh.thoi_gian,
+                        dh.dia_chi,
+                        dh.id_trang_thai,
+                        tt.trang_thai as ten_trang_thai
+                    FROM 
+                        tb_don_hang as dh
+                    JOIN 
+                        tb_trangthai_dh as tt ON dh.id_trang_thai = tt.id 
+                    WHERE 
+                        dh.id = :id
+                    ";
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -85,22 +86,20 @@ if (!function_exists('showProductOrder')) {
     }
 }
 
-// if (!function_exists('showOneProductOrder')) {
-//     function showOneProductOrder($tableName, $id)
-//     {
-//         try {
-//             $sql = "SELECT $tableName.id, hinh_sp, tb_danh_muc.ten_dm, ten_sp, gia_sp, mo_ta FROM $tableName 
-//             JOIN tb_danh_muc ON $tableName.id_danh_muc = tb_danh_muc.id
-//             WHERE $tableName.id = :id";
-//             $stmt = $GLOBALS['conn']->prepare($sql);
-//             $stmt->bindParam(':id', $id);
-//             $stmt->execute();
-//             return $stmt->fetchAll();
-//         } catch (\Exception $e) {
-//             debug($e);
-//         }
-//     }
-// }
+if (!function_exists('checkOrderDetailByIdOrder')) {
+    function checkOrderDetailByIdOrder( $id)
+    {
+        try {
+            $sql = "SELECT * FROM tb_chi_tiet_don_hang WHERE id_don_hang=:id";
+            $stmt = $GLOBALS['conn']->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            debug($e);
+        }
+    }
+}
 
 if (!function_exists('listImage')) {
     function listImage($tableName, $id)
