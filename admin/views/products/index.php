@@ -33,6 +33,7 @@
                             <th>Hình ảnh</th>
                             <th>Tên danh mục</th>
                             <th>Số lượt xem</th>
+                            <th>Trạng thái</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -47,6 +48,18 @@
                                 <td><img src=" <?= BASE_URL. $value['hinh_sp'] ?>" width="50"> </td>
                                 <td> <?= $value['ten_dm'] ?> </td>
                                 <td> <?= $value['so_luot_xem'] ?> </td>
+                                <td>
+                                    <?php
+                                        switch ($value['trang_thai']) {
+                                            case '0':
+                                                echo '<div class="badge badge-success">Đang hoạt động</div>';
+                                            break;
+                                            case '1':
+                                                echo '<div class="badge badge-dark">Ngừng hoạt động</div>';
+                                            break;
+                                        }
+                                    ?>
+                                </td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=product-detail&id=<?= $value['id'] ?>"
                                         class="btn btn-info">Chi tiết</a>

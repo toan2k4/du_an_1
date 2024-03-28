@@ -60,7 +60,7 @@
                                             echo '<div class="badge badge-secondary">Chờ xác nhận</div>';
                                             break;
                                         case 'Đã xác nhận':
-                                            echo '<div class="badge badge-success">Đã xác nhận</div>';
+                                            echo '<div class="badge badge-dark">Đã xác nhận</div>';
                                             break;
                                         case 'Đang xử lý':
                                             echo '<div class="badge badge-warning">Đang xử lý</div>';
@@ -70,7 +70,7 @@
                                             break;
                                         case 'Đã giao':
                                             echo '<div class="badge badge-success">Đã giao</div>';
-                                            break;
+                                            break;  
                                         case 'Đã hủy':
                                             echo '<div class="badge badge-danger">Đã hủy</div>';
                                             break;

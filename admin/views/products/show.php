@@ -86,6 +86,22 @@
                         <?php endforeach; ?>
                     </td>
                 </tr>
+                <tr>
+                    <td>Trạng thái</td>
+                    <td>
+                        <?php
+                            switch ($product['trang_thai']) {
+                                case '0':
+                                    echo '<div class="badge badge-success">Đang hoạt động</div>';
+                                    break;
+                                case '1':
+                                    echo '<div class="badge badge-dark">Ngừng hoạt động</div>';
+                                    break;
+                            }
+                        ?>
+                    </td>
+                </tr>
+                
             </table>
             <a href="<?= BASE_URL_ADMIN ?>?act=products"  class="btn btn-warning">Quay lại </a>
             <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $product['id']?>"  class="btn btn-info">Bình Luận </a>

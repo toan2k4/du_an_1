@@ -97,10 +97,7 @@ function contactUpdate($id)
     $view = 'contacts/update';
     if (!empty ($_POST)) {
         $data = [
-            'ten' => $_POST['ten'] ?? $contact['ten'],
-            'email' => $_POST['email'] ?? $contact['email'],
-            'noi_dung' => $_POST['noi_dung'] ?? $contact['noi_dung'],
-            'ngay_gui' => $_POST['ngay_gui'] ?? $contact['ngay_gui'],
+            'trang_thai' => $_POST['trang_thai'] ?? $contact['trang_thai'],
         ];
 
         $errors = validateUpdatecontact($id, $data);
@@ -123,36 +120,9 @@ function contactUpdate($id)
 function validateUpdatecontact($id, $data)
 {
     $errors = [];
-    if (empty ($data['ten'])) {
-        $errors[] = "Trường Tiêu đề liên hệ là bắt buộc";
-    } else if (strlen($data['ten']) > 50) {
-        $errors[] = "Trường Tiêu đề liên hệ nhỏ hơn 50 ký tự";
-    }
-
-    if (empty ($data['email'])) {
-        $errors[] = "Trường Nội dung là bắt buộc";
-    } else if (strlen($data['email']) > 550) {
-        $errors[] = "Trường Nội dung nhỏ hơn 50 ký tự";
-    }
-
-    if (empty ($data['noi_dung'])) {
-        $errors[] = "Trường Thời gian đăng tải là bắt buộc";
-    } else if (!strtotime($data['noi_dung']) > 50) {
-        $errors[] = "Trường Thời gian đăng tải nhỏ hơn 50 ký tự";
-    }
-
-    
-    // $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
-    // if ($data['img_contact'] && $data['img_contact']['size'] > 0) {
-    //     if (empty ($data['img_contact'])) {
-    //         $errors[] = "Trường ảnh là bắt buộc";
-    //     } else if ($data['img_contact']['size'] > 2 * 1024 * 1024) {
-    //         $errors[] = "file ảnh nhỏ hơn 2mb";
-    //     } else if (!in_array($data['img_contact']['type'], $typeImage)) {
-    //         $errors[] = "file ảnh không đúng đinh danh jpg, png, jpeg";
-    //     }
-
-    // }
+    if (empty ($data['trang_thai'])) {
+        $errors[] = "Trường trạng thái là bắt buộc";
+    } 
 
     return $errors;
 }
