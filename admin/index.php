@@ -99,6 +99,8 @@ match ($act) {
     'orders' => orderListAll(),
     'order-detail' => orderShowOne($_GET['id']),
     'order-detail-pro' => orderShowOneProduct($_GET['id']),
+    'order-update' => orderUpdateStatus($_GET['id']),
+    'order-delete' => orderDelete($_GET['id']),
     
     // Setting - Nội dung
     'setting-form' => settingShowForm(),

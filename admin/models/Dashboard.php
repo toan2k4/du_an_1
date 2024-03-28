@@ -201,7 +201,7 @@ if (!function_exists('thongke_quy')) {
         try {
             $sql = "SELECT 
                         SUM(tong_tien) AS tong,
-                        CONCAT(YEAR(thoi_gian), '-Q', QUARTER(thoi_gian)) AS quy
+                        CONCAT(YEAR(thoi_gian), '-Quý ', QUARTER(thoi_gian)) AS quy
                     FROM 
                         `tb_don_hang`
                     WHERE

@@ -26,23 +26,69 @@
                 </thead>
                 <tr>
                     <td>Tên tài khoản</td>
-                    <td> <?= $order['ho_va_ten']?></td>
+                    <td>
+                        <?= $order['ho_va_ten'] ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><?= $order['email_tk']?></td>
+                    <td>
+                        <?= $order['email_tk'] ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Số điện thoại</td>
-                    <td><?= $order['dien_thoai_tk']?></td>
+                    <td>
+                        <?= $order['dien_thoai_tk'] ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Thời gian đặt</td>
+                    <td>
+                        <?= $order['thoi_gian'] ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Địa chỉ</td>
-                    <td><?= $order['dia_chi']?></td>
+                    <td>
+                        <?= $order['dia_chi'] ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Hình thức thanh toán</td>
-                    <td><?= $order['thanh_toan']?></td>
+                    <td>
+                        <?= $order['thanh_toan'] ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trạng thái đơn hàng</td>
+                    <td>
+                        <?php
+                        switch ($order['ten_trang_thai']) {
+                            case 'Chờ xác nhận':
+                                echo '<div class="badge badge-secondary">Chờ xác nhận</div>';
+                                break;
+                            case 'Đã xác nhận':
+                                echo '<div class="badge badge-success">Đã xác nhận</div>';
+                                break;
+                            case 'Đang xử lý':
+                                echo '<div class="badge badge-warning">Đang xử lý</div>';
+                                break;
+                            case 'Đang vận chuyển':
+                                echo '<div class="badge badge-primary">Đang vận chuyển</div>';
+                                break;
+                            case 'Đã giao':
+                                echo '<div class="badge badge-success">Đã giao</div>';
+                                break;
+                            case 'Đã hủy':
+                                echo '<div class="badge badge-danger">Đã hủy</div>';
+                                break;
+                            default:
+                                echo '<div class="badge badge-info">' . $order['ten_trang_thai'] . '</div>';
+                                break;
+                        }
+                        ?>
+                    </td>
                 </tr>
             </table> <br><br>
 
@@ -79,7 +125,7 @@
                                     <?= $value['ten_sp'] ?>
                                 </td>
                                 <td>
-                                    <img src="<?= BASE_URL . $value['hinh_sp'] ?>" width="100"> 
+                                    <img src="<?= BASE_URL . $value['hinh_sp'] ?>" width="100">
                                 </td>
                                 <td>
                                     <?= $value['so_luong'] ?>
@@ -92,26 +138,28 @@
                                 </td>
                                 <td>
                                     <?= $value['thanh_tien'] ?>
-                                </td>                
+                                </td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=order-detail-pro&id=<?= $value['id_don_hang'] ?>"
                                         class="btn btn-info mb-2">Chi tiết</a>
                                 </td>
                             </tr>
-                        <?php 
+                            <?php
                             $total += $value['thanh_tien'];
-                            endforeach;
+                        endforeach;
                         ?>
                         <tr>
                             <td colspan="6" class="text-center fw-bold fs-5 text">Tổng tiền</td>
-                            <td colspan="2" class="text-start text-danger fw-bold fs-5 text"><?= $total ?></td>
+                            <td colspan="2" class="text-start text-danger fw-bold fs-5 text">
+                                <?= $total ?>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
 
-            <a href="<?= BASE_URL_ADMIN?>?act=orders" type="submit" class="btn btn-warning">Quay lại </a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=orders" type="submit" class="btn btn-warning">Quay lại </a>
         </div>
     </div>
 </div>

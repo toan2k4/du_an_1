@@ -34,9 +34,6 @@
                 </table>
 
                 <button type="submit" class="btn btn-success">Save</button>
-
-                <a href="<?= BASE_URL_ADMIN ?>?act=posts" class="btn btn-danger">Back to list</a>
-
             </form>
         </div>
     </div>

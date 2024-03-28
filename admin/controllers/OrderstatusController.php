@@ -7,7 +7,7 @@ function statusesListAll()
     $script = 'datatable';
     $script2 = 'orderstatus/script';
     $style = 'datatable';
-    $statuses = listAll('tb_trangthai_dh');
+    $statuses = listAll('tb_trangthai_dh', false);
 
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
@@ -82,6 +82,13 @@ function statusUpdate($id)
 function statusDelete($id)
 {
     delete2('tb_trangthai_dh', $id);
+    $check = checkOrderbyIdStatus($id);
+    if(!empty($check)){
+        foreach($check as $order){
+            update('tb_don_hang', $order['id'], ["id_trang_thai" => 0]);
+            // debug($pro['id']);
+        }
+    }
     $_SESSION['success'] = "thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=statuses");
     exit();

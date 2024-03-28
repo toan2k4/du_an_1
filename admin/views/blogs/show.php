@@ -29,10 +29,7 @@
                     <td>Tiêu đề bài viết</td>
                     <td><?= $blog['tieu_de']?></td>
                 </tr>
-                <tr>
-                    <td>Nội dung bài viết</td>
-                    <td><?= $blog['nd_blog']?></td>
-                </tr>
+                
                 <tr>
                     <td>Ảnh bài viết</td>
                     <td><img src="<?= BASE_URL . $blog['img_blog']?>" width="100"></td>
@@ -41,7 +38,10 @@
                     <td>Thời gian đăng tải</td>
                     <td><?= $blog['time_blog']?></td>
                 </tr>
-                
+                <tr>
+                    <td>Nội dung bài viết</td>
+                    <td><?= $blog['nd_blog']?></td>
+                </tr>
             </table>
             <a href="<?= BASE_URL_ADMIN?>?act=blogs" type="submit" class="btn btn-warning">Quay lại </a>
         </div>

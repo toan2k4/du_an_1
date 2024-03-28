@@ -23,6 +23,7 @@ function blogCreate()
 {
     $title = "Form thêm bài viết";
     $view = 'blogs/create';
+    $script2 = 'blogs/script';
     if (!empty ($_POST)) {
         $data = [
             'tieu_de' => $_POST['tieu_de'] ?? null,
@@ -99,6 +100,7 @@ function blogUpdate($id)
     }
     $title = "Form cập nhật bài viết: " . $blog['tieu_de'];
     $view = 'blogs/update';
+    $script2 = 'blogs/script';
     if (!empty ($_POST)) {
         $data = [
             'tieu_de' => $_POST['tieu_de'] ?? $blog['tieu_de'],

@@ -62,7 +62,7 @@
         ];
         newLabels = [
           <?php foreach ($dataMonth as $thang) {
-            echo '["' . $thang['thang'] . '"],';
+            echo '["Tháng: ' . $thang['thang'] . '"],';
           } ?>
         ];
         max = <?= max(array_column($dataMonth, 'tong')) ?>;
@@ -84,7 +84,7 @@
         ];
         newLabels = [
           <?php foreach ($dataYear as $nam) {
-            echo '["' . $nam['nam'] . '"],';
+            echo '["Năm: ' . $nam['nam'] . '"],';
           } ?>
         ];
         max = <?= max(array_column($dataYear, 'tong')) ?>;
