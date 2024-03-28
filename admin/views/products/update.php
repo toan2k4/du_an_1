@@ -92,6 +92,13 @@
                     </select>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Trạng thái</label>
+                    <select name="trang_thai" id="" class="form-select ">
+                       <option value="0" <?= $product['trang_thai'] == 0 ? 'selected': null ?>>Đang hoạt động</option>
+                       <option value="1" <?= $product['trang_thai'] == 1 ? 'selected': null ?>>Ngừng hoạt động</option>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Mô tả</label>
                     <textarea name="mo_ta" class="form-control" id="default" cols="10" rows="5" placeholder="Nhập mô tả sản phẩm"><?= $product['mo_ta'] ?></textarea>
                     

@@ -42,7 +42,20 @@
                     <td>Ngày gửi</td>
                     <td><?= $contact['ngay_gui']?></td>
                 </tr>
-                
+                <tr>
+                    <td>Trạng thái</td>
+                    <td><?php
+                            switch ($contact['trang_thai']) {
+                                case '0':
+                                    echo '<div class="badge badge-dark">Chưa liên hệ</div>';
+                                    break;
+                                case '1':
+                                    echo '<div class="badge badge-success">Đã liên hệ</div>';
+                                    break;
+                            }
+                        ?>
+                    </td>
+                </tr>
             </table>
             <a href="<?= BASE_URL_ADMIN?>?act=contacts" type="submit" class="btn btn-warning">Quay lại </a>
         </div>

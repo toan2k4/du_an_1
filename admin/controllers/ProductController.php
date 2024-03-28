@@ -190,6 +190,7 @@ function productUpdate($id)
             'id_danh_muc' => $_POST['id_danh_muc'] ?? $product['id_danh_muc'],
             'so_luong' => $_POST['so_luong'] ?? $product['so_luong'],
             'mo_ta' => $_POST['mo_ta'] ?? $product['mo_ta'],
+            'trang_thai' => $_POST['trang_thai'] ?? $product['trang_thai'],
         ];
         $dataImg = [
             'id_sp' => $id,
@@ -229,6 +230,10 @@ function productUpdate($id)
                     insert('tb_hinh_anh', $dataImg);
                 }
             }
+
+            if (empty ($data['trang_thai'])) {
+                $errors[] = "Trường trạng thái là bắt buộc";
+            } 
 
             update('tb_san_pham', $id, $dataPro);
             $_SESSION['success'] = "thao tác thành công!";

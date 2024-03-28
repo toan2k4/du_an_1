@@ -31,8 +31,8 @@
                             <th>STT</th>
                             <th>Tên người dùng</th>
                             <th>Email</th>
-                            <th>Nội dung</th>
                             <th>Ngày gửi</th>
+                            <th>Trạng thái</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -45,8 +45,17 @@
                                 </td>
                                 <td> <?= $value['ten'] ?> </td>
                                 <td> <?= $value['email'] ?> </td>
-                                <td> <?= $value['noi_dung'] ?> </td>
                                 <td> <?= $value['ngay_gui'] ?> </td>
+                                <td> <?php
+                                    switch ($value['trang_thai']) {
+                                        case '0':
+                                            echo '<div class="badge badge-dark">Chưa liên hệ</div>';
+                                            break;
+                                        case '1':
+                                            echo '<div class="badge badge-success">Đã liên hệ</div>';
+                                            break;
+                                        }
+                                    ?></td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=contact-detail&id=<?= $value['id'] ?>"
                                         class="btn btn-info">Chi tiết</a>

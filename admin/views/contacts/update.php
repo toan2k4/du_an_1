@@ -41,23 +41,27 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Tên tài khoản</label>
-                    <input type="text" class="form-control" name="ten" placeholder="Tên tài khoản"
-                        value="<?= $contact['ten'] ?>">
+                    <input type="text" class="form-control" readonly value="<?= $contact['ten'] ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" value="<?= $contact['email'] ?>"
-                        placeholder="Nhập Nội dung">
+                    <input type="text" class="form-control" readonly value="<?= $contact['email'] ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nội dung</label>
-                    <input type="text" class="form-control" name="noi_dung" value="<?= $contact['noi_dung'] ?>"
-                        placeholder="Nhập Nội dung">
+                    <input type="text" class="form-control" readonly value="<?= $contact['noi_dung'] ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ngày gửi</label>
-                    <input type="date" class="form-control" name="time_contact" value="<?= $contact['ngay_gui'] ?>"
-                        placeholder="Nhập Ngày đăng tải">
+                    <input type="date" class="form-control" readonly value="<?= $contact['ngay_gui'] ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Trạng thái</label>
+                    <select name="trang_thai" id="" class="form-select ">
+                       <option value="0" <?= $contact['trang_thai'] == 0 ? 'selected': null ?>>Chưa liên hệ</option>
+                       <option value="1" <?= $contact['trang_thai'] == 1 ? 'selected': null ?>>Đã liên hệ</option>
+                    </select>
                 </div>
                 
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
