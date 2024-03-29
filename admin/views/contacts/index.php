@@ -59,11 +59,11 @@
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=contact-detail&id=<?= $value['id'] ?>"
                                         class="btn btn-info">Chi tiết</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=contact-update&id=<?= $value['id'] ?>"
+                                    <!-- <a href="<?= BASE_URL_ADMIN ?>?act=contact-update&id=<?= $value['id'] ?>"
                                         class="btn btn-warning">Sửa</a>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=contact-delete&id=<?= $value['id'] ?>"
                                         onclick="return confirm('Bạn có chắc chắn muốn xóa không')"
-                                        class="btn btn-danger">Xóa</a>
+                                        class="btn btn-danger">Xóa</a> -->
                                 </td>
                             </tr>
                         <?php endforeach; ?>

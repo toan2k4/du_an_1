@@ -9,6 +9,7 @@ require_once './commons/model.php';
 
 // require các file trong model và controller 
 require_file(PATH_CONTROLLER);
+require_file(PATH_MODEL);
 
 $act = $_GET['act'] ?? '/';
 match($act){

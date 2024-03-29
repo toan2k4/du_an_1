@@ -1,5 +1,6 @@
 <?php 
 
 function homeIndex(){
-    require_once PATH_VIEW. 'user/home.php';
+    $views = 'home';
+    require_once PATH_VIEW . 'layouts/master.php';
 }
