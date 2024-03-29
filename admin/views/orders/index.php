@@ -75,7 +75,7 @@
                                             echo '<div class="badge badge-danger">Đã hủy</div>';
                                             break;
                                         default:
-                                            echo '<div class="badge badge-info">'.$value['ten_trang_thai'].'</div>';
+                                            echo '<div class="badge badge-info">' . $value['ten_trang_thai'] . '</div>';
                                             break;
                                     }
                                     ?>
@@ -84,8 +84,11 @@
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=order-detail&id=<?= $value['dh_id'] ?>"
                                         class="btn btn-info mb-2">Chi tiết</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=order-update&id=<?= $value['dh_id'] ?>"
+                                    <?php if ($value['ten_trang_thai'] != 'Đã giao'): ?>
+                                        <a href="<?= BASE_URL_ADMIN ?>?act=order-update&id=<?= $value['dh_id'] ?>"
                                         class="btn btn-warning mb-2">Sửa trạng thái</a>
+                                    <?php endif; ?>
+                                    
                                     <?php if ($value['ten_trang_thai'] == 'Đã hủy'): ?>
                                         <a href="<?= BASE_URL_ADMIN ?>?act=order-delete&id=<?= $value['dh_id'] ?>"
                                             onclick="return confirm('Bạn có chắc chắn muốn xóa không')"
