@@ -80,7 +80,7 @@
                 <tr>
                     <td>Các hình phụ</td>
                     <td>
-                        
+
                         <?php foreach ($hinhPhu as $value): ?>
                             <img src="<?= BASE_URL . $value['anh_phu'] ?>" width="100">
                         <?php endforeach; ?>
@@ -90,22 +90,66 @@
                     <td>Trạng thái</td>
                     <td>
                         <?php
-                            switch ($product['trang_thai']) {
-                                case '0':
-                                    echo '<div class="badge badge-success">Đang hoạt động</div>';
-                                    break;
-                                case '1':
-                                    echo '<div class="badge badge-dark">Ngừng hoạt động</div>';
-                                    break;
-                            }
+                        switch ($product['trang_thai']) {
+                            case '0':
+                                echo '<div class="badge badge-success">Đang hoạt động</div>';
+                                break;
+                            case '1':
+                                echo '<div class="badge badge-dark">Ngừng hoạt động</div>';
+                                break;
+                        }
                         ?>
                     </td>
                 </tr>
-                
+
             </table>
-            <a href="<?= BASE_URL_ADMIN ?>?act=products"  class="btn btn-warning">Quay lại </a>
-            <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $product['id']?>"  class="btn btn-info">Bình Luận </a>
-            <a href="<?= BASE_URL_ADMIN ?>?act=evaluates-list&id_sp=<?= $product['id'] ?>"  class="btn btn-primary">Đánh giá </a>
+
+            <p class="fw-bold mt-4">Biến thể sản phẩm</p>
+            <table class="table table-bordered mb-4" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Size</th>
+                        <th>Tên màu</th>
+                        <th>Màu</th>
+                        <th>Sô lượng</th>
+                    </tr>
+                </thead>
+
+                <tbody id="">
+                    <?php
+                    foreach ($variants as $key => $value):
+                        ?>
+                        <tr>
+                            <td>
+                                <?= $key + 1 ?>
+                            </td>
+                            <td>
+                                <?= $value['size'] ?>
+                            </td>
+                            <td>
+                                <?= $value['ten_mau'] ?>
+                            </td>
+                            <td>
+                                <div class="py-3" style="background-color: <?= $value['ma_mau'] ?>"></div>
+                                
+                            </td>
+                            <td>
+                                <?= $value['so_luong'] ?>
+                            </td>
+                        </tr>
+                        <?php
+                    endforeach; ?>
+                </tbody>
+            </table>
+
+            <button onclick="goBack()" class="btn btn-warning">Quay lại </button>
+            <a href="<?= BASE_URL_ADMIN ?>?act=comments-list&id_sp=<?= $product['id'] ?>" class="btn btn-info">Bình Luận
+            </a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=evaluates-list&id_sp=<?= $product['id'] ?>" class="btn btn-primary">Đánh
+                giá </a>
+            <a href="<?= BASE_URL_ADMIN ?>?act=variants&id_sp=<?= $product['id'] ?>" class="btn btn-success">Thêm biến
+                thể </a>
         </div>
     </div>
 </div>

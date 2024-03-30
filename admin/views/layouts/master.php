@@ -87,7 +87,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= BASE_URL ?>assets/admin/js/sb-admin-2.min.js"></script>
-
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
     <?php
     if (isset($script) && $script) {
         require_once PATH_VIEW_ADMIN . 'scripts/' . $script . '.php';

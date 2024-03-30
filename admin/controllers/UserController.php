@@ -23,7 +23,7 @@ function userCreate()
 {
     $title = "Form thêm tài khoản";
     $view = 'users/create';
-    $roles = listAll('tb_phan_quyen');
+    $roles = listAll('tb_phan_quyen', false);
     if (!empty ($_POST)) {
         $data = [
             'ten_tk' => $_POST['ten_tk'] ?? null,

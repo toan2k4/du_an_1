@@ -19,6 +19,8 @@ middleware_auth_check($act);
 
 match ($act) {
     '/' => dashboard(),
+    'earn-month'=> earnMonth($_GET['month']),
+    'earn-year'=> earnYear($_GET['year']),
 
     //authen
     'login' => authenShowFormLogin(),
