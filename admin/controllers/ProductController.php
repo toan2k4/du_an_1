@@ -17,6 +17,7 @@ function productShowOne($id)
     $style = 'datatable';
     $product = showOneproduct('tb_san_pham', $id);
     $hinhPhu = listAllImage('tb_hinh_anh', $id);
+    $variants = listAllVariantByIdsp($id);
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 

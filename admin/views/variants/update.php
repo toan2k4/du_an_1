@@ -58,7 +58,7 @@
                 </div>
 
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
-                <a href="<?= BASE_URL_ADMIN ?>?act=variant-create" type="submit" class="btn btn-warning">Quay lại </a>
+                <a onclick="goBack()" class="btn btn-warning">Quay lại </a>
             </form>
         </div>
     </div>

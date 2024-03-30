@@ -57,7 +57,7 @@
 
                     </tbody>
                 </table>
-                <a href="<?= BASE_URL_ADMIN ?>?act=products" class="btn btn-info">Quay lại</a>
+                <button onclick="goBack()" class="btn btn-info">Quay lại</button>
             </div>
         </div>
     </div>

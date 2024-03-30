@@ -1,6 +1,6 @@
 <?php
 if (!function_exists('totalMoneyMonth')) {
-    function totalMoneyMonth()
+    function totalMoneyMonth($month)
     {
         try {
             $sql = "SELECT 
@@ -8,7 +8,7 @@ if (!function_exists('totalMoneyMonth')) {
                     FROM 
                         `tb_don_hang`
                     WHERE 
-                        MONTH(thoi_gian) = MONTH(CURRENT_DATE());";
+                        MONTH(thoi_gian) = $month;";
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt->execute();
             return $stmt->fetch();
@@ -21,7 +21,7 @@ if (!function_exists('totalMoneyMonth')) {
 }
 
 if (!function_exists('totalMoneyYear')) {
-    function totalMoneyYear()
+    function totalMoneyYear($year)
     {
         try {
             $sql = "SELECT 
@@ -29,7 +29,7 @@ if (!function_exists('totalMoneyYear')) {
                     FROM 
                         `tb_don_hang`
                     WHERE 
-                        YEAR(thoi_gian) = YEAR(CURDATE())";
+                        YEAR(thoi_gian) = $year";
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt->execute();
             return $stmt->fetch();
@@ -92,15 +92,19 @@ if (!function_exists('thongke_ngay')) {
     function thongke_ngay()
     {
         try {
-            $sql = "SELECT 
-                        sum(tong_tien)                    AS tong, 
-                        DATE_FORMAT(thoi_gian, '%H:%i %p') AS gio_phut
-                    FROM 
-                        `tb_don_hang` 
-                    WHERE 
-                        DATE(thoi_gian) = CURRENT_DATE()
-                    GROUP BY 
-                        DATE_FORMAT(thoi_gian, '%H:%i %p');";
+            $sql = "SELECT
+                        SUM(tong_tien) AS tong, 
+                        DAYNAME(thoi_gian) AS thu
+                    FROM
+                         `tb_don_hang`
+                    WHERE  
+                        WEEK(thoi_gian) = WEEK(CURDATE())
+                            AND 
+                        YEAR(thoi_gian) = YEAR(CURDATE())
+                    GROUP BY
+                        WEEK(thoi_gian), DAYNAME(thoi_gian)
+                    ORDER BY 
+                        WEEK(thoi_gian), DAYOFWEEK(thoi_gian);";
             $stmt = $GLOBALS['conn']->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -177,7 +181,8 @@ if (!function_exists('thongke_nam')) {
                         SUM(tong_tien) AS tong
                     FROM 
                         `tb_don_hang`
-                    WHERE YEAR(thoi_gian) - 2 AND YEAR(thoi_gian) + 2
+                    WHERE 
+                        YEAR(thoi_gian) - 5 
                     GROUP BY
                         YEAR(thoi_gian)
                     ORDER BY

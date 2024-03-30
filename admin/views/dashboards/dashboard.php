@@ -9,17 +9,27 @@
     <div class="row">
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Thu nhập (Theo tháng)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= number_format($moneyMonth['tong'])?> VND</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <span id="earnMonth">
+                                    <?= number_format($moneyMonth['tong']) ?>
+                                </span> VND
+                            </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <select name="" id="" class="form-control" onchange="thunhapMonth(this.value)">
+                                <?php for ($i = 1; $i <= 12; $i++): ?>
+                                    <option value="<?= $i ?>" <?= date('m') == $i ? 'selected' : null ?>>Tháng
+                                        <?= $i ?>
+                                    </option>
+                                <?php endfor; ?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -27,17 +37,27 @@
         </div>
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Thu nhập (theo năm)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= number_format($moneyYear['tong'])?> VND</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <span id="earnYear">
+                                    <?= number_format($moneyYear['tong']) ?>
+                                </span> VND
+                            </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <select name="" id="" class="form-control" onchange="thunhapYear(this.value)">
+                                <?php for ($i = date('Y') - 5; $i <= date('Y'); $i++): ?>
+                                    <option value="<?= $i ?>" <?= date('Y') == $i ? 'selected' : null ?>>Năm
+                                        <?= $i ?>
+                                    </option>
+                                <?php endfor; ?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -45,7 +65,7 @@
         </div>
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <!-- <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -54,7 +74,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= number_format($moneyDay['tong'])?> VND</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= number_format($moneyDay['tong']) ?> VND</div>
                                 </div>
 
                             </div>
@@ -65,17 +85,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Thu nhập (theo tuần)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= number_format($moneyWeek['tong'])?> VND</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <?= number_format($moneyWeek['tong']) ?> VND
+                            </div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -103,7 +125,7 @@
                             <select id="timePeriod" class="form-control">
                                 <option value="day">Ngày</option>
                                 <option value="week">Tuần</option>
-                                <option value="month">Tháng</option>
+                                <option value="month" selected>Tháng</option>
                                 <option value="quy">Quý</option>
                                 <option value="year">Năm</option>
                             </select>
@@ -149,7 +171,7 @@
                     <div class="chart-pie pt-4 pb-2">
                         <canvas id="myPieChart"></canvas>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -158,3 +180,26 @@
 
 
 </div>
+
+<script>
+    function thunhapMonth(month) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("earnMonth").innerHTML = this.responseText;
+            }
+        }
+        xmlhttp.open("GET", "<?= BASE_URL_ADMIN ?>?act=earn-month&month=" + month, true);
+        xmlhttp.send();
+    }
+    function thunhapYear(year) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("earnYear").innerHTML = this.responseText;
+            }
+        }
+        xmlhttp.open("GET", "<?= BASE_URL_ADMIN ?>?act=earn-year&year=" + year, true);
+        xmlhttp.send();
+    }
+</script>

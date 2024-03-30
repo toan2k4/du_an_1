@@ -34,17 +34,19 @@
     var newLabels = [];
     var max = [];
     switch (selectedValue) {
+      <?php if(!empty($dataDay)):?>
       case 'day':
         newData = [
           <?= implode(',', array_column($dataDay, 'tong')) ?>
         ];
         newLabels = [
           <?php foreach ($dataDay as $gio) {
-            echo '["' . $gio['gio_phut'] . '"],';
+            echo '["' . $gio['thu'] . '"],';
           } ?>
         ];
         max = <?= max(array_column($dataDay, 'tong')) ?>;
         break;
+        <?php endif?>
       case 'week':
         newData = [
           <?= implode(',', array_column($dataWeek, 'tong')) ?>
@@ -90,15 +92,16 @@
         max = <?= max(array_column($dataYear, 'tong')) ?>;
         break;
       default:
-        newData = [
-          <?= implode(',', array_column($dataDay, 'tong')) ?>
+      newData = [
+          <?= implode(',', array_column($dataMonth, 'tong')) ?>
         ];
         newLabels = [
-          <?php foreach ($dataDay as $gio) {
-            echo '["' . $gio['gio_phut'] . '"],';
+          <?php foreach ($dataMonth as $thang) {
+            echo '["Tháng: ' . $thang['thang'] . '"],';
           } ?>
         ];
-        max = <?= max(array_column($dataDay, 'tong')) ?>;
+        max = <?= max(array_column($dataMonth, 'tong')) ?>;
+        break;
     }
 
     myBarChart.data.datasets[0].data = newData;
@@ -113,15 +116,15 @@
   var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: [<?php foreach ($dataDay as $gio) {
-        echo '["' . $gio['gio_phut'] . '"],';
-      } ?>],
+      labels: [<?php foreach ($dataMonth as $thang) {
+            echo '["Tháng: ' . $thang['thang'] . '"],';
+          } ?>],
       datasets: [{
         label: "Doanh thu",
         backgroundColor: "#4e73df",
         hoverBackgroundColor: "#2e59d9",
         borderColor: "#4e73df",
-        data: [<?= implode(',', array_column($dataDay, 'tong')) ?>],
+        data: [<?= implode(',', array_column($dataMonth, 'tong')) ?>],
       }],
     },
     options: {
