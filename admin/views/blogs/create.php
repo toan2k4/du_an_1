@@ -37,7 +37,6 @@
                     <label class="form-label">Tiêu đề bài viết</label>
                     <input type="text" class="form-control" name="tieu_de" placeholder="Nhập Tiêu đề bài viết" value="<?= isset($_SESSION['data'])?$_SESSION['data']['tieu_de']:null ?>">
                 </div>
-                
                 <div class="mb-3">
                     <label class="form-label">Ảnh</label>
                     <input type="file" class="form-control" name="img_blog">
@@ -51,9 +50,7 @@
                 <div class="mb-3">
                     <label class="form-label">Nội dung</label>
                     <textarea name="nd_blog" id="blog" cols="30" rows="10"><?= isset($_SESSION['data'])?$_SESSION['data']['nd_blog']:null ?></textarea>
-
                 </div>
-
                 <input type="submit" name="gui" class="btn btn-success" value="Thêm">
                 <a href="<?= BASE_URL_ADMIN ?>?act=blogs" type="submit" class="btn btn-warning">Quay lại </a>
             </form>

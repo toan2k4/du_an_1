@@ -1,12 +1,11 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-
 <!-- Mirrored from htmldemo.net/jadusona/jadusona/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Nov 2023 08:02:25 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Jadusona - eCommerce Baby shop Bootstrap5 Template</title>
+    <title>Jadusona</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -43,7 +42,6 @@
     <!-- Header Section End -->
 
     <?php require_once PATH_VIEW . $views . '.php'?>
-
 
     <!-- Footer Top Section Start -->
     <?php require_once PATH_VIEW . 'layouts/partials/footer.php'?>

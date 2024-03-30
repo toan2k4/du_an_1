@@ -31,6 +31,7 @@
                             <th>STT</th>
                             <th>Tiêu đề bài viết</th>
                             <th>Hình ảnh</th>
+                            <th>Lượt xem</th>
                             <th>Thời gian đăng tải</th>
                             <th>Thao tác</th>
                         </tr>
@@ -44,6 +45,7 @@
                                 </td>
                                 <td> <?= $value['tieu_de'] ?> </td>
                                 <td><img src=" <?= BASE_URL. $value['img_blog'] ?>" alt="image" width="150px"> </td>
+                                <td> <?= $value['luot_xem'] ?> </td>
                                 <td> <?= date('d-m-Y', strtotime($value['time_blog']))  ?> </td>
                                 <td>
                                     <a href="<?= BASE_URL_ADMIN ?>?act=blog-detail&id=<?= $value['id'] ?>"
