@@ -15,6 +15,8 @@ $act = $_GET['act'] ?? '/';
 match($act){
     '/' => homeIndex(),
 
+    // blogs
+    'blogs' => blogIndex(),
 };
 
 

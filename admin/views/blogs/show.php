@@ -42,6 +42,10 @@
                     <td>Nội dung bài viết</td>
                     <td><?= $blog['nd_blog']?></td>
                 </tr>
+                <tr>
+                    <td>Lượt xem</td>
+                    <td><?= $blog['luot_xem']?></td>
+                </tr>
             </table>
             <a href="<?= BASE_URL_ADMIN?>?act=blogs" type="submit" class="btn btn-warning">Quay lại </a>
         </div>

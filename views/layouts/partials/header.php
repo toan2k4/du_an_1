@@ -61,7 +61,7 @@
                 <div class="col mt-15 mb-15">
                     <!-- Logo Start -->
                     <div class="header-logo">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="<?= BASE_URL ?>/assets/user/assets/images/logo.png" alt="Jadusona">
                         </a>
                     </div><!-- Logo End -->
@@ -126,7 +126,7 @@
                                 </li>
                                 <li><a href="blog.html">BLOG</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="<?= BASE_URL?>?act=blogs">Blog</a></li>
                                         <li><a href="single-blog.html">Single Blog</a></li>
                                     </ul>
                                 </li>
