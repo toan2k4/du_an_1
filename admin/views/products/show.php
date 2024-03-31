@@ -117,9 +117,7 @@
                 </thead>
 
                 <tbody id="">
-                    <?php
-                    foreach ($variants as $key => $value):
-                        ?>
+                    <?php foreach ($variants as $key => $value): ?>
                         <tr>
                             <td>
                                 <?= $key + 1 ?>
@@ -138,8 +136,7 @@
                                 <?= $value['so_luong'] ?>
                             </td>
                         </tr>
-                        <?php
-                    endforeach; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 

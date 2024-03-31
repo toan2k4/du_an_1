@@ -44,7 +44,8 @@
                                     <?= $key + 1 ?>
                                 </td>
                                 <td> <?= $value['tieu_de'] ?> </td>
-                                <td><img src=" <?= BASE_URL. $value['img_blog'] ?>" alt="image" width="150px"> </td>
+                                <td><a class="image" href="<?= BASE_URL?>?act=blog-single&id=<?= $value['id']?>" ><img src="<?= BASE_URL. $value['img_blog'] ?>" width="200px" height="180px" alt=""></a>
+                                </td>
                                 <td> <?= $value['luot_xem'] ?> </td>
                                 <td> <?= date('d-m-Y', strtotime($value['time_blog']))  ?> </td>
                                 <td>

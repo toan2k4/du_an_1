@@ -30,6 +30,7 @@ function blogCreate()
             'nd_blog' => $_POST['nd_blog'] ?? null,
             'img_blog' => $_FILES['img_blog']['size'] > 0 ? $_FILES['img_blog'] : null,
             'time_blog' => $_POST['time_blog'] ?? null,
+            'focus' => $_POST['focus'] ?? null,
         ];
 
         $errors = validateBlog($data);
@@ -66,10 +67,12 @@ function validateBlog($data)
 
     if (empty ($data['nd_blog'])) {
         $errors[] = "Trường Nội dung là bắt buộc";
-    } else if (strlen($data['nd_blog']) > 5550) {
-        $errors[] = "Trường Nội dung nhỏ hơn 50 ký tự";
     }
 
+    if (empty ($data['focus'])) {
+        $errors[] = "Trường Đoạn văn nổi bật là bắt buộc";
+    } 
+    
     if (empty ($data['time_blog'])) {
         $errors[] = "Trường Thời gian đăng tải là bắt buộc";
     } else if (!strtotime($data['time_blog']) > 50) {
@@ -107,6 +110,7 @@ function blogUpdate($id)
             'nd_blog' => $_POST['nd_blog'] ?? $blog['nd_blog'],
             'img_blog' => $_FILES['img_blog']['size'] > 0 ? $_FILES['img_blog'] : $blog['img_blog'],
             'time_blog' => $_POST['time_blog'] ?? $blog['time_blog'],
+            'focus' => $_POST['focus'] ?? $blog['focus'],
         ];
 
         $errors = validateUpdateBlog($id, $data);
@@ -151,10 +155,12 @@ function validateUpdateBlog($id, $data)
 
     if (empty ($data['nd_blog'])) {
         $errors[] = "Trường Nội dung là bắt buộc";
-    } else if (strlen($data['nd_blog']) > 550) {
-        $errors[] = "Trường Nội dung nhỏ hơn 50 ký tự";
     }
 
+    if (empty ($data['focus'])) {
+        $errors[] = "Trường Đoạn văn nổi bật là bắt buộc";
+    } 
+    
     if (empty ($data['time_blog'])) {
         $errors[] = "Trường Thời gian đăng tải là bắt buộc";
     } else if (!strtotime($data['time_blog']) > 50) {

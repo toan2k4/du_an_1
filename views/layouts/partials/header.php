@@ -100,7 +100,7 @@
                     <div class="main-menu">
                         <nav>
                             <ul>
-                                <li class="active"><a href="index.html">HOME</a>
+                                <li class="active"><a href="index.php">HOME</a>
                                 </li>
                                 <li><a href="shop.html">SHOP</a>
                                     <ul class="sub-menu">
@@ -124,12 +124,7 @@
                                         <li><a href="404.html">404 Error</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">BLOG</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="<?= BASE_URL?>?act=blogs">Blog</a></li>
-                                        <li><a href="single-blog.html">Single Blog</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="<?= BASE_URL?>?act=blogs">BLOG</a></li>
                                 <li><a href="contact.html">CONTACT</a></li>
                             </ul>
                         </nav>

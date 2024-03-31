@@ -34,7 +34,6 @@ if (!function_exists('showOneComment')) {
         } catch (\Exception $e) {
             debug($e);
         }
-
     }
 }
 

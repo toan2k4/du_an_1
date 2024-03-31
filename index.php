@@ -17,6 +17,9 @@ match($act){
 
     // blogs
     'blogs' => blogIndex(),
+    'blog-single' => blogSingle($_GET['id']),
+
+
 };
 
 
