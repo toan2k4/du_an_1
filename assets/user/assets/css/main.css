@@ -3423,14 +3423,14 @@ img.mfp-img {
           flex: 0 0 50px;
   text-align: right;
 }
-.product-item .product-inner .content .content-right .price {
+.product-item .product-inner .content .price {
   display: block;
   font-family: "Dosis", sans-serif;
   font-size: 24px;
   font-weight: 600;
   color: #ff708a;
 }
-.product-item .product-inner .content .content-right .price .old {
+.product-item .product-inner .content .price .old {
   color: #94c7eb;
   text-decoration: line-through;
   display: block;

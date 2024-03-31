@@ -23,10 +23,10 @@
                 <div class="col-lg-4 col-12 mb-40">
                     <div class="login-register-form-wrap">
                         <h3>Login</h3>
-                        <form action="#" class="mb-30">
+                        <form action="" class="mb-30" method="post">
                             <div class="row">
-                                <div class="col-12 mb-15"><input type="text" placeholder="Username or Email"></div>
-                                <div class="col-12 mb-15"><input type="password" placeholder="Password"></div>
+                                <div class="col-12 mb-15"><input type="text" placeholder=" Email" name="email"></div>
+                                <div class="col-12 mb-15"><input type="password" placeholder="Password" name="password"></div>
                                 <div class="col-12"><input type="submit" value="Login"></div>
                             </div>
                         </form>

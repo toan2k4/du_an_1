@@ -28,7 +28,7 @@ function productCreate()
     $title = "Form thêm sản phẩm";
     $view = 'products/create';
     $categories = listAll('tb_danh_muc', false);
-    if (!empty ($_POST)) {
+    if (!empty($_POST)) {
         $dataPro = [
             'ten_sp' => $_POST['ten_sp'] ?? null,
             'gia_sp' => $_POST['gia_sp'] ?? null,
@@ -45,7 +45,7 @@ function productCreate()
         ];
 
         $errors = validateproduct($dataPro, $dataImg);
-        if (!empty ($errors)) {
+        if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
             $_SESSION['data'] = $dataPro;
             header("location: " . BASE_URL_ADMIN . "?act=product-create");
@@ -53,14 +53,14 @@ function productCreate()
         }
 
         $avata = $dataPro['hinh_sp'];
-        if (!empty ($avata) && $avata['size'] > 0) {
+        if (!empty($avata) && $avata['size'] > 0) {
             $dataPro['hinh_sp'] = upload_file($avata, 'uploads/products/');
         }
         // debug($dataPro);
 
         // $idNewProduct = 2;
         $idNewProduct = insert_get_last_id('tb_san_pham', $dataPro);
-        if (!empty ($idNewProduct)) {
+        if (!empty($idNewProduct)) {
             $dataImg['id_sp'] = $idNewProduct;
             foreach ($dataImg['anh_phu']['tmp_name'] as $key => $value) {
                 $file_name = $_FILES['anh_phu']['name'][$key];
@@ -84,32 +84,32 @@ function productCreate()
 function validateproduct($data, $dataImg)
 {
     $errors = [];
-    if (empty ($data['ten_sp'])) {
+    if (empty($data['ten_sp'])) {
         $errors[] = "Trường tên sản phẩm là bắt buộc";
     } else if (strlen($data['ten_sp']) > 50) {
         $errors[] = "Trường tên sản phẩm nhỏ hơn 50 ký tự";
     }
 
-    if (empty ($data['gia_sp'])) {
+    if (empty($data['gia_sp'])) {
         $errors[] = "Trường giá san phẩm là bắt buộc";
     } else if (!is_numeric($data['gia_sp'])) {
         $errors[] = "Trường giá sản phẩm phải là số";
     }
 
-    if (empty ($data['so_luong'])) {
+    if (empty($data['so_luong'])) {
         $errors[] = "Trường số lượng san phẩm là bắt buộc";
     } else if (!is_numeric($data['so_luong'])) {
         $errors[] = "Trường số lượng sản phẩm phải là số";
-    }else if ($data['so_luong'] < 0) {
+    } else if ($data['so_luong'] < 0) {
         $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
-    if (empty ($data['giam_gia'])) {
-        $errors[] = "Trường giá bán sản phẩm là bắt buộc";
-    } else if (!is_numeric($data['giam_gia'])) {
-        $errors[] = "Trường giá bán sản phẩm phải là số";
-    } else if ($data['giam_gia'] > $data['gia_sp']) {
-        $errors[] = "Trường giá bán sản phẩm phải nhỏ hơn hoặc bằng giá sản phẩm";
+    if (!empty($data['giam_gia'])) {
+        if (!is_numeric($data['giam_gia'])) {
+            $errors[] = "Trường giá bán sản phẩm phải là số";
+        } else if ($data['giam_gia'] > $data['gia_sp']) {
+            $errors[] = "Trường giá bán sản phẩm phải nhỏ hơn hoặc bằng giá sản phẩm";
+        }
     }
 
     $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
@@ -145,19 +145,19 @@ function validateproduct($data, $dataImg)
         }
     }
 
-    if (empty ($data['ngay_nhap'])) {
+    if (empty($data['ngay_nhap'])) {
         $errors[] = "Trường ngày nhập là bắt buộc";
     } else if (!strtotime($data['ngay_nhap'])) {
         $errors[] = "Trường ngày nhập không hợp lệ";
     }
 
-    if (empty ($data['id_danh_muc'])) {
+    if (empty($data['id_danh_muc'])) {
         $errors[] = "Trường danh mục là bắt buộc";
     } else if (!is_numeric($data['id_danh_muc'])) {
         $errors[] = "Trường danh mục không hợp lệ";
     }
 
-    if (empty ($data['mo_ta'])) {
+    if (empty($data['mo_ta'])) {
         $errors[] = "Trường mô tả là bắt buộc";
     }
 
@@ -173,14 +173,14 @@ function productUpdate($id)
     $categories = listAll('tb_danh_muc', false);
     $product = showOne('tb_san_pham', $id);
     $imgPro = listAllImage('tb_hinh_anh', $product['id']);
-// debug($imgPro['anh_phu']);
-    if (empty ($product)) {
+    // debug($imgPro['anh_phu']);
+    if (empty($product)) {
         e404();
     }
     $title = "Form cập nhật sản phẩm: " . $product['ten_sp'];
     $view = 'products/update';
     $roles = listAll('tb_phan_quyen');
-    if (!empty ($_POST)) {
+    if (!empty($_POST)) {
 
         $dataPro = [
             'ten_sp' => $_POST['ten_sp'] ?? $product['ten_sp'],
@@ -199,27 +199,27 @@ function productUpdate($id)
         ];
 
         $errors = validateProductUpdate($dataPro, $dataImg);
-        if (!empty ($errors)) {
+        if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
 
         } else {
             $avata = $dataPro['hinh_sp'];
-            if (!empty ($avata) && is_array($avata) && $avata['size'] > 0) {
+            if (!empty($avata) && is_array($avata) && $avata['size'] > 0) {
 
                 $dataPro['hinh_sp'] = upload_file($avata, 'uploads/accounts/');
 
                 if (
-                    !empty ($avata)           // có upload
-                    && !empty ($product['hinh_sp']) // có giá trị
-                    && !empty ($dataPro['hinh_sp']) // upload file thành công
+                    !empty($avata)           // có upload
+                    && !empty($product['hinh_sp']) // có giá trị
+                    && !empty($dataPro['hinh_sp']) // upload file thành công
                     && file_exists(PATH_UPLOAD . $product['hinh_sp'])
                 ) { // có tồn tại file cũ
                     unlink(PATH_UPLOAD . $product['hinh_sp']);
                 }
             }
 
-            if (isset ($_FILES['anh_phu']) && $_FILES['anh_phu']['size'][0] > 0) {
-                foreach($imgPro as $img){
+            if (isset($_FILES['anh_phu']) && $_FILES['anh_phu']['size'][0] > 0) {
+                foreach ($imgPro as $img) {
                     unlink(PATH_UPLOAD . $img['anh_phu']);
                 }
                 deleteAllImgPhu('tb_hinh_anh', $id);
@@ -232,9 +232,9 @@ function productUpdate($id)
                 }
             }
 
-            if (empty ($data['trang_thai'])) {
+            if (empty($data['trang_thai'])) {
                 $errors[] = "Trường trạng thái là bắt buộc";
-            } 
+            }
 
             update('tb_san_pham', $id, $dataPro);
             $_SESSION['success'] = "thao tác thành công!";
@@ -251,36 +251,37 @@ function productUpdate($id)
 function validateProductUpdate($data, $dataImg)
 {
     $errors = [];
-    if (empty ($data['ten_sp'])) {
+    if (empty($data['ten_sp'])) {
         $errors[] = "Trường tên sản phẩm là bắt buộc";
     } else if (strlen($data['ten_sp']) > 50) {
         $errors[] = "Trường tên sản phẩm nhỏ hơn 50 ký tự";
     }
 
-    if (empty ($data['gia_sp'])) {
+    if (empty($data['gia_sp'])) {
         $errors[] = "Trường giá san phẩm là bắt buộc";
     } else if (!is_numeric($data['gia_sp'])) {
         $errors[] = "Trường giá sản phẩm phải là số";
     }
 
-    if (empty ($data['giam_gia'])) {
-        $errors[] = "Trường giá bán sản phẩm là bắt buộc";
-    } else if (!is_numeric($data['giam_gia'])) {
-        $errors[] = "Trường giá bán sản phẩm phải là số";
-    } else if ($data['giam_gia'] > $data['gia_sp']) {
-        $errors[] = "Trường giá bán sản phẩm phải nhỏ hơn hoặc bằng giá sản phẩm";
+    if (!empty($data['giam_gia'])) {
+        if (!is_numeric($data['giam_gia'])) {
+            $errors[] = "Trường giá bán sản phẩm phải là số";
+        } else if ($data['giam_gia'] > $data['gia_sp']) {
+            $errors[] = "Trường giá bán sản phẩm phải nhỏ hơn hoặc bằng giá sản phẩm";
+        }
     }
-    
-    if (empty ($data['so_luong'])) {
+
+
+    if (empty($data['so_luong'])) {
         $errors[] = "Trường số lượng san phẩm là bắt buộc";
     } else if (!is_numeric($data['so_luong'])) {
         $errors[] = "Trường số lượng sản phẩm phải là số";
-    }else if ($data['so_luong'] < 0) {
+    } else if ($data['so_luong'] < 0) {
         $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
     $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
-    if (isset ($data['hinh_sp']['size'])) {
+    if (isset($data['hinh_sp']['size'])) {
         if ($data['hinh_sp'] && $data['hinh_sp']['size'] > 0) {
             if ($data['hinh_sp']['size'] > 2 * 1024 * 1024) {
                 $errors[] = "file ảnh sản phẩm nhỏ hơn 2mb";
@@ -291,7 +292,7 @@ function validateProductUpdate($data, $dataImg)
         }
     }
 
-    if (isset ($dataImg['anh_phu']['size'][0]) && $dataImg['anh_phu']['size'][0] > 0) {
+    if (isset($dataImg['anh_phu']['size'][0]) && $dataImg['anh_phu']['size'][0] > 0) {
         $check = true;
         foreach ($dataImg['anh_phu']['size'] as $i => $value) {
             if ($value > 0) {
@@ -313,19 +314,19 @@ function validateProductUpdate($data, $dataImg)
 
 
 
-    if (empty ($data['ngay_nhap'])) {
+    if (empty($data['ngay_nhap'])) {
         $errors[] = "Trường ngày nhập là bắt buộc";
     } else if (!strtotime($data['ngay_nhap'])) {
         $errors[] = "Trường ngày nhập không hợp lệ";
     }
 
-    if (empty ($data['id_danh_muc'])) {
+    if (empty($data['id_danh_muc'])) {
         $errors[] = "Trường danh mục là bắt buộc";
     } else if (!is_numeric($data['id_danh_muc'])) {
         $errors[] = "Trường danh mục không hợp lệ";
     }
 
-    if (empty ($data['mo_ta'])) {
+    if (empty($data['mo_ta'])) {
         $errors[] = "Trường mô tả là bắt buộc";
     }
 
@@ -336,15 +337,15 @@ function productDelete($id)
 {
     $product = showOne('tb_san_pham', $id);
     $imgPro = showOne('tb_hinh_anh', $id);
-    if (empty ($product)) {
+    if (empty($product)) {
         e404();
     }
 
     delete2('tb_san_pham', $id);
-    if (!empty ($product['hinh_sp']) && file_exists(PATH_UPLOAD . $product['hinh_sp'])) { // có tồn tại file cũ
+    if (!empty($product['hinh_sp']) && file_exists(PATH_UPLOAD . $product['hinh_sp'])) { // có tồn tại file cũ
         unlink(PATH_UPLOAD . $product['hinh_sp']);
-        foreach($imgPro as $img){
-            unlink( PATH_UPLOAD . $img['anh_phu']);
+        foreach ($imgPro as $img) {
+            unlink(PATH_UPLOAD . $img['anh_phu']);
         }
         deleteAllImgPhu('tb_hinh_anh', $id);
     }
