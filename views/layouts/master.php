@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/user/assets/css/helper.css">
     
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/user/assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/user/assets/css/main.css">
     
     <!-- Modernizer JS -->
     <script src="<?= BASE_URL ?>/assets/user/assets/js/vendor/modernizr-3.11.2.min.js"></script>

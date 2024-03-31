@@ -4,7 +4,7 @@ if (!function_exists('require_file')) {
     function require_file($pathFolder)
     {
         $files = array_diff(scandir($pathFolder), ['.', '..']);
-        
+
         foreach ($files as $file) {
             require_once $pathFolder . $file;
         }
@@ -42,16 +42,36 @@ if (!function_exists('e404')) {
 }
 
 if (!function_exists('middleware_auth_check')) {
-    function middleware_auth_check($act) {
+    function middleware_auth_check($act)
+    {
         if ($act == 'login') {
             if (!empty($_SESSION['user'])) {
                 header('Location: ' . BASE_URL_ADMIN);
                 exit();
             }
-        } 
-        elseif (empty($_SESSION['user'])) {
+        } elseif (empty($_SESSION['user'])) {
             header('Location: ' . BASE_URL_ADMIN . '?act=login');
             exit();
         }
+    }
+}
+
+if (!function_exists('settings')) {
+    function settings()
+    {
+        $fileSettings = PATH_UPLOAD . 'uploads/settings.json';
+        if (file_exists($fileSettings)) {
+            $data = json_decode(file_get_contents($fileSettings), true);
+        } else {
+            $settings = listAll('tb_noi_dung');
+
+            $keys = array_column($settings, 'key');
+            $values = array_column($settings, 'value');
+
+            $data = array_combine($keys, $values);
+
+            file_put_contents($fileSettings, json_encode($data));
+        }
+        return $data;
     }
 }
