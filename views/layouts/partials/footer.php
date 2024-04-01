@@ -35,7 +35,7 @@
 
             <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                 <h4 class="title">NEWSLETTER</h4>
-                <p>Subscribe our newsletter and get all update of our product</p>
+                <p><?= $GLOBALS['settings']['Newsletter'] ?? null ?></p>
 
                 <form id="mc-form" class="mc-form footer-subscribe-form">
                     <input id="mc-email" autocomplete="off" placeholder="Enter your email here" name="EMAIL"
@@ -50,7 +50,7 @@
                 </div><!-- mailchimp-alerts end -->
 
                 <h5>FOLLOW US</h5>
-                <p class="footer-social"><a href="#">Facebook</a> - <a href="#">Twitter</a> - <a href="#">Google+</a>
+                <p class="footer-social"><a href="<?= $GLOBALS['settings']['Facebook'] ?? null ?>">Facebook</a> - <a href="<?= $GLOBALS['settings']['Twitter'] ?? null ?>">Twitter</a> - <a href="<?= $GLOBALS['settings']['Google'] ?? null ?>">Google+</a>
                 </p>
 
             </div>
