@@ -120,7 +120,7 @@
 
                                 <div class="content-left">
 
-                                    <h4 class="title"><a href="single-product.html">
+                                    <h4 class="title"><a href="<?= BASE_URL ?>?act=single-product&id=<?= $product['sp_id'] ?>">
                                             <?= $product['sp_ten'] ?>
                                         </a></h4>
                                     <?php if (!empty($product['sp_giam_gia'])): ?>
@@ -273,7 +273,7 @@
                                             </a></h4>
                                         <div class="ratting">
                                             <?php for ($i = 1; $i <= 5; $i++) {
-                                                if ($i <= round($product['dg_sao'])) {
+                                                if ($i <= round($pro['dg_sao'])) {
                                                     echo '<i class="fa fa-star"></i>';
                                                 } else {
                                                     echo '<i class="fa fa-star-o"></i>';
@@ -283,16 +283,16 @@
                                     </div>
 
                                     <div class="content-top-right">
-                                        <?php if (!empty($product['sp_giam_gia'])): ?>
+                                        <?php if (!empty($pro['sp_giam_gia'])): ?>
                                             <span class="price mb-3">
-                                                <?= number_format($product['sp_giam_gia'], 0, ',') ?>
+                                                <?= number_format($pro['sp_giam_gia'], 0, ',') ?>
                                                 <span class="ms-2 fs-6 old">
-                                                    <?= number_format($product['sp_gia'], 0, ',') ?>
+                                                    <?= number_format($pro['sp_gia'], 0, ',') ?>
                                                 </span>
                                             </span>
                                         <?php else: ?>
                                             <span class="price mb-3">
-                                                <?= number_format($product['sp_gia'], 0, ',') ?>
+                                                <?= number_format($pro['sp_gia'], 0, ',') ?>
                                             </span>
                                         <?php endif ?>
                                     </div>
@@ -301,7 +301,7 @@
 
                                 <div class="content-bottom">
                                     <!-- <div class="countdown" data-countdown="2024/04/01"></div> -->
-                                    <a href="#" data-hover="SHOP NOW">SHOP NOW</a>
+                                    <a href="#" data-hover="SHOP NOW">Mua ngay</a>
                                 </div>
 
                             </div>
@@ -323,27 +323,26 @@
                 <div class="small-product-slider row row-7 mbn-40">
                     <?php foreach ($productsRating as $pro): ?>
                         <div class="col mb-40">
-
                             <div class="on-sale-product">
                                 <a href="single-product.html" class="image"><img src="<?= BASE_URL . $pro['sp_hinh'] ?>"
                                         alt="Image"></a>
                                 <div class="content text-center">
                                     <h4 class="title"><a href="single-product.html">Skily Girld Dress</a></h4>
-                                    <?php if (!empty($product['sp_giam_gia'])): ?>
+                                    <?php if (!empty($pro['sp_giam_gia'])): ?>
                                         <span class="price mb-3">
-                                            <?= number_format($product['sp_giam_gia'], 0, ',') ?>
+                                            <?= number_format($pro['sp_giam_gia'], 0, ',') ?>
                                             <span class="ms-2 fs-6 old">
-                                                <?= number_format($product['sp_gia'], 0, ',') ?>
+                                                <?= number_format($pro['sp_gia'], 0, ',') ?>
                                             </span>
                                         </span>
                                     <?php else: ?>
                                         <span class="price mb-3">
-                                            <?= number_format($product['sp_gia'], 0, ',') ?>
+                                            <?= number_format($pro['sp_gia'], 0, ',') ?>
                                         </span>
                                     <?php endif ?>
                                     <div class="ratting">
                                         <?php for ($i = 1; $i <= 5; $i++) {
-                                            if ($i <= round($product['dg_sao'])) {
+                                            if ($i <= round($pro['dg_sao'])) {
                                                 echo '<i class="fa fa-star"></i>';
                                             } else {
                                                 echo '<i class="fa fa-star-o"></i>';
@@ -375,8 +374,8 @@
                     <div class="icon"><img src="<?= BASE_URL ?>/assets/user/assets/images/feature/feature-1.png"
                             alt="Image"></div>
                     <div class="content">
-                        <h3>Free Shipping</h3>
-                        <p>Start from $100</p>
+                        <h3>Miễn phí giao hàng</h3>
+                        <p>Từ 300,000đ</p>
                     </div>
 
                 </div>
@@ -388,8 +387,8 @@
                     <div class="icon"><img src="<?= BASE_URL ?>/assets/user/assets/images/feature/feature-2.png"
                             alt="Image"></div>
                     <div class="content">
-                        <h3>Money Back Guarantee</h3>
-                        <p>Back within 25 days</p>
+                        <h3>Đảm bảo hoàn tiền</h3>
+                        <p>Trong vòng 20 ngày</p>
                     </div>
 
                 </div>
@@ -401,8 +400,8 @@
                     <div class="icon"><img src="<?= BASE_URL ?>/assets/user/assets/images/feature/feature-3.png"
                             alt="Image"></div>
                     <div class="content">
-                        <h3>Secure Payment</h3>
-                        <p>Payment Security</p>
+                        <h3>Thanh toán an toàn</h3>
+                        <p>Bảo mật thanh toán</p>
                     </div>
 
                 </div>
@@ -468,61 +467,45 @@
 
                 <div class="row">
                     <div class="section-title text-start col mb-30">
-                        <h1>FROM THE BLOG</h1>
-                        <p>Find all latest update here</p>
-                    </div>
+                        <h1>Bài viết tin tức</h1>
+                        <p>Tìm tất cả bài viết tin tức mới ở đây.
                 </div>
 
-                <div class="row mbn-40">
-
-                    <div class="col-12 mb-40">
-                        <div class="blog-item">
-                            <div class="image-wrap">
-                                <h4 class="date">May <span>25</span></h4>
-                                <a class="image" href="single-blog.html"><img
-                                        src="<?= BASE_URL ?>/assets/user/assets/images/blog/blog-1.jpg" alt="Image"></a>
-                            </div>
-                            <div class="content">
-                                <h4 class="title"><a href="single-blog.html">Lates and new Trens for baby fashion</a>
-                                </h4>
-                                <div class="desc">
-                                    <p>Jadusona is one of the most of a exclusive Baby shop in the</p>
+                <div class="row mbn-40">  
+                    <style>
+                        .img_blog{
+                            width: 209px;
+                            height: 177px;
+                        }
+                        .shorten-text {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            width: 391px; /* Độ rộng của đoạn văn */
+                        }
+                    </style>
+                    <?php foreach ($best_blog_home as $key => $value): ?>
+                        <div class="col-12 mb-40">
+                            <div class="blog-item">
+                                <div class="image-wrap">
+                                    <h4 class="date"><?= date('m', strtotime($value['time_blog'])) ?> <span><?= date('d', strtotime($value['time_blog'])) ?></span></h4>
+                                    <a class="imagee" href="<?= BASE_URL?>?act=blog-single&id=<?= $value['id'] ?>">
+                                        <img class="img_blog" src="<?= BASE_URL. $value['img_blog'] ?>" width="209px" height ="177px" alt="" >
+                                    </a>
                                 </div>
-                                <ul class="meta">
-                                    <li><a href="#"><img
-                                                src="<?= BASE_URL ?>/assets/user/assets/images/blog/blog-author-1.jpg"
-                                                alt="Blog Author">Muhin</a></li>
-                                    <li><a href="#">25 Likes</a></li>
-                                    <li><a href="#">05 Views</a></li>
-                                </ul>
+                                <div class="content">
+                                    <h4 class="title"><a href="<?= BASE_URL?>?act=blog-single&id=<?= $value['id'] ?>"><?= $value['tieu_de'] ?></a>
+                                    </h4>
+                                    <div class="desc shorten-text">
+                                        <p><?= $value['focus'] ?></p>
+                                    </div>
+                                    <ul class="meta">
+                                    <li><a href="#"><img src="uploads/blogs/download.jpg" alt="Blog Author">Trangg</a></li>
+                                    <li><a href="#"><?= $value['luot_xem'] ?> Lượt xem</a></li>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-12 mb-40">
-                        <div class="blog-item">
-                            <div class="image-wrap">
-                                <h4 class="date">May <span>20</span></h4>
-                                <a class="image" href="single-blog.html"><img
-                                        src="<?= BASE_URL ?>/assets/user/assets/images/blog/blog-2.jpg" alt="Image"></a>
-                            </div>
-                            <div class="content">
-                                <h4 class="title"><a href="single-blog.html">New Collection New Trend all New Style</a>
-                                </h4>
-                                <div class="desc">
-                                    <p>Jadusona is one of the most of a exclusive Baby shop in the</p>
-                                </div>
-                                <ul class="meta">
-                                    <li><a href="#"><img
-                                                src="<?= BASE_URL ?>/assets/user/assets/images/blog/blog-author-2.jpg"
-                                                alt="Blog Author">Takiya</a></li>
-                                    <li><a href="#">25 Likes</a></li>
-                                    <li><a href="#">05 Views</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
 
             </div>
@@ -532,7 +515,7 @@
 </div><!-- Blog Section End -->
 
 <!-- Brand Section Start -->
-<div class="brand-section section section-padding pt-0">
+<div class="brand-section section section-padding pt-0 mt-50">
     <div class="container-fluid">
         <div class="row">
             <div class="brand-slider">

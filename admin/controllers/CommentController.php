@@ -23,6 +23,7 @@ function commentListAllProduct($id){
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 
+
 function commentShowOne($id)
 {
     $title = "Bảng chi tiết bình luận";
@@ -32,7 +33,6 @@ function commentShowOne($id)
     // debug($comment);
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
-
 
 
 function validatecomment($data)

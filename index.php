@@ -20,14 +20,14 @@ match($act){
 
     // blogs
     'blogs' => blogIndex(),
-
+    'blog-single' => blogSingle($_GET['id']),
+    
     // detail product
-    'single-product' => singleProduct(),
+    'single-product' => singleProduct($_GET['id']),
 
     // list product 
     'list-product' => listProduct(),
     
-
     // cart 
     'cart' => showCart(),
 
@@ -36,6 +36,8 @@ match($act){
 
     // contact 
     'contact' => showContact(),
+
+    
     
 };
 

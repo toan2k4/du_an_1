@@ -51,6 +51,10 @@
                     <label class="form-label">Nội dung</label>
                     <textarea name="nd_blog" id="blog" cols="30" rows="10"><?= isset($_SESSION['data'])?$_SESSION['data']['nd_blog']:null ?></textarea>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Trích đoạn nổi bật</label>
+                    <textarea name="focus" id="blog" cols="20" rows="10"><?= isset($_SESSION['data'])?$_SESSION['data']['focus']:null ?></textarea>
+                </div>
                 <input type="submit" name="gui" class="btn btn-success" value="Thêm">
                 <a href="<?= BASE_URL_ADMIN ?>?act=blogs" type="submit" class="btn btn-warning">Quay lại </a>
             </form>

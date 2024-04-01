@@ -60,7 +60,10 @@
                 <div class="mb-3">
                     <label class="form-label">Nội dung</label>
                     <textarea name="nd_blog" id="blog" cols="30" rows="10"><?= $blog['nd_blog'] ?></textarea>
-
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Trích đoạn nổi bật</label>
+                    <textarea name="focus" id="blog" cols="30" rows="10"><?= $blog['focus'] ?></textarea>
                 </div>
                 
                 <input type="submit" name="gui" class="btn btn-success" value="Cập nhật">
