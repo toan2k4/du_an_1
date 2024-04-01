@@ -1,4 +1,5 @@
 <?php 
+session_start();
 //require các file trong commons
 require_once './commons/env.php';
 require_once './commons/helper.php';
@@ -15,6 +16,14 @@ $settings = settings();
 $listCate = listCategories();
 
 $act = $_GET['act'] ?? '/';
+// Biến này cần khai báo được link cần đăng nhập mới vào được
+$arrRouteNeedAuth = [
+    'cart',
+    'order'
+]; 
+
+// Kiểm tra xem user đã đăng nhập chưa
+middleware_auth_check_client($act, $arrRouteNeedAuth);
 match($act){
     '/' => homeIndex(),
 
@@ -32,7 +41,9 @@ match($act){
     'cart' => showCart(),
 
     // login register 
-    'login-register' => showLoginRegister(),
+    'login' => authenShowFormLogin(),
+    'logout' => authenLogout(),
+    'my-account' => showMyAccount(),
 
     // contact 
     'contact' => showContact(),

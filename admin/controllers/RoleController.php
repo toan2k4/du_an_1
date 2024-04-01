@@ -27,7 +27,7 @@ function roleCreate()
 
     if (!empty ($_POST)) {
         $data = [
-            'ten_chuc_vu' => $_POST['ten_chuc_vu'] ?? null,
+            'ten_chuc_vu' => ucfirst($_POST['ten_chuc_vu']) ?? null,
         ];
 
         $errors = validateRole($data);
@@ -66,7 +66,7 @@ function roleUpdate($id)
     if (!empty ($_POST)) {
 
         $data = [
-            'ten_chuc_vu' => $_POST['ten_chuc_vu'] ?? $role['ten_chuc_vu'],
+            'ten_chuc_vu' => ucfirst($_POST['ten_chuc_vu']) ?? $role['ten_chuc_vu'],
         ];
 
         $errors = validateRole($data);

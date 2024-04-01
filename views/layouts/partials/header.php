@@ -13,15 +13,23 @@
                     </div><!-- Header Top Left End -->
                 </div>
 
-                
+
 
                 <div class="col mt-10 mb-10">
                     <!-- Header Shop Links Start -->
                     <div class="header-top-right">
 
-                        <p><a href="my-account.html">Quản lý tài khoản</a></p>
-                        <p><a href="<?= BASE_URL ?>?act=login-register">Đăng ký</a><a href="<?= BASE_URL ?>?act=login-register">Đăng nhập</a></p>
+                        
+                        <?php if (isset($_SESSION['user'])): ?>
 
+                            <p class="me-2"><a href="<?= BASE_URL ?>?act=my-account">Quản lý tài khoản</a></p>
+                            <img class="img-profile rounded-circle"
+                                src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>" width="50px">
+
+                        <?php else: ?>
+                            <p><a href="<?= BASE_URL ?>?act=login">Đăng ký</a><a href="<?= BASE_URL ?>?act=login">Đăng
+                                    nhập</a></p>
+                        <?php endif; ?>
                     </div><!-- Header Shop Links End -->
                 </div>
 
@@ -37,7 +45,7 @@
                 <div class="col mt-15 mb-15">
                     <!-- Logo Start -->
                     <div class="header-logo">
-                        <a href="<?= BASE_URL?>">
+                        <a href="<?= BASE_URL ?>">
                             <img src="<?= BASE_URL ?>/assets/user/assets/images/logo.png" alt="Jadusona">
                         </a>
                     </div><!-- Logo End -->
@@ -48,21 +56,26 @@
                     <div class="header-shop-links">
 
                         <div class="header-search">
-                            <button class="search-toggle"><img src="<?= BASE_URL ?>/assets/user/assets/images/icons/search.png"
-                                    alt="Search Toggle"><img class="toggle-close" src="<?= BASE_URL ?>/assets/user/assets/images/icons/close.png"
+                            <button class="search-toggle"><img
+                                    src="<?= BASE_URL ?>/assets/user/assets/images/icons/search.png"
+                                    alt="Search Toggle"><img class="toggle-close"
+                                    src="<?= BASE_URL ?>/assets/user/assets/images/icons/close.png"
                                     alt="Search Toggle"></button>
                             <div class="header-search-wrap">
-                                <form action="<?= BASE_URL?>?act=list-product" method="post">
+                                <form action="<?= BASE_URL ?>?act=list-product" method="post">
                                     <input type="text" name="search" placeholder="Type and hit enter">
-                                    <button type="submit"><img src="<?= BASE_URL ?>/assets/user/assets/images/icons/search.png" alt="Search"></button>
+                                    <button type="submit"><img
+                                            src="<?= BASE_URL ?>/assets/user/assets/images/icons/search.png"
+                                            alt="Search"></button>
                                 </form>
                             </div>
                         </div>
 
-                       
+
 
                         <div class="header-mini-cart">
-                            <a href="<?= BASE_URL ?>?act=cart"><img src="<?= BASE_URL ?>/assets/user/assets/images/icons/cart.png" alt="Cart">
+                            <a href="<?= BASE_URL ?>?act=cart"><img
+                                    src="<?= BASE_URL ?>/assets/user/assets/images/icons/cart.png" alt="Cart">
                                 <span>02($250)</span></a>
                         </div>
 
@@ -76,19 +89,21 @@
                                 <li class="active"><a href="<?= BASE_URL ?>">Trang chủ</a>
                                 </li>
                                 <li><a href="<?= BASE_URL ?>?act=list-product">Tất cả</a>
-                                    
+
                                 </li>
                                 <li><a href="#">Danh mục</a>
                                     <ul class="sub-menu">
-                                        <?php foreach($GLOBALS['listCate'] as $cate):?>
-                                        <li><a href="<?= BASE_URL ?>?act=list-product&id_danh_muc=<?= $cate['id']?>"><?= $cate['ten_dm']?></a></li>
-                                        <?php endforeach;?>
+                                        <?php foreach ($GLOBALS['listCate'] as $cate): ?>
+                                            <li><a href="<?= BASE_URL ?>?act=list-product&id_danh_muc=<?= $cate['id'] ?>">
+                                                    <?= $cate['ten_dm'] ?>
+                                                </a></li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </li>
-                                <li><a href="<?= BASE_URL?>?act=blogs">Bài viết</a>
-                                    
+                                <li><a href="<?= BASE_URL ?>?act=blogs">Bài viết</a>
+
                                 </li>
-                                <li><a href="<?= BASE_URL?>?act=contact">Liên hệ</a></li>
+                                <li><a href="<?= BASE_URL ?>?act=contact">Liên hệ</a></li>
                             </ul>
                         </nav>
                     </div>
