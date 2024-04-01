@@ -43,6 +43,10 @@
                     <td><?= $blog['nd_blog']?></td>
                 </tr>
                 <tr>
+                    <td>Trích đoạn nổi bật bài viết</td>
+                    <td><?= $blog['focus']?></td>
+                </tr>
+                <tr>
                     <td>Lượt xem</td>
                     <td><?= $blog['luot_xem']?></td>
                 </tr>
