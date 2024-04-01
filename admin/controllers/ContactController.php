@@ -67,21 +67,15 @@ function validateContact($data)
         $errors[] = "Trường email là bắt buộc";
     } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Trường email không hợp lệ";
-    } else if (!checkUniqueEmailForUpdate('tb_tai_khoan', $id, $data['email'])) {
-        $errors[] = "Trường email đã được sử dụng";
-    }
+    } 
 
     if (empty ($data['noi_dung'])) {
         $errors[] = "Trường Thời gian đăng tải là bắt buộc";
-    } else if (!strtotime($data['noi_dung']) > 50) {
-        $errors[] = "Trường Thời gian đăng tải nhỏ hơn 50 ký tự";
-    }
+    } 
 
     if (empty ($data['ngay_gui'])) {
         $errors[] = "Trường Thời gian đăng tải là bắt buộc";
-    } else if (!strtotime($data['ngay_gui']) > 50) {
-        $errors[] = "Trường Thời gian đăng tải nhỏ hơn 50 ký tự";
-    }
+    } 
     
     return $errors;
 }
@@ -99,8 +93,8 @@ function contactUpdate($id)
         $data = [
             'trang_thai' => $_POST['trang_thai'] ?? $contact['trang_thai'],
         ];
-
-        $errors = validateUpdatecontact($id, $data);
+// debug($data);
+        $errors = validateUpdatecontact($data, $contact['trang_thai']);
         if (!empty ($errors)) {
             $_SESSION['errors'] = $errors;
 
@@ -117,12 +111,14 @@ function contactUpdate($id)
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 
-function validateUpdatecontact($id, $data)
+function validateUpdatecontact( $data, $status)
 {
     $errors = [];
-    if (empty ($data['trang_thai'])) {
-        $errors[] = "Trường trạng thái là bắt buộc";
-    } 
+
+
+    if($status == 1 && $data['trang_thai'] == 0){
+        $errors[] = "Không đc cập nhật ngược lại";
+    }
 
     return $errors;
 }

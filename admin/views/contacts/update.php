@@ -38,7 +38,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" >
                 <div class="mb-3">
                     <label class="form-label">Tên tài khoản</label>
                     <input type="text" class="form-control" readonly value="<?= $contact['ten'] ?>">
