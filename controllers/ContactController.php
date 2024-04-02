@@ -21,7 +21,7 @@ function postContact()
     validateContact($data);
 
     insert('tb_lien_he', $data);
-    $_SESSION['success'] = "Bạn đã gửi liên cho chúng tôi thành công!";
+    $_SESSION['success'] = "Bạn đã gửi liên hệ cho chúng tôi thành công!";
     header('location: ' . BASE_URL . '?act=contact');
     exit();
 }

@@ -73,22 +73,4 @@ if (!function_exists('middleware_auth_check_client')) {
         }
     }
 }
-if (!function_exists('settings')) {
-    function settings()
-    {
-        $fileSettings = PATH_UPLOAD . 'uploads/settings.json';
-        if (file_exists($fileSettings)) {
-            $data = json_decode(file_get_contents($fileSettings), true);
-        } else {
-            $settings = listAll('tb_noi_dung');
 
-            $keys = array_column($settings, 'key');
-            $values = array_column($settings, 'value');
-
-            $data = array_combine($keys, $values);
-
-            file_put_contents($fileSettings, json_encode($data));
-        }
-        return $data;
-    }
-}
