@@ -15,12 +15,23 @@
 
                 <div class="col mt-10 mb-10">
                     <!-- Header Shop Links Start -->
+<<<<<<< HEAD
+                    <div class="header-top-right">
+
+
+                        <?php if (isset($_SESSION['user'])): ?>
+
+                            <p class="me-2"><a href="<?= BASE_URL ?>?act=my-account">Quản lý tài khoản</a></p>
+                            <img class="img-profile rounded-circle" src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>"
+                                width="50px">
+=======
                     <div class="header-top-right ">
                         <?php if (isset($_SESSION['user'])): ?>
 
                             <p class="me-2 mt-1"><a href="<?= BASE_URL ?>?act=my-account&id=<?= $_SESSION['user']['id'] ?>">Quản lý tài khoản</a></p>
                             <img class="img-profile rounded-circle"
                                 src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>" width="30px" height="30px">
+>>>>>>> cb348bbe0a4a2998dfd9f909a878f3de8c4ce85f
 
                         <?php else: ?>
                             <p><a href="<?= BASE_URL ?>?act=login">Đăng ký</a><a href="<?= BASE_URL ?>?act=login">Đăng
@@ -72,7 +83,14 @@
                         <div class="header-mini-cart">
                             <a href="<?= BASE_URL ?>?act=cart"><img
                                     src="<?= BASE_URL ?>/assets/user/assets/images/icons/cart.png" alt="Cart">
-                                <span>02($250)</span></a>
+                                <span>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        $cartID = getCartId($_SESSION['user']['id']);
+                                        echo count(listProductByIdCart($cartID));
+                                    }
+                                    ?>
+                                </span></a>
                         </div>
 
                     </div><!-- Header Advance Search End -->

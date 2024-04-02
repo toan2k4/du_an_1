@@ -4,26 +4,26 @@ function singleProduct($id)
 {
     $views = 'single-product';
 
-    if (!empty ($_POST)) {
+    if (!empty($_POST)) {
         $data = [
             'noi_dung' => $_POST['noi_dung'] ?? null,
-            'ngay_bl' => $_POST['ngay_bl'] ?? null,
+            'ngay_bl' => date("Y-m-d"),
             'id_tk' => $_POST['id_tk'] ?? null,
             'id_sp' => $_POST['id_sp'] ?? null,
         ];
-
+        // debug($data);
         $errors = validate($data);
-        if (!empty ($errors)) {
+        if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
             $_SESSION['data'] = $data;
-            header("location: " . BASE_URL . "?act=single-product&id = $id");
+            header("location: " . BASE_URL . "?act=single-product&id=$id");
             exit();
         }
 
         insert('tb_binh_luan', $data);
         $_SESSION['success'] = "Thao tác thành công!";
 
-        header("location: " . BASE_URL . "?act=single-product&id = $id");
+        header("location: " . BASE_URL . "?act=single-product&id=$id");
         exit();
     }
 
@@ -31,6 +31,7 @@ function singleProduct($id)
     $hinhPhu = listAllImage('tb_hinh_anh', $id);
     $variants = listAllVariantByIdsp($id);
     $comment = listCommentForProduct($id);
+    $ratings = listRatingForProduct($id);
     $same = listProductSame(8);
     require_once PATH_VIEW . 'layouts/master.php';
 }
@@ -51,10 +52,10 @@ function listProduct()
 
 function validate($data)
 {
-    $errors = [];
-    if (empty ($data['noi_dung'])) {
-        $errors[] = "Trường Tiêu đề bài viết là bắt buộc";
-    } 
+    $errors = '';
+    if (empty($data['noi_dung'])) {
+        $errors = "Trường bình luận là bắt buộc";
+    }
 
     return $errors;
 }

@@ -444,7 +444,9 @@
     ------------------------*/
     var min = Number($('#min').val());
     var max = Number($('#max').val());
-    console.log(min, max);
+    $('#getprice-amount1').val(min + min * 1 / 2);
+    $('#getprice-amount2').val(max - max * 1 / 2);
+    // console.log(min, max);
     $('#price-range').slider({
         range: true,
         min: min,
@@ -462,8 +464,8 @@
     /*----- 
         Quantity
     --------------------------------*/
-    $('.pro-qty').prepend('<span class="dec qtybtn"><i class="ti-minus"></i></span>');
-    $('.pro-qty').append('<span class="inc qtybtn"><i class="ti-plus"></i></span>');
+    // $('.pro-qty').prepend('<span class="dec qtybtn"><i class="ti-minus"></i></span>');
+    // $('.pro-qty').append('<span class="inc qtybtn"><i class="ti-plus"></i></span>');
     $('.qtybtn').on('click', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
@@ -478,6 +480,7 @@
             }
         }
         $button.parent().find('input').val(newVal);
+        $('#quantity').val(newVal);
     });
 
     /*----- 
