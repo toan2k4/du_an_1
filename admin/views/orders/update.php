@@ -59,7 +59,16 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Phương thức thanh toán</label>
-                    <input type="text" class="form-control" readonly value="<?= $order['thanh_toan'] ?>">
+                    <input type="text" class="form-control" readonly value="<?php 
+                        switch ($order['thanh_toan']) {
+                            case '1':
+                                echo 'Thanh toán khi nhận hàng';
+                                break;
+                            case '2':
+                                echo 'Thanh toán online';
+                                break;
+                            
+                        } ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Trạng thái thanh toán</label>

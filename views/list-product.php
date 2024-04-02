@@ -23,29 +23,6 @@
             <div class="col-xl-9 col-lg-8 col-12 order-1 order-lg-2 mb-40">
                 <div class="row">
 
-                    <div class="col-12">
-                        <div class="product-show">
-                            <h4>Show:</h4>
-                            <select class="nice-select">
-                                <option>8</option>
-                                <option>12</option>
-                                <option>16</option>
-                                <option>20</option>
-                            </select>
-                        </div>
-                        <div class="product-short">
-                            <h4>Short by:</h4>
-                            <select class="nice-select">
-                                <option>Name Ascending</option>
-                                <option>Name Descending</option>
-                                <option>Date Ascending</option>
-                                <option>Date Descending</option>
-                                <option>Price Ascending</option>
-                                <option>Price Descending</option>
-                            </select>
-                        </div>
-                    </div>
-
                     <?php
                     if (!empty($products)):
                         foreach ($products as $product):
@@ -59,19 +36,15 @@
                                             <img src="<?= BASE_URL . $product['sp_hinh'] ?>" alt="Image">
 
                                             <div class="image-overlay">
-                                                <!-- <div class="action-buttons">
-                                <button>add to cart</button>
-                                <button>add to wishlist</button>
-                            </div> -->
+                                                <div class="action-buttons">
+                                                <a href="<?= BASE_URL ?>?act=single-product&id=<?= $product['sp_id'] ?>"><button>Xem chi tiết</button></a>
+                                                </div>
                                             </div>
-
                                         </div>
 
                                         <div class="content">
-
                                             <div class="content-left">
-
-                                                <h4 class="title"><a href="single-product.html">
+                                                <h4 class="title"><a href="<?= BASE_URL ?>?act=single-product&id=<?= $product['sp_id'] ?>">
                                                         <?= $product['sp_ten'] ?>
                                                     </a></h4>
                                                 <?php if (!empty($product['sp_giam_gia'])): ?>
@@ -168,10 +141,10 @@
                     <div class="sidebar-product-wrap">
                         <?php foreach ($productsPopular as $pro): ?>
                             <div class="sidebar-product">
-                                <a href="single-product.html" class="image"><img src="<?= BASE_URL . $pro['sp_hinh'] ?>"
+                                <a href="<?= BASE_URL ?>?act=single-product&id=<?= $product['sp_id'] ?>" class="image"><img src="<?= BASE_URL . $pro['sp_hinh'] ?>"
                                         alt=""></a>
                                 <div class="content">
-                                    <a href="single-product.html" class="title">
+                                    <a href="<?= BASE_URL ?>?act=single-product&id=<?= $product['sp_id'] ?>" class="title">
                                         <?= $pro['sp_ten'] ?>
                                     </a>
                                     <?php if (!empty($pro['sp_giam_gia'])): ?>
@@ -202,7 +175,7 @@
                 </div>
 
                 <div class="sidebar">
-                    <h3 class="sidebar-title">Price</h3>
+                    <h3 class="sidebar-title">Giá</h3>
                     <form action="<?= BASE_URL ?>?act=list-product" method="post">
                         <div class="sidebar-price">
                             <div id="price-range"></div>

@@ -8,7 +8,6 @@ function orderListAll()
     $script2 = 'orders/script';
     $style = 'datatable';
     $orders = showListOrder();
-
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 function orderShowOne($id)
