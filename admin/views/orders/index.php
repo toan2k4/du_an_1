@@ -12,7 +12,6 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-
         <div class="card-body">
             <?php if (isset($_SESSION['success'])): ?>
                 <div class="alert alert-success">

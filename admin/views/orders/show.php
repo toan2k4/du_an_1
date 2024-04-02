@@ -39,7 +39,7 @@
                 <tr>
                     <td>Số điện thoại</td>
                     <td>
-                        <?= $order['dien_thoai_tk'] ?>
+                        <?= $order['so_dien_thoai'] ?>
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +57,16 @@
                 <tr>
                     <td>Hình thức thanh toán</td>
                     <td>
-                        <?= $order['thanh_toan'] ?>
+                        <?php 
+                        switch ($order['thanh_toan']) {
+                            case '1':
+                                echo 'Thanh toán khi nhận hàng';
+                                break;
+                            case '2':
+                                echo 'Thanh toán online';
+                                break;
+                        }
+                        ?>
                     </td>
                 </tr>
                 <tr>

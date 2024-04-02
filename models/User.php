@@ -40,3 +40,45 @@ if (!function_exists('getUserClientByEmailAndPassword')) {
         }
     }
 }
+
+
+if (!function_exists('checkUniqueEmailForUpdate')) {
+    function checkUniqueEmailForUpdate($tableName,$id, $email_tk)
+    {
+        try {
+            $sql = "SELECT * FROM $tableName WHERE email_tk=:email_tk AND id <>:id LIMIT 1";
+            $stmt = $GLOBALS['conn']->prepare($sql);
+            $stmt->bindParam(":email_tk", $email_tk);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            // debug($stmt->fetch());
+            $data = $stmt->fetch();
+
+            return empty($data) ? true : false;
+
+        } catch (\Exception $e) {
+            debug($e);
+        }
+
+    }
+}
+
+if (!function_exists('checkUniqueEmail')) {
+    function checkUniqueEmail($tableName, $email_tk)
+    {
+        try {
+            $sql = "SELECT * FROM $tableName WHERE email_tk=:email_tk LIMIT 1";
+            $stmt = $GLOBALS['conn']->prepare($sql);
+            $stmt->bindParam(":email_tk", $email_tk);
+            $stmt->execute();
+            // debug($stmt->fetch());
+            $data = $stmt->fetch();
+
+            return empty($data) ? true : false;
+
+        } catch (\Exception $e) {
+            debug($e);
+        }
+
+    }
+}

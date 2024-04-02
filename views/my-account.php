@@ -1,13 +1,13 @@
 <!-- Page Banner Section Start -->
-<div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
+<div class="page-banner-section section" style="background-image: url(<?= BASE_URL ?>/assets/user/assets/images/hero/hero-1.jpg)">
         <div class="container">
             <div class="row">
                 <div class="page-banner-content col">
 
-                    <h1>My Account</h1>
+                    <h1>Quản lý tài khoản</h1>
                     <ul class="page-breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="my-account.html">My Account</a></li>
+                        <li><a href="index.php">Trang chủ</a></li>
+                        <li><a href="#">Quản lý tài khoản</a></li>
                     </ul>
 
                 </div>
@@ -19,25 +19,20 @@
     <div class="page-section section section-padding">
         <div class="container">
 			<div class="row mbn-30">
-
+			<?php if (isset($_SESSION['user'])): ?>
 				<!-- My Account Tab Menu Start -->
 				<div class="col-lg-3 col-12 mb-30">
 					<div class="myaccount-tab-menu nav" role="tablist">
 						<a href="#dashboad" class="active" data-bs-toggle="tab"><i class="fa fa-dashboard"></i>
-							Dashboard</a>
+							Bảng điều khiển</a>
 
-						<a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
+						<a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
 
-						<a href="#download" data-bs-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a>
+						<a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i>Phương thức thanh toán</a>
 
-						<a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> Payment
-							Method</a>
+						<a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i>Thông tin tài khoản</a>
 
-						<a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i> address</a>
-
-						<a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Account Details</a>
-
-						<a href="<?= BASE_URL?>?act=logout"><i class="fa fa-sign-out"></i> Logout</a>
+						<a href="<?= BASE_URL?>?act=logout"><i class="fa fa-sign-out"></i>Đăng xuất</a>
 					</div>
 				</div>
 				<!-- My Account Tab Menu End -->
@@ -45,179 +40,170 @@
 				<!-- My Account Tab Content Start -->
 				<div class="col-lg-9 col-12 mb-30">
 					<div class="tab-content" id="myaccountContent">
-						<!-- Single Tab Content Start -->
+						<!-- Single Tab Content Start Bảng điều khiển -->
 						<div class="tab-pane fade show active" id="dashboad" role="tabpanel">
 							<div class="myaccount-content">
-								<h3>Dashboard</h3>
+								<h3>Bảng điều khiển</h3>
 
 								<div class="welcome">
-									<p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
+									<p>Xin chào, <strong><?= $_SESSION['user']['ten_tk'] ?></strong> ( Nếu không phải <strong><?= $_SESSION['user']['ten_tk'] ?> !</strong><a href="login-register.html" class="logout" style=""> Đăng xuất )</a></p>
 								</div>
-
-								<p class="mb-0">From your account dashboard. you can easily check &amp; view your
-									recent orders, manage your shipping and billing addresses and edit your
-									password and account details.</p>
+								<p class="mb-0">Từ bảng điều khiển tài khoản của bạn. 
+									Bạn có thể dễ dàng kiểm tra và xem các đơn đặt hàng gần đây của mình, quản lý địa chỉ giao hàng và thanh toán cũng như chỉnh sửa chi tiết mật khẩu và tài khoản của mình.</p>
+								<br> <br>
+								<?php if($_SESSION['user']['id_chuc_vu'] === 1) : ?>
+									<style>
+										.rounded-button {
+											border-radius: 25px;
+											padding: 10px 20px;
+											background-color : #579cca;
+											color: white; /* Màu chữ trắng */
+											border: none; /* Không có viền */
+										}
+										.btn-bc{
+											border-radius: 25px;
+											background-color : #579cca;
+											color: white; /* Màu chữ trắng */
+											border: none; /* Không có viền */
+										}
+									</style>
+									<div class="action-buttons ">
+										<a href="<?= BASE_URL_ADMIN ?>" class="btn-bc"><button class="btn rounded-button btn-sm">Quản lý Admin</button></a>
+									</div>
+								<?php endif; ?>
 							</div>
 						</div>
 						<!-- Single Tab Content End -->
 
-						<!-- Single Tab Content Start -->
+						<!-- Single Tab Content Start Đơn hàng -->
 						<div class="tab-pane fade" id="orders" role="tabpanel">
 							<div class="myaccount-content">
-								<h3>Orders</h3>
-
+								<h3>Đơn hàng của tôi</h3>
 								<div class="myaccount-table table-responsive text-center">
-									<table class="table table-bordered">
-										<thead class="thead-light">
-										<tr>
-											<th>No</th>
-											<th>Name</th>
-											<th>Date</th>
-											<th>Status</th>
-											<th>Total</th>
-											<th>Action</th>
-										</tr>
-										</thead>
+									<div class="table-responsive">
+										<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+											<thead>
+												<tr>
+													<th>STT</th>
+													<th>Tên</th>
+													<th>Ngày</th>
+													<th>Tổng tiền</th>
+													<th>Trạng thái</th>
+													<th>Hành động</th>
+												</tr>
+											</thead>
 
-										<tbody>
-										<tr>
-											<td>1</td>
-											<td>Moisturizing Oil</td>
-											<td>Aug 22, 2022</td>
-											<td>Pending</td>
-											<td>$45</td>
-											<td><a href="cart.html" class="btn btn-dark btn-round">View</a></td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Katopeno Altuni</td>
-											<td>July 22, 2022</td>
-											<td>Approved</td>
-											<td>$100</td>
-											<td><a href="cart.html" class="btn btn-dark btn-round">View</a></td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Murikhete Paris</td>
-											<td>June 12, 2022</td>
-											<td>On Hold</td>
-											<td>$99</td>
-											<td><a href="cart.html" class="btn btn-dark btn-round">View</a></td>
-										</tr>
-										</tbody>
-									</table>
+											<tbody>
+												<?php foreach ($order as $key => $value): ?>
+													<tr>
+														<td>
+															<?= $key + 1 ?>
+														</td>
+														<td>
+															<?= $value['ho_va_ten'] ?>
+														</td>
+														<td>
+															<?= date('d-m-Y', strtotime($value['thoi_gian'])) ?>
+														</td>
+														<td>
+															<?= number_format($value['tong_tien'], 0, ',')  ?>
+														</td>
+
+														<td>
+															<?php
+																switch ($value['ten_trang_thai']) {
+																	case 'Chờ xác nhận':
+																		echo '<div class="badge text-bg-secondary">Chờ xác nhận</div>';
+																		break;
+																	case 'Đã xác nhận':
+																		echo '<div class="badge text-bg-dark">Đã xác nhận</div>';
+																		break;
+																	case 'Đang xử lý':
+																		echo '<div class="badge text-bg-warning">Đang xử lý</div>';
+																		break;
+																	case 'Đang vận chuyển':
+																		echo '<div class="badge text-bg-primary">Đang vận chuyển</div>';
+																		break;
+																	case 'Đã giao':
+																		echo '<div class="badge text-bg-success">Đã giao</div>';
+																		break;  
+																	case 'Đã hủy':
+																		echo '<div class="badge text-bg-danger">Đã hủy</div>';
+																		break;
+																	default:
+																		echo '<div class="badge text-bg-info">' . $value['ten_trang_thai'] . '</div>';
+																		break;
+																}
+															?>
+														</td>
+
+														<td>
+															<a href="<?= BASE_URL ?>?act=my-order&id=<?= $value['dh_id'] ?>" class="btn btn-dark rounded-button btn-sm">Chi tiết</a>
+														</td>
+													</tr>
+												<?php endforeach; ?>
+											</tbody>
+										</table>
+           				 			</div>
 								</div>
 							</div>
 						</div>
 						<!-- Single Tab Content End -->
 
-						<!-- Single Tab Content Start -->
-						<div class="tab-pane fade" id="download" role="tabpanel">
-							<div class="myaccount-content">
-								<h3>Downloads</h3>
-
-								<div class="myaccount-table table-responsive text-center">
-									<table class="table table-bordered">
-										<thead class="thead-light">
-										<tr>
-											<th>Product</th>
-											<th>Date</th>
-											<th>Expire</th>
-											<th>Download</th>
-										</tr>
-										</thead>
-
-										<tbody>
-										<tr>
-											<td>Moisturizing Oil</td>
-											<td>Aug 22, 2022</td>
-											<td>Yes</td>
-											<td><a href="#" class="btn btn-dark btn-round">Download File</a></td>
-										</tr>
-										<tr>
-											<td>Katopeno Altuni</td>
-											<td>Sep 12, 2022</td>
-											<td>Never</td>
-											<td><a href="#" class="btn btn-dark btn-round">Download File</a></td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-						<!-- Single Tab Content End -->
-
-						<!-- Single Tab Content Start -->
+						<!-- Single Tab Content Start Thanh toán-->
 						<div class="tab-pane fade" id="payment-method" role="tabpanel">
 							<div class="myaccount-content">
-								<h3>Payment Method</h3>
-
+								<h3>Thông tin thẻ thanh toán</h3>
 								<p class="saved-message">You Can't Saved Your Payment Method yet.</p>
 							</div>
 						</div>
 						<!-- Single Tab Content End -->
 
-						<!-- Single Tab Content Start -->
-						<div class="tab-pane fade" id="address-edit" role="tabpanel">
-							<div class="myaccount-content">
-								<h3>Billing Address</h3>
 
-								<address>
-									<p><strong>Alex Tuntuni</strong></p>
-									<p>1355 Market St, Suite 900 <br>
-										San Francisco, CA 94103</p>
-									<p>Mobile: (123) 456-7890</p>
-								</address>
-
-								<a href="#" class="btn btn-dark btn-round d-inline-block"><i class="fa fa-edit"></i>Edit Address</a>
-							</div>
-						</div>
-						<!-- Single Tab Content End -->
-
-						<!-- Single Tab Content Start -->
+						<!-- Single Tab Content Start Thông tin tài khoản-->
 						<div class="tab-pane fade" id="account-info" role="tabpanel">
+							<?php if (isset ($_SESSION['success'])): ?>
+								<div class="alert alert-success">
+									<?php echo$_SESSION['success']; 
+										unset($_SESSION['success']) ?>
+								</div>
+							<?php endif; ?>
+							<?php if (isset ($_SESSION['errors'])): ?>
+								<div class="alert alert-danger">
+									<ul>
+										<?php foreach ($_SESSION['errors'] as $error): ?>
+											<li>
+												<?= $error ?>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+									<?php unset($_SESSION['errors']) ?>
+								</div>
+							<?php endif; ?>
 							<div class="myaccount-content">
-								<h3>Account Details</h3>
+								<h3>Thông tin tài khoản cá nhân</h3>
+								<div class="col-lg-9 col-12 mb-40 ">
+									<h4 class="fw-bolder fs-5">Địa chỉ giao hàng</h4>
+									<div class="login-register-form-wrap">
+										<form action="" method="POST" enctype="multipart/form-data">
+											<div class="row">
+												<label for="" class="mb-2" style="margin-left : 10px">Tên người nhận</label>
+												<div class="col-md-8 col-12 mb-15"><input type="text" name="ho_va_ten" value="<?= $user['ho_va_ten'] ?>"></div>
+												<label for="" class="mb-2" style="margin-left : 10px">Địa chỉ</label>
+												<div class="col-md-8 col-12 mb-15"><input type="text" name="dia_chi" value="<?= $user['dia_chi'] ?>"></div>
+												<label for="" class="mb-2" style="margin-left : 10px">Số điện thoại</label> 
+												<div class="col-md-8 col-12 mb-15"><input type="text" name="dien_thoai_tk" value="<?= $user['dien_thoai_tk'] ?>"></div>
+											
+												<h4 class="fw-bolder fs-5">Thông tin cá nhân</h4>
 
-								<div class="account-details-form">
-									<form action="#">
-										<div class="row">
-											<div class="col-lg-6 col-12 mb-30">
-												<input id="first-name" placeholder="First Name" type="text">
+												<label for="" class="mb-2" style="margin-left : 10px">Tên tài khoản</label>
+												<div class="col-md-8 col-12 mb-15"><input type="text" name="ten_tk" value="<?= $user['ten_tk'] ?>"></div>
+												<label for="" class="mb-2" style="margin-left : 10px">Email</label>
+												<div class="col-md-8 col-12 mb-15"><input type="text" name="email_tk" value="<?= $user['email_tk'] ?>"></div>
+												<div class="col-md-6 col-12"><input type="submit" value="Lưu thay đổi"></div>
 											</div>
-
-											<div class="col-lg-6 col-12 mb-30">
-												<input id="last-name" placeholder="Last Name" type="text">
-											</div>
-
-											<div class="col-12 mb-30">
-												<input id="display-name" placeholder="Display Name" type="text">
-											</div>
-
-											<div class="col-12 mb-30">
-												<input id="email" placeholder="Email Address" type="email">
-											</div>
-
-											<div class="col-12 mb-30"><h4>Password change</h4></div>
-
-											<div class="col-12 mb-30">
-												<input id="current-pwd" placeholder="Current Password" type="password">
-											</div>
-
-											<div class="col-lg-6 col-12 mb-30">
-												<input id="new-pwd" placeholder="New Password" type="password">
-											</div>
-
-											<div class="col-lg-6 col-12 mb-30">
-												<input id="confirm-pwd" placeholder="Confirm Password" type="password">
-											</div>
-
-											<div class="col-12">
-												<button class="btn btn-dark btn-round btn-lg">Save Changes</button>
-											</div>
-
-										</div>
-									</form>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -225,7 +211,7 @@
 					</div>
 				</div>
 				<!-- My Account Tab Content End -->
-				
+			<?php endif; ?>
 			</div>
         </div>
     </div><!-- Page Section End -->

@@ -12,7 +12,7 @@ require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 
 // lấy dữ liệu ở globals
-$settings = settings();
+// $settings = settings();
 $listCate = listCategories();
 
 $act = $_GET['act'] ?? '/';
@@ -39,9 +39,9 @@ match($act){
     
     // cart 
     'cart' => showCart(),
+
     'checkSize' => checkSize(),
     'add-cart' => addToCart(),
-    'update-quantity' => updateQuantity(),
     'cart-inc' => cartInc($_GET['id_ctgh'], $_GET['id_sp'], $_GET['mau'], $_GET['size'], $_GET['quantity']),
     'cart-dec' => cartDec($_GET['id_ctgh'], $_GET['id_sp'], $_GET['mau'], $_GET['size'], $_GET['quantity']),
     'del-cart' => cartDelete($_GET['id_ctgh'], $_GET['id_sp'], $_GET['mau'], $_GET['size'], $_GET['quantity']),
@@ -49,10 +49,19 @@ match($act){
     // checkout 
     'checkout' => showCheckout(),
    
+
+    'change-order' => changeOrder($_GET['id']),
+
+
     // login register 
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
-    'my-account' => showMyAccount(),
+
+    'my-account' => showMyAccount($_GET['id']),
+    'my-order' => showMyOrder($_GET['id']),
+
+    'register' => registerAccount(),
+
 
     // contact 
     'contact' => showContact(),

@@ -129,7 +129,6 @@
                                             <span class="inc qtybtn"><i class="ti-plus"></i></span>
                                         </div>
                                     </div>
-
                                 </div>
                                 <form action="<?= BASE_URL ?>?act=add-cart" method="post">
                                     <div class="actions">
