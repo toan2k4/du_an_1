@@ -39,7 +39,7 @@
                 <tr>
                     <td>Số điện thoại</td>
                     <td>
-                        <?= $order['dien_thoai_tk'] ?>
+                        <?= $order['so_dien_thoai'] ?>
                     </td>
                 </tr>
                 <tr>

@@ -35,14 +35,14 @@ if (!function_exists('showOneOrder')) {
         try {
             $sql = "SELECT 
                         dh.id as dh_id,
-                        tk.ho_va_ten,
-                         tk.dien_thoai_tk as dien_thoai_tk,
-                         tk.email_tk as email_tk,
+                        dh.ho_va_ten,
+                        dh.so_dien_thoai as so_dien_thoai,
+                        tk.email_tk ,
                         dh.thoi_gian ,
                         dh.tong_tien ,
                         dh.thanh_toan,
                         dh.thoi_gian,
-                        tk.dia_chi,
+                        dh.dia_chi,
                         dh.id_trang_thai,
                         tt.trang_thai as ten_trang_thai
                     FROM 

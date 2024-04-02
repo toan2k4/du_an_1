@@ -87,7 +87,7 @@
                                 <li><a href="<?= BASE_URL ?>?act=list-product">Tất cả</a>
 
                                 </li>
-                                <li><a href="#">Danh mục</a>
+                                <li><a href="<?= BASE_URL ?>?act=list-product">Danh mục</a>
                                     <ul class="sub-menu">
                                         <?php foreach ($GLOBALS['listCate'] as $cate): ?>
                                             <li><a href="<?= BASE_URL ?>?act=list-product&id_danh_muc=<?= $cate['id'] ?>">

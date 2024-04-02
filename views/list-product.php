@@ -175,7 +175,7 @@
                 </div>
 
                 <div class="sidebar">
-                    <h3 class="sidebar-title">Price</h3>
+                    <h3 class="sidebar-title">Giá</h3>
                     <form action="<?= BASE_URL ?>?act=list-product" method="post">
                         <div class="sidebar-price">
                             <div id="price-range"></div>
