@@ -19,12 +19,12 @@
                     <!-- Header Shop Links Start -->
                     <div class="header-top-right">
 
-                        
+
                         <?php if (isset($_SESSION['user'])): ?>
 
                             <p class="me-2"><a href="<?= BASE_URL ?>?act=my-account">Quản lý tài khoản</a></p>
-                            <img class="img-profile rounded-circle"
-                                src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>" width="50px">
+                            <img class="img-profile rounded-circle" src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>"
+                                width="50px">
 
                         <?php else: ?>
                             <p><a href="<?= BASE_URL ?>?act=login">Đăng ký</a><a href="<?= BASE_URL ?>?act=login">Đăng
@@ -76,7 +76,14 @@
                         <div class="header-mini-cart">
                             <a href="<?= BASE_URL ?>?act=cart"><img
                                     src="<?= BASE_URL ?>/assets/user/assets/images/icons/cart.png" alt="Cart">
-                                <span>02($250)</span></a>
+                                <span>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        $cartID = getCartId($_SESSION['user']['id']);
+                                        echo count(listProductByIdCart($cartID));
+                                    }
+                                    ?>
+                                </span></a>
                         </div>
 
                     </div><!-- Header Advance Search End -->

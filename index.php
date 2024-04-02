@@ -19,7 +19,7 @@ $act = $_GET['act'] ?? '/';
 // Biến này cần khai báo được link cần đăng nhập mới vào được
 $arrRouteNeedAuth = [
     'cart',
-    'order'
+    'add-cart'
 ]; 
 
 // Kiểm tra xem user đã đăng nhập chưa
@@ -39,7 +39,16 @@ match($act){
     
     // cart 
     'cart' => showCart(),
-
+    'checkSize' => checkSize(),
+    'add-cart' => addToCart(),
+    'update-quantity' => updateQuantity(),
+    'cart-inc' => cartInc($_GET['id_ctgh'], $_GET['id_sp'], $_GET['mau'], $_GET['size'], $_GET['quantity']),
+    'cart-dec' => cartDec($_GET['id_ctgh'], $_GET['id_sp'], $_GET['mau'], $_GET['size'], $_GET['quantity']),
+    'del-cart' => cartDelete($_GET['id_ctgh'], $_GET['id_sp'], $_GET['mau'], $_GET['size'], $_GET['quantity']),
+   
+    // checkout 
+    'checkout' => showCheckout(),
+   
     // login register 
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),

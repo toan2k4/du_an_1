@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/user/assets/css/helper.css">
     
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/user/assets/css/main.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/user/assets/css/cuoi.css">
     
     <!-- Modernizer JS -->
     <script src="<?= BASE_URL ?>/assets/user/assets/js/vendor/modernizr-3.11.2.min.js"></script>
@@ -61,7 +61,9 @@
 <!-- Plugins JS -->
 <script src="<?= BASE_URL ?>/assets/user/assets/js/plugins.js"></script>
 <!-- Main JS -->
-<script src="<?= BASE_URL ?>/assets/user/assets/js/main.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script src="<?= BASE_URL ?>/assets/user/assets/js/haha.js"></script>
+
 
 </body>
 

@@ -17,8 +17,6 @@ if (!function_exists('listProductPopular')) {
                         tb_danh_gia     dg 
                     ON 
                         sp.id = dg.id_sp
-                    WHERE 
-                        so_luot_xem 
                     GROUP BY sp.id
                     ORDER BY so_luot_xem DESC 
                     LIMIT $limit";
@@ -64,8 +62,7 @@ if (!function_exists('listProductNew')) {
                         tb_danh_gia     dg 
                         ON 
                         sp.id = dg.id_sp
-                    WHERE 
-                        ngay_nhap 
+
                        GROUP BY sp.id 
                     ORDER BY ngay_nhap DESC 
                     LIMIT 3;";
@@ -96,8 +93,7 @@ if (!function_exists('listProductRating')) {
                         tb_danh_gia     dg 
                         ON 
                         sp.id = dg.id_sp
-                    WHERE 
-                        sao_dg
+
                     GROUP BY sp.id
                     ORDER BY sao_dg DESC 
                     LIMIT 8;";
