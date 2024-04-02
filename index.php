@@ -39,11 +39,13 @@ match($act){
     
     // cart 
     'cart' => showCart(),
+    'change-order' => changeOrder($_GET['id']),
 
     // login register 
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
-    'my-account' => showMyAccount(),
+    'my-account' => showMyAccount($_GET['id']),
+    'my-order' => showMyOrder($_GET['id']),
 
     // contact 
     'contact' => showContact(),

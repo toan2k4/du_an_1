@@ -8,23 +8,19 @@
                 <div class="col mt-10 mb-10 d-none d-md-flex">
                     <!-- Header Top Left Start -->
                     <div class="header-top-left">
-                        <p>Welcome to Jadusona</p>
+                        <p>Chào mừng tới Jadusona</p>
                         <p>Hotline: <a href="tel:0123456789">0123 456 789</a></p>
                     </div><!-- Header Top Left End -->
                 </div>
 
-
-
                 <div class="col mt-10 mb-10">
                     <!-- Header Shop Links Start -->
-                    <div class="header-top-right">
-
-                        
+                    <div class="header-top-right ">
                         <?php if (isset($_SESSION['user'])): ?>
 
-                            <p class="me-2"><a href="<?= BASE_URL ?>?act=my-account">Quản lý tài khoản</a></p>
+                            <p class="me-2 mt-1"><a href="<?= BASE_URL ?>?act=my-account&id=<?= $_SESSION['user']['id'] ?>">Quản lý tài khoản</a></p>
                             <img class="img-profile rounded-circle"
-                                src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>" width="50px">
+                                src="<?= BASE_URL . $_SESSION['user']['anh_tk'] ?>" width="30px" height="30px">
 
                         <?php else: ?>
                             <p><a href="<?= BASE_URL ?>?act=login">Đăng ký</a><a href="<?= BASE_URL ?>?act=login">Đăng

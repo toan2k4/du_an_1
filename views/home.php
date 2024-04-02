@@ -10,8 +10,8 @@
             <!-- Hero Content -->
             <div class="hero-content">
 
-                <h1>Get 35% off <br>Latest Baby Product</h1>
-                <a href="#">SHOP NOW</a>
+                <h1>Giảm 10% <br> Bộ sưu tập thời trang mới nhất</h1>
+                <a href="#">Xem thêm</a>
 
             </div>
 
@@ -23,8 +23,8 @@
             <!-- Hero Content -->
             <div class="hero-content">
 
-                <h1>Get 35% off <br>Latest Baby Product</h1>
-                <a href="#">SHOP NOW</a>
+                <h1>Giảm 10% <br> Bộ sưu tập thời trang mới nhất</h1>
+                <a href="#">Xem thêm</a>
 
             </div>
 
@@ -46,8 +46,8 @@
                             alt="Banner Image"></a>
 
                     <div class="content">
-                        <h1>New Arrival <br>Baby’s Shoe <br>GET 30% OFF</h1>
-                        <a href="#" data-hover="SHOP NOW">SHOP NOW</a>
+                        <h1>Giày trẻ em<br>mới về<br>Giảm giá 30%</h1>
+                        <a href="#" data-hover="SHOP NOW">Xem thêm</a>
                     </div>
 
                 </div>
@@ -59,10 +59,10 @@
                     <img src="<?= BASE_URL ?>/assets/user/assets/images/banner/banner-2.jpg" alt="Banner Image">
 
                     <div class="content bg-theme-one">
-                        <h1>New Toy’s for your Baby</h1>
+                        <h1>Đồ chơi cho trẻ em</h1>
                     </div>
 
-                    <span class="banner-offer">25% off</span>
+                    <span class="banner-offer">25% </span>
 
                 </a>
             </div>
@@ -74,8 +74,8 @@
                             alt="Banner Image"></a>
 
                     <div class="content">
-                        <h1>Trendy <br>Collections</h1>
-                        <a href="#" data-hover="SHOP NOW">SHOP NOW</a>
+                        <h1>Bộ sưu tập <br> thời trang</h1>
+                        <a href="#" data-hover="SHOP NOW">Xem thêm</a>
                     </div>
 
                 </div>
@@ -106,12 +106,11 @@
 
                             <div class="image">
                                 <img src="<?= BASE_URL . $product['sp_hinh'] ?>" alt="Image">
-
+                                
                                 <div class="image-overlay">
-                                    <!-- <div class="action-buttons">
-                                <button>add to cart</button>
-                                <button>add to wishlist</button>
-                            </div> -->
+                                    <div class="action-buttons">
+                                        <a href="<?= BASE_URL ?>?act=single-product&id=<?= $product['sp_id'] ?>"><button>Xem chi tiết</button></a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -194,12 +193,12 @@
 
                 <div class="content"
                     style="background-image: url(<?= BASE_URL ?>/assets/user/assets/images/banner/banner-3-shape.png)">
-                    <h1>New Arrivals</h1>
-                    <h2>Up to 35% off</h2>
-                    <h4>2 - 5 Years</h4>
+                    <h1>Hàng mới</h1>
+                    <h2>Giảm tới 20%</h2>
+                    <h4>2 - 5 tuổi</h4>
                 </div>
 
-                <a href="#" class="shop-link" data-hover="SHOP NOW">SHOP NOW</a>
+                <a href="#" class="shop-link" data-hover="SHOP NOW">Xem thêm</a>
 
             </div>
         </div>
@@ -212,9 +211,9 @@
 
                 <div class="content">
                     <div class="content-inner">
-                        <h1>Online Shopping</h1>
-                        <h2>Flat 25% off <br>New Trend for 2022</h2>
-                        <a href="#" data-hover="SHOP NOW">SHOP NOW</a>
+                        <h1>Mua hàng trực tuyến</h1>
+                        <h2>Giảm tới 25%<br>Nổi bật nhất 2023</h2>
+                        <a href="#" data-hover="SHOP NOW">Xem thêm</a>
                     </div>
                 </div>
 
@@ -230,11 +229,11 @@
 
                 <div class="content"
                     style="background-image: url(<?= BASE_URL ?>/assets/user/assets/images/banner/banner-5-shape.png)">
-                    <h1>Collection for <br>Baby Girl’s</h1>
-                    <h2>Flat 25% off</h2>
+                    <h1>BST dành cho<br>Bé gái</h1>
+                    <h2>Giảm tới 25%</h2>
                 </div>
 
-                <a href="#" class="shop-link" data-hover="SHOP NOW">SHOP NOW</a>
+                <a href="#" class="shop-link" data-hover="SHOP NOW">Xem thêm</a>
 
             </div>
         </div>
@@ -268,7 +267,7 @@
                                 <div class="content-top">
 
                                     <div class="content-top-left">
-                                        <h4 class="title"><a href="#">
+                                        <h4 class="title"><a href="<?= BASE_URL ?>?act=single-product&id=<?= $pro['sp_id'] ?>">
                                                 <?= $pro['sp_ten'] ?>
                                             </a></h4>
                                         <div class="ratting">
@@ -324,10 +323,10 @@
                     <?php foreach ($productsRating as $pro): ?>
                         <div class="col mb-40">
                             <div class="on-sale-product">
-                                <a href="single-product.html" class="image"><img src="<?= BASE_URL . $pro['sp_hinh'] ?>"
+                                <a href="<?= BASE_URL ?>?act=single-product&id=<?= $pro['sp_id'] ?>" class="image"><img src="<?= BASE_URL . $pro['sp_hinh'] ?>"
                                         alt="Image"></a>
                                 <div class="content text-center">
-                                    <h4 class="title"><a href="single-product.html">Skily Girld Dress</a></h4>
+                                    <h4 class="title"><a href="<?= BASE_URL ?>?act=single-product&id=<?= $pro['sp_id'] ?>"><?= $pro['sp_ten'] ?></a></h4>
                                     <?php if (!empty($pro['sp_giam_gia'])): ?>
                                         <span class="price mb-3">
                                             <?= number_format($pro['sp_giam_gia'], 0, ',') ?>
@@ -420,8 +419,8 @@
 
                 <div class="row">
                     <div class="section-title text-start col mb-30">
-                        <h1>CLIENTS REVIEW</h1>
-                        <p>Clients says abot us</p>
+                        <h1>Khách hàng đánh giá</h1>
+                        <p>Khách hàng nói về chúng tôi</p>
                     </div>
                 </div>
 
@@ -429,15 +428,13 @@
 
                     <div class="col-12 mb-40">
                         <div class="testimonial-item">
-                            <p>Jadusona is one of the most exclusive Baby shop in the wold, where you can find all
-                                product for your baby that your want to buy for your baby. I recomanded this shop all of
-                                you</p>
+                            <p>Jadusona là một trong những cửa hàng bán đồ trẻ em độc quyền nhất trên thế giới, nơi bạn có thể tìm thấy tất cả các sản phẩm dành cho bé mà bạn muốn mua cho bé. Tôi đã giới thiệu cửa hàng này cho tất cả các bạn</p>
                             <div class="testimonial-author">
-                                <img src="<?= BASE_URL ?>/assets/user/assets/images/testimonial/testimonial-1.png"
-                                    alt="Image">
+                                <img src="<?= BASE_URL ?>uploads/accounts/1711943217-428698978_917285240042699_2250207063385128103_n.jpg"
+                                    alt="Image" width ="60px" class="rounded-circle">
                                 <div class="content">
-                                    <h4>Zacquline Smith</h4>
-                                    <p>CEO, Momens Group</p>
+                                    <h4>Trangg</h4>
+                                    <p>Khách hàng</p>
                                 </div>
                             </div>
                         </div>
@@ -445,15 +442,13 @@
 
                     <div class="col-12 mb-40">
                         <div class="testimonial-item">
-                            <p>Jadusona is one of the most exclusive Baby shop in the wold, where you can find all
-                                product for your baby that your want to buy for your baby. I recomanded this shop all of
-                                you</p>
+                            <p>Jadusona là một trong những cửa hàng bán đồ trẻ em độc quyền nhất trên thế giới, nơi bạn có thể tìm thấy tất cả các sản phẩm dành cho bé mà bạn muốn mua cho bé. Tôi đã giới thiệu cửa hàng này cho tất cả các bạn</p>
                             <div class="testimonial-author">
-                                <img src="<?= BASE_URL ?>/assets/user/assets/images/testimonial/testimonial-2.png"
-                                    alt="Image">
+                                <img src="<?= BASE_URL ?>uploads/accounts/1711943217-428698978_917285240042699_2250207063385128103_n.jpg"
+                                    alt="Image" width ="60px" class="rounded-circle">
                                 <div class="content">
-                                    <h4>Nusaha Williams</h4>
-                                    <p>CEO, Momens Group</p>
+                                    <h4>Namm</h4>
+                                    <p>Khách hàng</p>
                                 </div>
                             </div>
                         </div>

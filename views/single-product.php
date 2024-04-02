@@ -95,7 +95,7 @@
 											<?php foreach ($colors as $color): ?>
 												<button style="background-color: <?= $color ?>"></button>
 											<?php endforeach; ?>
-                                            
+                             
                                         </div>
                                     </div>                            
 								
