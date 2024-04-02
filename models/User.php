@@ -41,6 +41,7 @@ if (!function_exists('getUserClientByEmailAndPassword')) {
     }
 }
 
+
 if (!function_exists('checkUniqueEmailForUpdate')) {
     function checkUniqueEmailForUpdate($tableName,$id, $email_tk)
     {

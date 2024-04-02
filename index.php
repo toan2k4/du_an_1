@@ -48,7 +48,6 @@ match($act){
     'my-account' => showMyAccount($_GET['id']),
     'my-order' => showMyOrder($_GET['id']),
 
-    'my-account' => showMyAccount(),
     'register' => registerAccount(),
 
 

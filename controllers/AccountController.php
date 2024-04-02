@@ -28,8 +28,9 @@ function showMyAccount($id)
     require_once PATH_VIEW . 'layouts/master.php';
 }
 
-function registerAccount()
-{
+
+
+function registerAccount(){
     $data = [
         'ho_va_ten' => $_POST['ho_va_ten'] ?? null,
         'ten_tk' => $_POST['ten_tk'] ?? null,
@@ -71,6 +72,7 @@ function validateRegister($data)
 
     if (empty($data['confirm_mk'])) {
         $errors[] = "Vui lòng nhập lại mật khẩu của bạn!";
+
     } else if ($data['confirm_mk'] != $data['mat_khau']) {
         $errors[] = "Mật khẩu không khớp!";
     }
