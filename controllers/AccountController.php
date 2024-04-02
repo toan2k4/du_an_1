@@ -1,10 +1,11 @@
-<?php 
+<?php
 
-function showMyAccount($id){
+function showMyAccount($id)
+{
     $views = 'my-account';
     $order = showListOrderClient($id);
     $user = showOne('tb_tai_khoan', $id);
-    if (!empty ($_POST)) {
+    if (!empty($_POST)) {
         $data = [
             'ho_va_ten' => $_POST['ho_va_ten'] ?? $user['ho_va_ten'],
             'dien_thoai_tk' => $_POST['dien_thoai_tk'] ?? $user['dien_thoai_tk'],
@@ -14,7 +15,7 @@ function showMyAccount($id){
         ];
 
         $errors = validateUserUpdate($id, $data);
-        if (!empty ($errors)) {
+        if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
         } else {
             update('tb_tai_khoan', $id, $data);
@@ -27,7 +28,8 @@ function showMyAccount($id){
     require_once PATH_VIEW . 'layouts/master.php';
 }
 
-function registerAccount(){
+function registerAccount()
+{
     $data = [
         'ho_va_ten' => $_POST['ho_va_ten'] ?? null,
         'ten_tk' => $_POST['ten_tk'] ?? null,
@@ -69,7 +71,7 @@ function validateRegister($data)
 
     if (empty($data['confirm_mk'])) {
         $errors[] = "Vui lòng nhập lại mật khẩu của bạn!";
-    }else if($data['confirm_mk'] != $data['mat_khau']){
+    } else if ($data['confirm_mk'] != $data['mat_khau']) {
         $errors[] = "Mật khẩu không khớp!";
     }
 
@@ -81,37 +83,38 @@ function validateRegister($data)
         exit();
     }
 
+
 }
 
 function validateUserUpdate($id, $data)
 {
     $errors = [];
 
-    if (empty ($data['ho_va_ten'])) {
+    if (empty($data['ho_va_ten'])) {
         $errors[] = "Trường họ và tên là bắt buộc";
     } else if (strlen($data['ho_va_ten']) > 50) {
         $errors[] = "Trường họ và tên nhỏ hơn 50 ký tự";
     }
 
-    if (empty ($data['dia_chi'])) {
+    if (empty($data['dia_chi'])) {
         $errors[] = "Trường địa chỉ là bắt buộc";
     } else if (strlen($data['dia_chi']) > 50) {
         $errors[] = "Trường địa chỉ nhỏ hơn 50 ký tự";
     }
 
-    if (empty ($data['dien_thoai_tk'])) {
+    if (empty($data['dien_thoai_tk'])) {
         $errors[] = "Trường số điện thoại là bắt buộc";
     } else if (strlen($data['dien_thoai_tk']) > 11) {
         $errors[] = "Trường số điện thoại phải đủ 10 số";
     }
 
-    if (empty ($data['ten_tk'])) {
+    if (empty($data['ten_tk'])) {
         $errors[] = "Trường tên tài khoản là bắt buộc";
     } else if (strlen($data['ten_tk']) > 50) {
         $errors[] = "Trường tên tài khoản nhỏ hơn 50 ký tự";
     }
 
-    if (empty ($data['email_tk'])) {
+    if (empty($data['email_tk'])) {
         $errors[] = "Trường email là bắt buộc";
     } else if (!filter_var($data['email_tk'], FILTER_VALIDATE_EMAIL)) {
         $errors[] = "Trường email không hợp lệ";
@@ -119,12 +122,13 @@ function validateUserUpdate($id, $data)
         $errors[] = "Trường email đã được sử dụng";
     }
 
-    
+
 
     return $errors;
 }
 
-function showMyOrder($id){
+function showMyOrder($id)
+{
     $views = 'su_account/show_order';
     $order = showListOrderClient($id);
     $order_detail = showOneOrder($id);
@@ -132,11 +136,15 @@ function showMyOrder($id){
     require_once PATH_VIEW . 'layouts/master.php';
 }
 
-function changeOrder($id){
+function changeOrder($id)
+{
     $views = 'my-account';
     update('tb_don_hang', $id, [
         'id_trang_thai' => 7
-    ]); 
+    ]);
     header("location: " . BASE_URL . "?act=my-account&id=" . $_SESSION['user']['id']);
 }
+
+
+
 
