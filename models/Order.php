@@ -72,6 +72,7 @@ if (!function_exists('showProductOrder')) {
         try {
             $sql = "SELECT 
                 tb_chi_tiet_don_hang.id, 
+                tb_chi_tiet_don_hang.id_sp, 
                 tb_chi_tiet_don_hang.id_don_hang, 
                 tb_chi_tiet_don_hang.so_luong, 
                 tb_chi_tiet_don_hang.gia_sp,
@@ -93,6 +94,8 @@ if (!function_exists('showProductOrder')) {
         }
     }
 }
+
+
 
 
 ?>

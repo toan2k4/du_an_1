@@ -1,4 +1,5 @@
 <?php 
+// list san pham noi bat - single blog
 if (!function_exists('showBestBlog')) {
     function showBestBlog($tableName)
     {
@@ -13,7 +14,7 @@ if (!function_exists('showBestBlog')) {
         }     
     }
 }
-
+// list san pham noi bat - home
 if (!function_exists('showBestBlogHome')) {
     function showBestBlogHome($tableName)
     {
@@ -28,6 +29,30 @@ if (!function_exists('showBestBlogHome')) {
         }     
     }
 }
+
+// chi tiet bai viet co the co khuyen mai
+if (!function_exists('showCodeVoucher')) {
+    function showCodeVoucher($id)
+    {
+        try {
+            $sql = "SELECT 
+                        tb_khuyen_mai.code_km, 
+                        tb_khuyen_mai.bai_viet 
+                    FROM `tb_khuyen_mai` 
+                    INNER JOIN tb_bai_viet ON tb_khuyen_mai.bai_viet = tb_bai_viet.id 
+                    WHERE tb_bai_viet.id = :id
+                    ";
+            $stmt = $GLOBALS['conn']->prepare($sql);
+            $stmt->bindParam(":id",$id);
+            $stmt -> execute();
+            return $stmt->fetch();
+            
+        } catch (\Exception $e) {
+            debug($e);
+        }
+    }
+}
+
 
 
 

@@ -61,6 +61,7 @@ match($act){
 
     'my-account' => showMyAccount($_GET['id']),
     'my-order' => showMyOrder($_GET['id']),
+    'my-evaluate' => showProOrder($_GET['id']),
 
     'register' => registerAccount(),
 
