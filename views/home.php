@@ -300,7 +300,7 @@
 
                                 <div class="content-bottom">
                                     <!-- <div class="countdown" data-countdown="2024/04/01"></div> -->
-                                    <a href="#" data-hover="SHOP NOW">Mua ngay</a>
+                                    <a href="<?= BASE_URL?>?act=single-product&id=<?= $pro['sp_id'] ?>" data-hover="SHOP NOW">Mua ngay</a>
                                 </div>
 
                             </div>

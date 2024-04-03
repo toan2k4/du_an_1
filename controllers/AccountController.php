@@ -9,7 +9,9 @@ function showMyAccount($id)
         $data = [
             'ho_va_ten' => $_POST['ho_va_ten'] ?? $user['ho_va_ten'],
             'dien_thoai_tk' => $_POST['dien_thoai_tk'] ?? $user['dien_thoai_tk'],
+            'mat_khau' => $_POST['mat_khau'] ?? $user['mat_khau'],
             'dia_chi' => $_POST['dia_chi'] ?? $user['dia_chi'],
+            'anh_tk' => $_FILES['anh_tk']['size'] > 0 ? $_FILES['anh_tk'] : $user['anh_tk'],
             'ten_tk' => $_POST['ten_tk'] ?? $user['ten_tk'],
             'email_tk' => $_POST['email_tk'] ?? $user['email_tk'],
         ];
@@ -18,7 +20,22 @@ function showMyAccount($id)
         if (!empty($errors)) {
             $_SESSION['errors'] = $errors;
         } else {
+            $avata = $data['anh_tk'];
+            if (!empty($avata) && is_array($avata) && $avata['size'] > 0) {
+
+                $data['anh_tk'] = upload_file($avata, 'uploads/accounts/');
+
+                if (
+                    !empty($avata)           // có upload
+                    && !empty($user['anh_tk']) // có giá trị
+                    && !empty($data['anh_tk']) // upload file thành công
+                    && file_exists(PATH_UPLOAD . $user['anh_tk'])
+                ) { // có tồn tại file cũ
+                    unlink(PATH_UPLOAD . $user['anh_tk']);
+                }
+            }
             update('tb_tai_khoan', $id, $data);
+            $_SESSION['user'] = showOne('tb_tai_khoan',$id);
             $_SESSION['success'] = "thao tác thành công!";
 
         }
@@ -30,7 +47,8 @@ function showMyAccount($id)
 
 
 
-function registerAccount(){
+function registerAccount()
+{
     $data = [
         'ho_va_ten' => $_POST['ho_va_ten'] ?? null,
         'ten_tk' => $_POST['ten_tk'] ?? null,
@@ -91,6 +109,11 @@ function validateRegister($data)
 function validateUserUpdate($id, $data)
 {
     $errors = [];
+    if (empty($data['ten_tk'])) {
+        $errors[] = "Trường tên tài khoản là bắt buộc";
+    } else if (strlen($data['ten_tk']) > 50) {
+        $errors[] = "Trường tên tài khoản nhỏ hơn 50 ký tự";
+    }
 
     if (empty($data['ho_va_ten'])) {
         $errors[] = "Trường họ và tên là bắt buộc";
@@ -98,6 +121,12 @@ function validateUserUpdate($id, $data)
         $errors[] = "Trường họ và tên nhỏ hơn 50 ký tự";
     }
 
+    if (empty ($data['mat_khau'])) {
+        $errors[] = "Trường mật khẩu là bắt buộc";
+    } else if (strlen($data['mat_khau']) > 50) {
+        $errors[] = "Trường mật khẩu nhỏ hơn 50 ký tự";
+    }
+    
     if (empty($data['dia_chi'])) {
         $errors[] = "Trường địa chỉ là bắt buộc";
     } else if (strlen($data['dia_chi']) > 50) {
@@ -106,14 +135,8 @@ function validateUserUpdate($id, $data)
 
     if (empty($data['dien_thoai_tk'])) {
         $errors[] = "Trường số điện thoại là bắt buộc";
-    } else if (strlen($data['dien_thoai_tk']) > 11) {
-        $errors[] = "Trường số điện thoại phải đủ 10 số";
-    }
-
-    if (empty($data['ten_tk'])) {
-        $errors[] = "Trường tên tài khoản là bắt buộc";
-    } else if (strlen($data['ten_tk']) > 50) {
-        $errors[] = "Trường tên tài khoản nhỏ hơn 50 ký tự";
+    } else if (strlen($data['dien_thoai_tk']) > 10) {
+        $errors[] = "Trường số điện thoại nhỏ hơn 10 ký tự";
     }
 
     if (empty($data['email_tk'])) {
@@ -122,6 +145,18 @@ function validateUserUpdate($id, $data)
         $errors[] = "Trường email không hợp lệ";
     } else if (!checkUniqueEmailForUpdate('tb_tai_khoan', $id, $data['email_tk'])) {
         $errors[] = "Trường email đã được sử dụng";
+    }
+
+
+    $typeImage = ['image/jpg', 'image/png', 'image/jpeg'];
+    if ($data['anh_tk'] && is_array($data['anh_tk']) && $data['anh_tk']['size'] > 0) {
+        if (empty($data['anh_tk'])) {
+            $errors[] = "Trường ảnh là bắt buộc";
+        } else if ($data['anh_tk']['size'] > 2 * 1024 * 1024) {
+            $errors[] = "file ảnh nhỏ hơn 2mb";
+        } else if (!in_array($data['anh_tk']['type'], $typeImage)) {
+            $errors[] = "file ảnh không đúng đinh danh jpg, png, jpeg";
+        }
     }
 
 

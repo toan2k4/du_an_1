@@ -3,7 +3,7 @@
 function singleProduct($id)
 {
     $views = 'single-product';
-
+    
     if (!empty($_POST)) {
         $data = [
             'noi_dung' => $_POST['noi_dung'] ?? null,
@@ -28,6 +28,9 @@ function singleProduct($id)
     }
 
     $product_one = showOneProduct('tb_san_pham', $id);
+    update('tb_san_pham', $id,[
+        'so_luot_xem' => $product_one['so_luot_xem'] + 1
+    ]);
     $hinhPhu = listAllImage('tb_hinh_anh', $id);
     $variants = listAllVariantByIdsp($id);
     $comment = listCommentForProduct($id);

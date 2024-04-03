@@ -193,13 +193,21 @@
 												<div class="col-md-8 col-12 mb-15"><input type="text" name="dia_chi" value="<?= $user['dia_chi'] ?>"></div>
 												<label for="" class="mb-2" style="margin-left : 10px">Số điện thoại</label> 
 												<div class="col-md-8 col-12 mb-15"><input type="text" name="dien_thoai_tk" value="<?= $user['dien_thoai_tk'] ?>"></div>
-											
+												<label for="" class="mb-2" style="margin-left : 10px">Ảnh đại diện</label> 
+												<div class="col-md-8 col-12 mb-15">
+													<input type="file" name="anh_tk">
+													<input type="hidden" name="anh_tk" value="<?= $_SESSION['user'] ? $_SESSION['user']['anh_tk'] : null ?>">
+													<img src="<?= BASE_URL . $user['anh_tk'] ?>" width="100">
+												</div>
+
 												<h4 class="fw-bolder fs-5">Thông tin cá nhân</h4>
 
 												<label for="" class="mb-2" style="margin-left : 10px">Tên tài khoản</label>
 												<div class="col-md-8 col-12 mb-15"><input type="text" name="ten_tk" value="<?= $user['ten_tk'] ?>"></div>
 												<label for="" class="mb-2" style="margin-left : 10px">Email</label>
 												<div class="col-md-8 col-12 mb-15"><input type="text" name="email_tk" value="<?= $user['email_tk'] ?>"></div>
+												<label for="" class="mb-2" style="margin-left : 10px">Mật khẩu</label>
+												<div class="col-md-8 col-12 mb-15"><input type="text" name="mat_khau" value="<?= $user['mat_khau'] ?>"></div>
 												<div class="col-md-6 col-12"><input type="submit" value="Lưu thay đổi"></div>
 											</div>
 										</form>
