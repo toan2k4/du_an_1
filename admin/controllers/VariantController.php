@@ -139,6 +139,8 @@ function variantUpdate($id)
             $_SESSION['variants'] = $variants;
         }
         $variant = showOne('tb_bien_the_sp', $id);
+        header('location: '. BASE_URL_ADMIN . '?act=variants&id_sp='.$data['id_sp']);
+        exit();
     }
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }

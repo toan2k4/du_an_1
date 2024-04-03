@@ -37,6 +37,12 @@
                         value="<?= isset($_SESSION['data'])?$_SESSION['data']['ten_km']:null ?>">
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Mã code</label>
+                    <input type="text" class="form-control" name="code_km" 
+                        placeholder="Nhập code khuyến mại"
+                        value="<?= isset($_SESSION['data'])?$_SESSION['data']['code_km']:null ?>">
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Nội dung khuyến mại</label>
                     <input type="text" class="form-control" name="nd_km" 
                         placeholder="Nhập nội dung khuyến mại"

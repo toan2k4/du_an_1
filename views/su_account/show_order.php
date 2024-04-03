@@ -14,11 +14,13 @@
         </div>
     </div>
 </div><!-- Page Banner Section End -->
+
 <style>
     .capitalize {
         text-transform: capitalize;
     }
 </style>
+
 <!-- Page Section Start -->
 <div class="page-section section section-padding">
     <div class="container">
@@ -50,7 +52,7 @@
                                             <ul class="list-unstyled">
                                                 <li class="fs-6 mb-2"><i class="bi bi-dot"></i> <span>Ngày đặt hàng :
                                                     </span>
-                                                    <?= date('d-m-Y', strtotime($order_detail['thoi_gian'])) ?>
+                                                    <?= date('d-m-Y & H:i:s', strtotime($order_detail['thoi_gian'])) ?>
                                                 </li>
                                                 <li class="fs-6 mb-2"><i class="bi bi-dot"></i> <span>Hình thức thanh
                                                         toán : </span>
@@ -118,9 +120,9 @@
                                                     </span>
                                                 </p>
                                                 <p>
-                                                    <span class="text-muted me-2 ">Màu :</span><span class="capitalize">
-                                                        <?= $value['mau'] ?>
-                                                    </span>
+                                                    <span class="text-muted me-2 ">Màu :</span>
+                                                    <button
+                                                        style="background-color: black;width: 20px;height: 20px;border-radius: 50%"></button>
                                                 </p>
                                                 <p>
                                                     <span class="text-muted me-2">Số lượng :</span><span>
@@ -162,11 +164,19 @@
                                             <?= number_format($total, 0, ',') ?>
                                         </span></td>
                                 </tr>
+                                <?php if ($total > $order_detail['tong_tien']): ?>
+                                    <tr class="cart-subtotal">
+                                        <th>Khuyến mại</th>
+                                        <td><span class="amount">-
+                                                <?= number_format($total - $order_detail['tong_tien'], 0, ',') ?>
+                                            </span></td>
+                                    </tr>
+                                <?php endif; ?>
                                 <tr class="order-total">
                                     <th>Tổng</th>
                                     <td>
                                         <strong><span class="amount">
-                                                <?= number_format($total, 0, ',') ?>
+                                                <?= number_format($order_detail['tong_tien'], 0, ',') ?>
                                             </span></strong>
                                     </td>
                                 </tr>

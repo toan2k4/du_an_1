@@ -29,6 +29,7 @@ function voucherCreate()
         $data = [
             'ten_km' => $_POST['ten_km'] ?? null,
             'nd_km' => $_POST['nd_km'] ?? null,
+            'code_km' => $_POST['code_km'] ?? null,
             'gia_km' => $_POST['gia_km'] ?? null,
             'so_luong' => $_POST['so_luong'] ?? null,
             'ngay_batdau' => $_POST['ngay_batdau'] ?? null,
@@ -37,7 +38,7 @@ function voucherCreate()
         ];
 
         $errors = validatevoucher($data);
-        if ($data['ngay_batdau'] < date('Y-m-d') && date('Y-m-d') < $data['ngay_ketthuc']) {
+        if ($data['ngay_batdau'] <= date('Y-m-d') && date('Y-m-d') <= $data['ngay_ketthuc']) {
             $data['trang_thai'] = 1;
 
         } else {
@@ -69,6 +70,12 @@ function validatevoucher($data)
         $errors[] = "Trường tên khuyến mại là bắt buộc";
     } else if (strlen($data['ten_km']) > 20) {
         $errors[] = "Trường tên chức vụ nhỏ hơn 20 ký tự";
+    }
+
+    if (empty ($data['code_km'])) {
+        $errors[] = "Trường code khuyến mại là bắt buộc";
+    } else if (strlen($data['code_km']) > 20) {
+        $errors[] = "Trường code khuyến mại nhỏ hơn 20 ký tự";
     }
 
     if (empty ($data['nd_km'])) {
@@ -123,6 +130,7 @@ function voucherUpdate($id)
         $data = [
             'ten_km' => $_POST['ten_km'] ?? $voucher['ten_km'],
             'nd_km' => $_POST['nd_km'] ?? $voucher['nd_km'],
+            'code_km' => $_POST['code_km'] ?? $voucher['code_km'],
             'gia_km' => $_POST['gia_km'] ?? $voucher['gia_km'],
             'so_luong' => $_POST['so_luong'] ?? $voucher['so_luong'],
             'ngay_batdau' => $_POST['ngay_batdau'] ?? $voucher['ngay_batdau'],
@@ -131,7 +139,7 @@ function voucherUpdate($id)
         ];
 
         $errors = validatevoucher($data);
-        if ($data['ngay_batdau'] < date('Y-m-d') && date('Y-m-d') < $data['ngay_ketthuc']) {
+        if ($data['ngay_batdau'] <= date('Y-m-d') && date('Y-m-d') <= $data['ngay_ketthuc']) {
             $data['trang_thai'] = 1;
 
         } else {

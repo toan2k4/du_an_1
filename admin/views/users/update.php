@@ -57,7 +57,7 @@
                 <div class="mb-3">
                     <label class="form-label">Ảnh</label>
                     <input type="file" class="form-control" name="anh_tk">
-                    <input type="hidden" name="anh_tk" value="<?= $user['mat_khau'] ?>">
+                    <input type="hidden" name="anh_tk" value="<?= $user['anh_tk'] ?>">
                     <img src="<?= BASE_URL . $user['anh_tk'] ?>" width="100">
                 </div>
                 <div class="mb-3">

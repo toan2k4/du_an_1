@@ -30,12 +30,16 @@
                     <td> <?= $voucher['ten_km']?></td>
                 </tr>
                 <tr>
+                    <td>Mã code khuyến mại</td>
+                    <td> <?= $voucher['code_km']?></td>
+                </tr>
+                <tr>
                     <td>Nội dung khuyến mại</td>
                     <td><?= $voucher['nd_km']?></td>
                 </tr>
                 <tr>
                     <td>Giá khuyến mại</td>
-                    <td><div class="badge badge-danger"><?= $voucher['gia_km']?>K</div> </td>
+                    <td><div class="badge badge-danger"><?= number_format($voucher['gia_km'])?>K</div> </td>
                 </tr>
                 <tr>
                     <td>Số lượng</td>
