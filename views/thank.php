@@ -4,7 +4,8 @@
         <!-- Checkout Form s-->
 
         <div class="row row-50 mbn-40">
-
+            <h5 style="text-align: center"><img src="<?= BASE_URL ?>uploads/Thiết kế chưa có tên.png" alt=""
+                    width="150px" style="margin-top : -50px"></h5>
             <h1 class="p-3" style="text-align: center">Cảm ơn bạn đã mua hàng bên chúng tôi!</h1>
             <div class="col-lg-7">
                 <div class="row">
@@ -14,9 +15,6 @@
                         <div class="checkout-cart-total">
 
                             <!-- <h4>Product <span>Total</span></h4> -->
-
-
-
                             <p>Họ và tên:
                                 <?= $bill['ho_va_ten'] ?>
                             </p>
@@ -38,7 +36,6 @@
                             <p>Tổng tiền:
                                 <?= number_format($bill['tong_tien']) ?>
                             </p>
-
 
                         </div>
 
@@ -91,12 +88,38 @@
                             <?php endif; ?>
 
                             <h4>Tổng cộng <span>
-                                    <?= number_format($bill['tong_tien'])?>
+                                    <?= number_format($bill['tong_tien']) ?>
                                 </span></h4>
 
                         </div>
 
                     </div>
+                </div>
+            </div>
+
+            <div style="margin-left : 50px">
+                <style>
+                    .rounded-button {
+                        border-radius: 25px;
+                        padding: 10px 20px;
+                        background-color: #579cca;
+                        color: white;
+                        /* Màu chữ trắng */
+                        border: none;
+                        /* Không có viền */
+                    }
+
+                    .btn-bc {
+                        border-radius: 25px;
+                        background-color: #579cca;
+                        color: white;
+                        /* Màu chữ trắng */
+                        border: none;
+                        /* Không có viền */
+                    }
+                </style>
+                <div class="action-buttons"> 
+                    <a href="index.php" class="btn-bc"><button class="btn rounded-button btn-sm">Tiếp tục mua sắm</button></a>
                 </div>
             </div>
 

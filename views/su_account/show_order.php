@@ -15,6 +15,12 @@
     </div>
 </div><!-- Page Banner Section End -->
 
+<style>
+    .capitalize {
+        text-transform: capitalize;
+    }
+</style>
+
 <!-- Page Section Start -->
 <div class="page-section section section-padding">
     <div class="container">
@@ -181,7 +187,11 @@
                                 <a href="<?= BASE_URL ?>?act=change-order&id=<?= $order_detail['dh_id'] ?>">Hủy đơn hàng</a>
                             </div>
                         <?php endif; ?>
-
+                        <?php if ($order_detail['ten_trang_thai'] === "Đã giao"): ?>
+                            <div class="proceed-to-checkout section mt-30">
+                                <a href="<?= BASE_URL ?>?act=my-evaluate&id=<?= $order_detail['dh_id'] ?>">Đánh giá</a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

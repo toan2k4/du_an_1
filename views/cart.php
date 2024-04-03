@@ -4,17 +4,21 @@
         <div class="row">
             <div class="page-banner-content col">
 
-                <h1>Cart</h1>
+                <h1>Giỏ hàng</h1>
                 <ul class="page-breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="index.php">Trang chủ</a></li>
+                    <li><a href="#">Giỏ hàng</a></li>
                 </ul>
 
             </div>
         </div>
     </div>
 </div><!-- Page Banner Section End -->
-
+<style>
+    .capitalize {
+        text-transform: capitalize;
+    }
+</style>
 <!-- Page Section Start -->
 <div class="page-section section section-padding">
     <div class="container">
@@ -52,7 +56,7 @@
                                             <td class="pro-price"><span class="amount">
                                                     <?= number_format($product['price']) ?>
                                                 </span></td>
-                                            <td class="pro-title">
+                                            <td class="pro-title capitalize">
                                                 <?= $product['mau'] ?>
                                             </td>
                                             <td class="pro-title">
@@ -72,7 +76,8 @@
                                             <td class="pro-subtotal">
                                                 <?= number_format($product['price'] * $product['quantity']) ?>
                                             </td>
-                                            <td class="pro-remove"><a onclick="return confirm('bạn có chắc chắn muốn xóa không?')"
+                                            <td class="pro-remove"><a
+                                                    onclick="return confirm('bạn có chắc chắn muốn xóa không?')"
                                                     href="<?= BASE_URL ?>?act=del-cart&id_ctgh=<?= $product['id_ctgh'] ?>&id_sp=<?= $product['id_sp'] ?>&mau=<?= $product['mau'] ?>&size=<?= $product['size'] ?>&quantity=<?= $product['quantity'] ?>">×</a>
                                             </td>
                                         </tr>
@@ -86,27 +91,26 @@
                 </div>
                 <div class="col-lg-8 col-md-7 col-12 mb-40">
                     <div class="cart-buttons mb-30">
-                        <input type="submit" value="Update Cart" />
-                        <a href="#">Continue Shopping</a>
+                        <a href="index.php">Quay lại trang chủ</a>
                     </div>
                     <div class="cart-coupon">
-                        <h4>Coupon</h4>
-                        <p>Enter your coupon code if you have one.</p>
+                        <h4>Mã khuyến mãi</h4>
+                        <p>Nhập mã khuyến mãi ở đây nếu bạn có.</p>
                         <div class="cuppon-form">
-                            <input type="text" placeholder="Coupon code" name="code_km" />
-                            <input type="submit" value="Apply Coupon" />
+                            <input type="text" placeholder="Mã khuyến mãi" name="code_km" />
+                            <input type="submit" value="Sử dụng" />
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-5 col-12 mb-40">
                     <div class="cart-total fix">
-                        <h3>Cart Totals</h3>
+                        <h3>Tổng thanh toán</h3>
                         <table>
                             <tbody>
                                 <tr class="cart-subtotal">
-                                    <th>Subtotal</th>
+                                    <th>Tạm tính</th>
                                     <td><span class="amount">
-                                            <?php 
+                                            <?php
                                             echo number_format($total);
                                             $_SESSION['totalPrice'] = $total;
                                             ?>
@@ -124,15 +128,17 @@
                                     </tr>
                                 <?php endif; ?>
                                 <tr class="order-total">
-                                    <th>Total</th>
+                                    <th>Tổng</th>
                                     <td>
-                                        <strong><span class="amount"><?= number_format($_SESSION['totalPrice'])?></span></strong>
+                                        <strong><span class="amount">
+                                                <?= number_format($_SESSION['totalPrice']) ?>
+                                            </span></strong>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="proceed-to-checkout section mt-30">
-                            <a href="<?= BASE_URL?>?act=checkout">Proceed to Checkout</a>
+                            <a href="<?= BASE_URL ?>?act=checkout">Mua hàng</a>
                         </div>
                     </div>
                 </div>
