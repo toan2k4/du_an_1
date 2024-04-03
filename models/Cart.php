@@ -81,3 +81,16 @@ function getOneProductOnCartDetail($id_sp, $id_gh, $mau, $size)
     $stmt->execute();
     return $stmt->fetch();
 }
+
+function deleteDetailCartByCartID($cartID){
+    try {
+        $sql = "DELETE FROM tb_chi_tiet_gh WHERE id_gio_hang=:id_gio_hang";
+
+        $stmt = $GLOBALS['conn'] -> prepare($sql);
+        $stmt->bindParam(":id_gio_hang",$cartID);
+
+        $stmt->execute();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}

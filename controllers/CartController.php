@@ -5,6 +5,7 @@ function showCart()
     // debug($_SESSION['cart']);
     $views = 'cart';
     $cartID = getCartId($_SESSION['user']['id']);
+    $_SESSION['cartID'] = $cartID;
     $products = listProductByIdCart($cartID);
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $code_km = $_POST['code_km'];
@@ -96,7 +97,7 @@ function cartInc($id_ctgh, $id_sp, $mau, $size, $quantity)
             'so_luong' => $quantity - 1
         ]);
         updateQuatityVariant($id_sp, $mau, $size, -1);
-        $_SESSION['cart'][$id_sp]['quantity'] -= 1;
+        
     }else{
         echo '<script>alert("Số lượng không đc nhỏ hơn 1")</script>';
         echo '<script>window.history.back()</script>';
@@ -115,7 +116,7 @@ function cartDec($id_ctgh, $id_sp, $mau, $size, $quantity)
             'so_luong' => $quantity + 1
         ]);
         updateQuatityVariant($id_sp, $mau, $size, 1);
-        $_SESSION['cart'][$id_sp]['quantity'] += 1;
+       
     }else{
         echo '<script>alert("Số lượng quá trong kho")</script>';
         echo '<script>window.history.back()</script>';
