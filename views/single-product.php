@@ -324,10 +324,11 @@
                                                             <?= $value['tk_ten'] ?>
                                                         </h4>
                                                         <span>
-                                                            <?= $value['bl_ngaybl'] ?>
+                                                            <?= date('d-m-Y', strtotime( $value['bl_ngaybl'])) ?>
                                                             <p>
                                                                 <?= $value['bl_nd'] ?>
                                                             </p>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </li>
@@ -361,7 +362,7 @@
                                                     <!-- <div class="col-12">
                                                         <input type="date" id="date" name="ngay_bl" readonly>
                                                     </div> -->
-                                                    <div class="col-12 mt-3"><input name="submit" value="submit"
+                                                    <div class="col-12 mt-3"><input name="submit" value="Gửi bình luận"
                                                             type="submit"></div>
                                                 </div>
                                             </form>

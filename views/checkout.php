@@ -4,10 +4,10 @@
 		<div class="row">
 			<div class="page-banner-content col">
 
-				<h1>Checkout</h1>
+				<h1>Thanh toán</h1>
 				<ul class="page-breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="checkout.html">Checkout</a></li>
+					<li><a href="index.php">Trang chủ</a></li>
+					<li><a href="#">Thanh toán</a></li>
 				</ul>
 
 			</div>
@@ -148,11 +148,9 @@
 									</p>
 								</div>
 
-
-
 							</div>
 
-							<button type="submit" class="place-order">Place order</button>
+							<button type="submit" class="place-order">Đặt hàng</button>
 
 						</div>
 

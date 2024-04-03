@@ -47,7 +47,7 @@
 
                     <div class="content">
                         <h1>Giày trẻ em<br>mới về<br>Giảm giá 30%</h1>
-                        <a href="#" data-hover="SHOP NOW">Xem thêm</a>
+                        <a href="#" data-hover="Xem thêm">Xem thêm</a>
                     </div>
 
                 </div>
@@ -75,7 +75,7 @@
 
                     <div class="content">
                         <h1>Bộ sưu tập <br> thời trang</h1>
-                        <a href="#" data-hover="SHOP NOW">Xem thêm</a>
+                        <a href="#" data-hover="Xem thêm">Xem thêm</a>
                     </div>
 
                 </div>
@@ -198,7 +198,7 @@
                     <h4>2 - 5 tuổi</h4>
                 </div>
 
-                <a href="#" class="shop-link" data-hover="SHOP NOW">Xem thêm</a>
+                <a href="#" class="shop-link" data-hover="Xem thêm">Xem thêm</a>
 
             </div>
         </div>
@@ -213,7 +213,7 @@
                     <div class="content-inner">
                         <h1>Mua hàng trực tuyến</h1>
                         <h2>Giảm tới 25%<br>Nổi bật nhất 2023</h2>
-                        <a href="#" data-hover="SHOP NOW">Xem thêm</a>
+                        <a href="#" data-hover="Xem thêm">Xem thêm</a>
                     </div>
                 </div>
 
@@ -233,7 +233,7 @@
                     <h2>Giảm tới 25%</h2>
                 </div>
 
-                <a href="#" class="shop-link" data-hover="SHOP NOW">Xem thêm</a>
+                <a href="#" class="shop-link" data-hover="Xem thêm">Xem thêm</a>
 
             </div>
         </div>
@@ -300,7 +300,7 @@
 
                                 <div class="content-bottom">
                                     <!-- <div class="countdown" data-countdown="2024/04/01"></div> -->
-                                    <a href="#" data-hover="SHOP NOW">Mua ngay</a>
+                                    <a href="#" data-hover="Xem thêm">Mua ngay</a>
                                 </div>
 
                             </div>

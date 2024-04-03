@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin</title>
     <?php
     if (isset($style) && $style) {
         require_once PATH_VIEW_ADMIN . 'styles/' . $style . '.php';

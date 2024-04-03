@@ -43,7 +43,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" readonly value="<?= $order['dien_thoai_tk'] ?>">
+                    <input type="text" class="form-control" readonly value="<?= $order['so_dien_thoai'] ?>">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
@@ -61,11 +61,11 @@
                     <label class="form-label">Phương thức thanh toán</label>
                     <input type="text" class="form-control" readonly value="<?php 
                         switch ($order['thanh_toan']) {
-                            case '1':
-                                echo 'Thanh toán khi nhận hàng';
+                            case '0':
+                                echo 'Thanh toán tiền mặt';
                                 break;
-                            case '2':
-                                echo 'Thanh toán online';
+                            case '1':
+                                echo 'Thanh toán MOMO';
                                 break;
                             
                         } ?>">

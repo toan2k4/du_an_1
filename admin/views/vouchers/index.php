@@ -48,7 +48,7 @@
                                 </td>
                               
                                 <td>
-                                <div class="badge badge-info"><?= $value['gia_km']?>K</div>
+                                <div class="badge badge-info"><?= number_format($value['gia_km']) ?> đ</div>
                                 </td>
                                
                                 <td>

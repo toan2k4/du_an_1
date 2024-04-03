@@ -71,7 +71,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Chọn danh mục</label>
-                    <select name="id_danh_muc" id="" class="form-select ">
+                    <select name="id_danh_muc" id="" class="form-select">
                         <?php foreach($categories as $value):?>
                             <option value="<?= $value['id']?>"
                             <?= isset($_SESSION['data']) && $_SESSION['data']['id_danh_muc'] ==  $value['id']? 'selected':null ?>

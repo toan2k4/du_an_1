@@ -31,48 +31,6 @@ function orderShowOneProduct($id)
 }
 
 
-// function orderCreate()
-// {
-//     $title = "Bảng thêm đơn hàng ";
-//     $view = 'orders/create';
-
-//     if (!empty ($_POST)) {
-//         $data = [
-//             'ten_km' => $_POST['ten_km'] ?? null,
-//             'nd_km' => $_POST['nd_km'] ?? null,
-//             'gia_km' => $_POST['gia_km'] ?? null,
-//             'so_luong' => $_POST['so_luong'] ?? null,
-//             'ngay_batdau' => $_POST['ngay_batdau'] ?? null,
-//             'ngay_ketthuc' => $_POST['ngay_ketthuc'] ?? null,
-//             'trang_thai' => null,
-//         ];
-
-//         $errors = validateorder($data);
-//         if ($data['ngay_batdau'] < date('Y-m-d') && date('Y-m-d') < $data['ngay_ketthuc']) {
-//             $data['trang_thai'] = 1;
-
-//         } else {
-//             $data['trang_thai'] = 0;
-//         }
-
-//         if ($data['so_luong'] - 0 == 0) {
-//             $data['trang_thai'] = 0;
-//         }
-//         if (!empty ($errors)) {
-//             $_SESSION['errors'] = $errors;
-//             $_SESSION['data'] = $data;
-//             header("location: " . BASE_URL_ADMIN . "?act=order-create");
-//             exit();
-//         }
-//         // debug($data);
-//         insert('tb_don_hang', $data);
-//         $_SESSION['success'] = "thao tác thành công";
-//         header("location: " . BASE_URL_ADMIN . "?act=orders");
-//         exit();
-//     }
-//     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
-// }
-
 function validateorder($data, $trang_thai)
 {
     $errors = [];
