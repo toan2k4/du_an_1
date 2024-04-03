@@ -48,10 +48,12 @@ match($act){
    
     // checkout 
     'checkout' => showCheckout(),
-   
-
     'change-order' => changeOrder($_GET['id']),
 
+    // order 
+    'order-purchase' => orderPurchase(),
+    'thank' => thank($_GET['id_bill']),
+    'check-order' => checkOrder($_GET['resultCode']),
 
     // login register 
     'login' => authenShowFormLogin(),

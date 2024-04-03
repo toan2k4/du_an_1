@@ -162,7 +162,7 @@
                         <div class="col-12">
                             <ul class="pro-info-tab-list section nav">
                                 <li><a class="active" href="#more-info" data-bs-toggle="tab">Mô tả sản phẩm</a></li>
-                                <li><a href="#data-sheet" data-bs-toggle="tab">Thông số kĩ thuật</a></li>
+                                <li><a href="#data-sheet" data-bs-toggle="tab">Đánh giá</a></li>
                                 <li><a href="#reviews" data-bs-toggle="tab">Bình luận</a></li>
                             </ul>
                         </div>

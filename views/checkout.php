@@ -20,7 +20,7 @@
 	<div class="container">
 
 		<!-- Checkout Form s-->
-		<form action="#" class="checkout-form">
+		<form action="<?= BASE_URL ?>?act=order-purchase" class="checkout-form" method="post">
 			<div class="row row-50 mbn-40">
 
 				<div class="col-lg-7">
@@ -28,11 +28,23 @@
 					<!-- Billing Address -->
 					<div id="billing-form" class="mb-20">
 						<h4 class="checkout-title">Địa chỉ thanh toán</h4>
-
+						<?php if (isset($_SESSION['errors'])): ?>
+							<div class="alert alert-danger">
+								<ul>
+									<?php foreach ($_SESSION['errors'] as $error): ?>
+										<li>
+											<?= $error ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+								<?php unset($_SESSION['errors']) ?>
+							</div>
+						<?php endif; ?>
 						<div class="row">
 
 							<div class="col-md-6 col-12 mb-5">
 								<label>Họ và Tên*</label>
+								<input type="hidden" name="id_tk" value="<?= $_SESSION['user']['id'] ?>">
 								<input type="text" placeholder="Nhập họ và tên" required name="ho_va_ten"
 									value="<?= $_SESSION['user']['ho_va_ten'] ?>">
 							</div>
@@ -46,7 +58,7 @@
 
 							<div class="col-12 mb-5">
 								<label>Số điện thoại*</label>
-								<input type="tel" placeholder="Nhập số điện thoại" required name="so_dien_thoai"
+								<input type="text" placeholder="Nhập số điện thoại" required name="so_dien_thoai"
 									value="<?= $_SESSION['user']['dien_thoai_tk'] ?>">
 							</div>
 
@@ -75,28 +87,42 @@
 								<h4>Sản phẩm <span>Tổng</span></h4>
 
 								<ul>
-									<?php 
+									<?php
 									$total = 0;
-									foreach($products as $pro):
-									$total += $pro['price'] * $pro['quantity'];
-									?>
-									<div class="mb-3">
-										<li class="mb-0">
-											<?= $pro['ten_sp']?> x <small class="fw-semibold fs-6"><?= $pro['quantity']?></small>
-											<span> <?= number_format($pro['price'] * $pro['quantity']) ?></span>
-										</li>
-										<small>Màu: <?= $pro['mau']?></small> - 
-										<small>Size: <?= $pro['size']?></small>
-									</div>
-									<?php endforeach;?>
+									foreach ($products as $pro):
+										$total += $pro['price'] * $pro['quantity'];
+										?>
+										<div class="mb-3">
+											<li class="mb-0">
+												<?= $pro['ten_sp'] ?> x <small class="fw-semibold fs-6">
+													<?= $pro['quantity'] ?>
+												</small>
+												<span>
+													<?= number_format($pro['price'] * $pro['quantity']) ?>
+												</span>
+											</li>
+											<small>Màu:
+												<?= $pro['mau'] ?>
+											</small> -
+											<small>Size:
+												<?= $pro['size'] ?>
+											</small>
+										</div>
+									<?php endforeach; ?>
 								</ul>
 
-								<p>Tổng phụ <span><?= number_format($total) ?></span></p>
+								<p>Tổng phụ <span>
+										<?= number_format($total) ?>
+									</span></p>
 								<?php if (isset($_SESSION['voucher'])): ?>
-									<p>Khuyến mại <span>-<?= number_format($_SESSION['voucher'])?></span></p>
-                                <?php endif; ?>
+									<p>Khuyến mại <span>-
+											<?= number_format($_SESSION['voucher']) ?>
+										</span></p>
+								<?php endif; ?>
 
-								<h4>Tổng cộng <span><?= $_SESSION['totalPrice']?></span></h4>
+								<h4>Tổng cộng <span>
+										<?= $_SESSION['totalPrice'] ?>
+									</span></h4>
 
 							</div>
 
@@ -110,22 +136,23 @@
 							<div class="checkout-payment-method">
 
 								<div class="single-method">
-									<input type="radio" id="payment_check" name="payment-method" value="check">
+									<input type="radio" id="payment_check" name="thanh_toan" value="0">
 									<label for="payment_check">Thanh toán tiền mặt</label>
 									<p data-method="check">Thanh toán bằng tiền mặt khi nhận hàng</p>
 								</div>
 
 								<div class="single-method">
-									<input type="radio" id="payment_bank" name="payment-method" value="bank">
+									<input type="radio" id="payment_bank" name="thanh_toan" value="payUrl">
 									<label for="payment_bank">Thanh toán bằng chuyển khoản</label>
-									<p data-method="bank"><img src="assets/user/assets/images/momo.jpg" width="100px"></p>
+									<p data-method="bank"><img src="assets/user/assets/images/momo.jpg" width="100px">
+									</p>
 								</div>
 
-								
+
 
 							</div>
 
-							<button class="place-order">Place order</button>
+							<button type="submit" class="place-order">Place order</button>
 
 						</div>
 
