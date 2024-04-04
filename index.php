@@ -58,6 +58,7 @@ match($act){
     // login register 
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
+    'quenmk' => showForgotPassword(),
 
     'my-account' => showMyAccount($_GET['id']),
     'my-order' => showMyOrder($_GET['id']),

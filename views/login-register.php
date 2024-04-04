@@ -1,5 +1,5 @@
 <!-- Page Banner Section Start -->
-<div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
+<div class="page-banner-section section" style="background-image: url(<?= BASE_URL ?>/assets/user/assets/images/hero/hero-1.jpg)">
     <div class="container">
         <div class="row">
             <div class="page-banner-content col">
@@ -31,6 +31,7 @@
                             <div class="col-12"><input type="submit" value="Login"></div>
                         </div>
                     </form>
+                    <a href="?act=quenmk" class="border-bottom">Quên mật khẩu</a><hr/>
                     <h4>You can also login with...</h4>
                     <div class="social-login">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -98,11 +99,11 @@
             <div class="brand-slider">
 
                 <div class="brand-item col">
-                    <img src="assets/images/brands/brand-1.png" alt="">
+                    <img src="<?= BASE_URL ?>/assets/user/assets/images/brands/brand-1.png" alt="">
                 </div>
 
                 <div class="brand-item col">
-                    <img src="assets/images/brands/brand-2.png" alt="">
+                    <img src="<?= BASE_URL ?>/assets/user/assets/images/brands/brand-2.png" alt="">
                 </div>
 
                 <div class="brand-item col">
@@ -110,15 +111,15 @@
                 </div>
 
                 <div class="brand-item col">
-                    <img src="assets/images/brands/brand-4.png" alt="">
+                    <img src="<?= BASE_URL ?>/assets/user/assets/images/brands/brand-4.png" alt="">
                 </div>
 
                 <div class="brand-item col">
-                    <img src="assets/images/brands/brand-5.png" alt="">
+                    <img src="<?= BASE_URL ?>/assets/user/assets/images/brands/brand-5.png" alt="">
                 </div>
 
                 <div class="brand-item col">
-                    <img src="assets/images/brands/brand-6.png" alt="">
+                    <img src="<?= BASE_URL ?>/assets/user/assets/images/brands/brand-6.png" alt="">
                 </div>
 
             </div>
