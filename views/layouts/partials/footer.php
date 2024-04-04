@@ -33,7 +33,7 @@
 
             <div class="footer-widget col-lg-3 col-md-6 col-12 mb-40">
                 <h4 class="title">BẢN TIN</h4>
-                <p>Đăng ký bản tin của chúng tôi và nhận được tất cả các cập nhật về sản phẩm của chúng tôi.</p>
+                <p><?= $GLOBALS['settings']['bantin'] ?? null ?></p>
 
                 <form id="mc-form" class="mc-form footer-subscribe-form">
                     <input id="mc-email" autocomplete="off" placeholder="Nhập Email" name="EMAIL"
@@ -47,8 +47,8 @@
                     <div class="mailchimp-error"></div><!-- mailchimp-error end -->
                 </div><!-- mailchimp-alerts end -->
 
-                <h5>tHEO DÕI CHÚNG TÔI</h5>
-                <p class="footer-social"><a href="#">Facebook</a> - <a href="#">Twitter</a> - <a href="#">Google+</a>
+                <h5>THEO DÕI CHÚNG TÔI</h5>
+                <p class="footer-social"><a href="<?= $GLOBALS['settings']['Facebook'] ?? null ?>">Facebook</a> - <a href="#">Twitter</a> - <a href="#">Google+</a>
                 </p>
 
             </div>

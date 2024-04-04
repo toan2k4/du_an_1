@@ -154,7 +154,7 @@
 						<div class="tab-pane fade" id="payment-method" role="tabpanel">
 							<div class="myaccount-content">
 								<h3>Thông tin thẻ thanh toán</h3>
-								<p class="saved-message">You Can't Saved Your Payment Method yet.</p>
+								<p class="saved-message">Bạn chưa thể lưu phương thức thanh toán của mình.</p>
 							</div>
 						</div>
 						<!-- Single Tab Content End -->

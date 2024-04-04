@@ -1,13 +1,13 @@
 <!-- Page Banner Section Start -->
-<div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
+<div class="page-banner-section section" style="background-image: url(<?= BASE_URL ?>/assets/user/assets/images/hero/hero-1.jpg)">
     <div class="container">
         <div class="row">
             <div class="page-banner-content col">
 
-                <h1>Contact us</h1>
+                <h1>Liên hệ với chúng tôi</h1>
                 <ul class="page-breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
                 </ul>
 
             </div>
@@ -21,13 +21,12 @@
         <div class="row row-30 mbn-40">
 
             <div class="contact-info-wrap col-md-6 col-12 mb-40">
-                <h3>Get in Touch</h3>
-                <p>Jadusona is the best theme for elit, sed do eiusmod tempor dolor sit ame tse ctetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam,</p>
+                <h3>Liên lạc</h3>
+                <p>Jadusona là thương hiệu tiên phong trong lĩnh vực nghiên cứu chất liệu an toàn, cao cấp dành cho trẻ sơ sinh và trẻ nhỏ. Chúng tôi tự tin mang tới những sản phẩm cao cấp chuẩn quốc tế - đồng hành cùng ba mẹ trong hành trình nuôi con khôn lớn</p>
                 <ul class="contact-info">
                     <li>
                         <i class="fa fa-map-marker"></i>
-                        <p>256, 1st AVE, You address <br>will be here</p>
+                        <p>Phố Trịnh Văn Bô<br>Hà Nội</br></p>
                     </li>
                     <li>
                         <i class="fa fa-phone"></i>
@@ -35,13 +34,13 @@
                     </li>
                     <li>
                         <i class="fa fa-globe"></i>
-                        <p><a href="#">info@example.com</a><a href="#">www.example.com</a></p>
+                        <p><a href="#">hanghttph44322@fpt.edu.vn</a><a href="#">www.example.com</a></p>
                     </li>
                 </ul>
             </div>
 
             <div class="contact-form-wrap col-md-6 col-12 mb-40">
-                <h3>Leave a Message</h3>
+                <h3>Để lại lời nhắn</h3>
                 <?php if (isset($_SESSION['success'])) {
                     echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
                 }
@@ -62,12 +61,12 @@
                 <form action="" method="post">
                     <div class="contact-form">
                         <div class="row">
-                            <div class="col-lg-6 col-12 mb-30"><input type="text" name="ten" placeholder="Your Name">
+                            <div class="col-lg-6 col-12 mb-30"><input type="text" name="ten" placeholder="Tên của bạn">
                             </div>
                             <div class="col-lg-6 col-12 mb-30"><input type="email" name="email"
-                                    placeholder="Email Address"></div>
-                            <div class="col-12 mb-30"><textarea name="noi_dung" placeholder="Message"></textarea></div>
-                            <div class="col-12"><input type="submit" value="send"></div>
+                                    placeholder="Email"></div>
+                            <div class="col-12 mb-30"><textarea name="noi_dung" placeholder="Lời nhắn"></textarea></div>
+                            <div class="col-12"><input type="submit" value="Gửi"></div>
                         </div>
                     </div>
                 </form>
