@@ -12,7 +12,7 @@ require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 
 // lấy dữ liệu ở globals
-// $settings = settings();
+$settings = settings();
 $listCate = listCategories();
 
 $act = $_GET['act'] ?? '/';

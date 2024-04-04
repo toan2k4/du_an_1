@@ -7,7 +7,7 @@
                 <h1>Trang danh sách sản phẩm</h1>
                 <ul class="page-breadcrumb">
                     <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="shop-left-sidebar.html"> danh sách sản phẩm</a></li>
+                    <li><a href="shop-left-sidebar.html"> Danh sách sản phẩm</a></li>
                 </ul>
 
             </div>
@@ -137,7 +137,7 @@
 
 
                 <div class="sidebar">
-                    <h4 class="sidebar-title">Popular Product</h4>
+                    <h4 class="sidebar-title">Sản phẩm phổ biến</h4>
                     <div class="sidebar-product-wrap">
                         <?php foreach ($productsPopular as $pro): ?>
                             <div class="sidebar-product">

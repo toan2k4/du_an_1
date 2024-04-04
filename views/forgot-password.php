@@ -12,8 +12,8 @@
               <div class="panel-body">
                 <div class="text-center">
                   <h3><i class="fa fa-lock fa-4x"></i></h3>
-                  <h2 class="text-center">Forgot Password?</h2>
-                  <p>You can reset your password here.</p>
+                  <h2 class="text-center">Quên mật khẩu ?</h2>
+                  <p>Bạn có thể thiết lập lại mật khẩu của bạn ở đây.</p>
                   <div class="panel-body">
     
                     <form id="register-form" role="form" action="?act=quenmk" autocomplete="off" class="form" method="post">
@@ -21,11 +21,11 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                          <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                          <input id="email" name="email" placeholder="Email" class="form-control"  type="email">
                         </div>
                       </div>
                       <div class="form-group">
-                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Đặt lại mật khẩu" type="submit">
                       </div>
                       <?php if(isset($sendMailMess)){
                             if($sendMailMess == '0'){
