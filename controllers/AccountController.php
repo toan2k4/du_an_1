@@ -35,7 +35,7 @@ function showMyAccount($id)
                 }
             }
             update('tb_tai_khoan', $id, $data);
-            $_SESSION['user'] = showOne('tb_tai_khoan',$id);
+            $_SESSION['user'] = showOne('tb_tai_khoan', $id);
             $_SESSION['success'] = "thao tác thành công!";
 
         }
@@ -121,12 +121,12 @@ function validateUserUpdate($id, $data)
         $errors[] = "Trường họ và tên nhỏ hơn 50 ký tự";
     }
 
-    if (empty ($data['mat_khau'])) {
+    if (empty($data['mat_khau'])) {
         $errors[] = "Trường mật khẩu là bắt buộc";
     } else if (strlen($data['mat_khau']) > 50) {
         $errors[] = "Trường mật khẩu nhỏ hơn 50 ký tự";
     }
-    
+
     if (empty($data['dia_chi'])) {
         $errors[] = "Trường địa chỉ là bắt buộc";
     } else if (strlen($data['dia_chi']) > 50) {
@@ -183,6 +183,8 @@ function changeOrder($id)
 }
 
 
+<<<<<<< HEAD
+=======
 function showForgotPassword()
 {
     $views = 'forgot-password';
@@ -192,4 +194,5 @@ function showForgotPassword()
     }
     require_once PATH_VIEW . 'layouts/master.php';
 }
+>>>>>>> 8e06a2519f44765f8d2acaec7199172a44d1a42d
 

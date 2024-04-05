@@ -31,6 +31,7 @@ match ($act) {
     'user-detail' => userShowOne($_GET['id']),
     'user-create' => userCreate(),
     'user-update' => userUpdate($_GET['id']),
+    'user-delete' => userDelete($_GET['id']),
 
     // product
     'products' => productListAll(),

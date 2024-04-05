@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (!function_exists('getUserClientByEmailAndPassword')) {
     function getUserClientByEmailAndPassword($email_tk, $mat_khau)
@@ -43,7 +43,7 @@ if (!function_exists('getUserClientByEmailAndPassword')) {
 
 
 if (!function_exists('checkUniqueEmailForUpdate')) {
-    function checkUniqueEmailForUpdate($tableName,$id, $email_tk)
+    function checkUniqueEmailForUpdate($tableName, $id, $email_tk)
     {
         try {
             $sql = "SELECT * FROM $tableName WHERE email_tk=:email_tk AND id <>:id LIMIT 1";
@@ -136,3 +136,4 @@ function sendMail($email_tk)
         return "1";
     }
 }
+

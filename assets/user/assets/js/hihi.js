@@ -444,14 +444,14 @@
     ------------------------*/
     var min = Number($('#min').val());
     var max = Number($('#max').val());
-    $('#getprice-amount1').val(min + min * 1 / 2);
-    $('#getprice-amount2').val(max - max * 1 / 2);
-    // console.log(min, max);
+    $('#getprice-amount1').val(min);
+    $('#getprice-amount2').val(max);
+    console.log(min, max);
     $('#price-range').slider({
         range: true,
         min: min,
         max: max,
-        values: [min + min * 1 / 2, max - max * 1 / 2],
+        values: [min, max ],
         slide: function (event, ui) {
             $('#price-amount').val('$' + ui.values[0] + '  -  $' + ui.values[1]);
             $('#getprice-amount1').val(ui.values[0]);
@@ -480,7 +480,6 @@
             }
         }
         $button.parent().find('input').val(newVal);
-        $('#quantity').val(newVal);
     });
 
     /*----- 
