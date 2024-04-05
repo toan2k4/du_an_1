@@ -148,6 +148,15 @@
 						</div>
 						<!-- Single Tab Content End -->
 
+						<!-- Single Tab Content Start Thanh toán-->
+						<div class="tab-pane fade" id="payment-method" role="tabpanel">
+							<div class="myaccount-content">
+								<h3>Thông tin thẻ thanh toán</h3>
+								<p class="saved-message">Bạn chưa thể lưu phương thức thanh toán của mình.</p>
+							</div>
+						</div>
+						<!-- Single Tab Content End -->
+
 
 						<!-- Single Tab Content Start Thông tin tài khoản-->
 						<div class="tab-pane fade" id="account-info" role="tabpanel">

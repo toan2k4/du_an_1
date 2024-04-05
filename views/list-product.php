@@ -7,7 +7,7 @@
                 <h1>Trang danh sách sản phẩm</h1>
                 <ul class="page-breadcrumb">
                     <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="shop-left-sidebar.html"> danh sách sản phẩm</a></li>
+                    <li><a href="shop-left-sidebar.html"> Danh sách sản phẩm</a></li>
                 </ul>
 
             </div>
@@ -147,7 +147,6 @@
                             <input type="text" id="price-amount" readonly>
                             <input type="hidden" id="min" value="<?= $price['min'] ?>">
                             <input type="hidden" id="max" value="<?= $price['max'] ?>">
-
                             <input type="hidden" id="getprice-amount1" name="priceMin">
                             <input type="hidden" id="getprice-amount2" name="priceMax">
                         </div>

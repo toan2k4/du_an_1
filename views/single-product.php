@@ -96,7 +96,7 @@
                             ?>
                             <div class="quantity-colors d-flex flex-column">
                                 <div class="colors">
-                                    <h5>Color:</h5>
+                                    <h5>Màu:</h5>
                                     <div class="color-options">
                                         <?php foreach ($colors as $key => $color): ?>
                                             <button class="color-detail m-1" data-name="<?= $nameColor[$key] ?>"
@@ -122,7 +122,7 @@
                                 <div class="quantity-colors">
 
                                     <div class="quantity">
-                                        <h5>Số lương :</h5>
+                                        <h5>Số lượng:</h5>
                                         <div class="pro-qty">
                                             <span class="dec qtybtn"><i class="ti-minus"></i></span>
                                             <p class="my-1 text-center">1</p>
@@ -145,7 +145,7 @@
                                 <div class="share">
 
                                     <h5>Share: </h5>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="<?= $GLOBALS['settings']['Facebook'] ?? null ?>"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                     <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -174,7 +174,7 @@
                                 </p>
                             </div>
                             <div class="pro-info-tab tab-pane" id="data-sheet">
-                                <h2>Reviews</h2>
+                                <h2>Đánh giá</h2>
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-8">

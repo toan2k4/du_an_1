@@ -53,7 +53,7 @@
                             <div class="post-share col-lg-6 col-12 mv-15">
                                 <h4>Share:</h4>
                                 <ul class="share">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="<?= $GLOBALS['settings']['Facebook'] ?? null ?>"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>

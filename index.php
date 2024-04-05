@@ -12,7 +12,7 @@ require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 
 // lấy dữ liệu ở globals
-// $settings = settings();
+$settings = settings();
 $listCate = listCategories();
 
 $act = $_GET['act'] ?? '/';
@@ -59,6 +59,7 @@ match($act){
     // login register 
     'login' => authenShowFormLogin(),
     'logout' => authenLogout(),
+    'quenmk' => showForgotPassword(),
 
     'my-account' => showMyAccount($_GET['id']),
     'my-order' => showMyOrder($_GET['id']),
