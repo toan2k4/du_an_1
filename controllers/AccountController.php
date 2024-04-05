@@ -183,13 +183,4 @@ function changeOrder($id)
 }
 
 
-function showForgotPassword()
-{
-    $views = 'forgot-password';
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $email = $_POST['email'];
-        $sendMailMess = sendMail($email);
-    }
-    require_once PATH_VIEW . 'layouts/master.php';
-}
 
