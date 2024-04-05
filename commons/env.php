@@ -11,13 +11,13 @@ define('PATH_UPLOAD', __DIR__ . '/../');
 
 
 
-define('BASE_URL', 'http://localhost:8080/N4_duan1/du_an_1/');
-define('BASE_URL_ADMIN', 'http://localhost:8080/N4_duan1/du_an_1/admin/');
+define('BASE_URL', 'http://localhost:81/DA1/duan1-lai/');
+define('BASE_URL_ADMIN', 'http://localhost:81/DA1/duan1-lai/admin/');
 
 
 
 define('DB_HOST', 'localhost');
 define('DB_PORT', '3306');
-define('DB_NAME', 'du_an_1');
+define('DB_NAME', 'du_an_1(2)');
 define('DB_PASSWORD', '');
 define('DB_USERNAME', 'root');

@@ -183,8 +183,7 @@ function changeOrder($id)
 }
 
 
-<<<<<<< HEAD
-=======
+
 function showForgotPassword()
 {
     $views = 'forgot-password';
@@ -194,5 +193,5 @@ function showForgotPassword()
     }
     require_once PATH_VIEW . 'layouts/master.php';
 }
->>>>>>> 8e06a2519f44765f8d2acaec7199172a44d1a42d
+
 

@@ -285,8 +285,10 @@ function thank($idBill)
 
 function checkOrder($resultCode)
 {
+
     if ($resultCode == 0) {
         $products = listProductByIdCart($_SESSION['cartID']);
+        $_SESSION['order']['ma_dh'] = $_GET['orderId'];
         $idBill = insert_get_last_id('tb_don_hang', $_SESSION['order']);
 
         foreach ($products as $item) {
@@ -320,9 +322,11 @@ function checkOrder($resultCode)
 
 function checkOrderVnPay()
 {
+    // debug($_GET['vnp_TxnRef']);
     if (isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == '00') {
         // debug(1);
         $products = listProductByIdCart($_SESSION['cartID']);
+        $_SESSION['order']['ma_dh'] = $_GET['vnp_TxnRef'];
         $idBill = insert_get_last_id('tb_don_hang', $_SESSION['order']);
 
         foreach ($products as $item) {

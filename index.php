@@ -82,7 +82,7 @@ match($act){
 
 // test momo:
 // NGUYEN VAN A
-// HAPPYBIRTHDAYMYBRAND100
+// 9704 0000 0000 0018
 // 03/07
 // OTP
 
