@@ -28,7 +28,10 @@
                             <div class="col-12 mb-15"><input type="text" placeholder=" Email" name="email"></div>
                             <div class="col-12 mb-15"><input type="password" placeholder="Password" name="password">
                             </div>
-                            <div class="col-12"><input type="submit" value="Login"></div>
+                            <div class="col-12 d-flex justify-content-between align-items-center">
+                                <input type="submit" value="Login">
+                                <a href="?act=quenmk">Quên mật khẩu ?</a>
+                            </div>
                         </div>
                     </form>
                     <h4>You can also login with...</h4>

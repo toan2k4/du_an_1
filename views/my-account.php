@@ -27,9 +27,7 @@
 							Bảng điều khiển</a>
 
 						<a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Đơn hàng</a>
-
-						<a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i>Phương thức thanh toán</a>
-
+						
 						<a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i>Thông tin tài khoản</a>
 
 						<a href="<?= BASE_URL?>?act=logout"><i class="fa fa-sign-out"></i>Đăng xuất</a>
@@ -146,15 +144,6 @@
 										</table>
            				 			</div>
 								</div>
-							</div>
-						</div>
-						<!-- Single Tab Content End -->
-
-						<!-- Single Tab Content Start Thanh toán-->
-						<div class="tab-pane fade" id="payment-method" role="tabpanel">
-							<div class="myaccount-content">
-								<h3>Thông tin thẻ thanh toán</h3>
-								<p class="saved-message">You Can't Saved Your Payment Method yet.</p>
 							</div>
 						</div>
 						<!-- Single Tab Content End -->

@@ -444,8 +444,8 @@
     ------------------------*/
     var min = Number($('#min').val());
     var max = Number($('#max').val());
-    $('#getprice-amount1').val(min + min * 1 / 2);
-    $('#getprice-amount2').val(max - max * 1 / 2);
+    $('#getprice-amount1').val(min);
+    $('#getprice-amount2').val(max);
     console.log(min, max);
     $('#price-range').slider({
         range: true,

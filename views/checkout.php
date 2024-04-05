@@ -121,6 +121,7 @@
 								<?php endif; ?>
 
 								<h4>Tổng cộng <span>
+									
 										<?= $_SESSION['totalPrice'] ?>
 									</span></h4>
 
@@ -143,11 +144,16 @@
 
 								<div class="single-method">
 									<input type="radio" id="payment_bank" name="thanh_toan" value="payUrl">
-									<label for="payment_bank">Thanh toán bằng chuyển khoản</label>
+									<label for="payment_bank">Thanh toán chuyển khoản bằng MoMo</label>
 									<p data-method="bank"><img src="assets/user/assets/images/momo.jpg" width="100px">
 									</p>
 								</div>
-
+								<div class="single-method">
+									<input type="radio" id="payment_banks" name="thanh_toan" value="redirect">
+									<label for="payment_banks">Thanh toán chuyển khoản bằng VnPay</label>
+									<p data-method="bank"><img src="assets/user/assets/images/vnpay.jpg" width="100px">
+									</p>
+								</div>
 							</div>
 
 							<button type="submit" class="place-order">Đặt hàng</button>
