@@ -83,7 +83,7 @@ function orderUpdateStatus($id)
             $_SESSION['errors'] = $errors;
         } else {
             update('tb_don_hang', $id, $data);
-            $_SESSION['success'] = "thao tác thành công";
+            $_SESSION['success'] = "Thao tác thành công";
         }
         header("location: " . BASE_URL_ADMIN . "?act=order-update&id=$id");
         exit();
@@ -104,7 +104,7 @@ function orderDelete($id)
             delete2('tb_chi_tiet_don_hang', $order['id']);
         }
     }
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=orders");
     exit();
 }

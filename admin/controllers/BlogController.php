@@ -78,14 +78,14 @@ function validateBlog($data)
     }
 
     
-    $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
+    $typeImage = ['image/png', 'image/jpg', 'image/jpeg', 'image/webp'];
     if ($data['img_blog'] && $data['img_blog']['size'] > 0) {
         if (empty ($data['img_blog'])) {
             $errors[] = "Trường ảnh là bắt buộc";
         } else if ($data['img_blog']['size'] > 2 * 1024 * 1024) {
             $errors[] = "file ảnh nhỏ hơn 2mb";
         } else if (!in_array($data['img_blog']['type'], $typeImage)) {
-            $errors[] = "file ảnh không đúng đinh danh jpg, png, jpeg";
+            $errors[] = "file ảnh không đúng đinh danh jpg, png, jpeg, webp";
         }
     }
     return $errors;

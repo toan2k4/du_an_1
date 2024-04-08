@@ -73,6 +73,7 @@ if (!function_exists('showProductOrder')) {
             sp.ten_sp,
             sp.hinh_sp,
             $tableName.so_luong,
+            $tableName.id_sp,
             mau,
             size,
             thanh_tien

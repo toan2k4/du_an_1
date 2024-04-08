@@ -72,7 +72,7 @@ function productCreate()
         }
 
 
-        $_SESSION['success'] = "thao tác thành công!";
+        $_SESSION['success'] = "Thao tác thành công!";
 
         header("location: " . BASE_URL_ADMIN . "?act=products");
         exit();
@@ -112,12 +112,12 @@ function validateproduct($data, $dataImg)
         }
     }
 
-    $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
+    $typeImage = ['image/png', 'image/jpg', 'image/jpeg', 'image/webp'];
     if ($data['hinh_sp'] && $data['hinh_sp']['size'] > 0) {
         if ($data['hinh_sp']['size'] > 2 * 1024 * 1024) {
             $errors[] = "file ảnh sản phẩm nhỏ hơn 2mb";
         } else if (!in_array($data['hinh_sp']['type'], $typeImage)) {
-            $errors[] = "file ảnh sản phẩm không đúng đinh danh jpg, png, jpeg";
+            $errors[] = "file ảnh sản phẩm không đúng đinh danh jpg, png, jpeg, webp";
         }
 
     } else {
@@ -141,7 +141,7 @@ function validateproduct($data, $dataImg)
 
     foreach ($dataImg['anh_phu']['type'] as $i => $value) {
         if (!in_array($value, $typeImage) && $check) {
-            $errors[] = 'file ảnh phụ ' . $i + 1 . ' không đúng đinh danh jpg, png, jpeg';
+            $errors[] = 'file ảnh phụ ' . $i + 1 . ' không đúng đinh danh jpg, png, jpeg, webp';
         }
     }
 
@@ -237,7 +237,7 @@ function productUpdate($id)
             }
 
             update('tb_san_pham', $id, $dataPro);
-            $_SESSION['success'] = "thao tác thành công!";
+            $_SESSION['success'] = "Thao tác thành công!";
 
         }
         header("location: " . BASE_URL_ADMIN . "?act=product-update&id=" . $id);
@@ -280,13 +280,13 @@ function validateProductUpdate($data, $dataImg)
         $errors[] = "Trường số lượng sản phẩm phải lớn hơn 0";
     }
 
-    $typeImage = ['image/png', 'image/jpg', 'image/jpeg'];
+    $typeImage = ['image/png', 'image/jpg', 'image/jpeg', 'image/webp'];
     if (isset($data['hinh_sp']['size'])) {
         if ($data['hinh_sp'] && $data['hinh_sp']['size'] > 0) {
             if ($data['hinh_sp']['size'] > 2 * 1024 * 1024) {
                 $errors[] = "file ảnh sản phẩm nhỏ hơn 2mb";
             } else if (!in_array($data['hinh_sp']['type'], $typeImage)) {
-                $errors[] = "file ảnh sản phẩm không đúng đinh danh jpg, png, jpeg";
+                $errors[] = "file ảnh sản phẩm không đúng đinh danh jpg, png, jpeg, webp";
             }
 
         }
@@ -350,7 +350,7 @@ function productDelete($id)
         deleteAllImgPhu('tb_hinh_anh', $id);
     }
 
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=products");
     exit();
 }

@@ -19,7 +19,24 @@
     .capitalize {
         text-transform: capitalize;
     }
+
+    .btn-evaluate {
+        width: 118px;
+        height: 40px;
+        color: white;
+        background-color: #1f1f1f;
+        text-align: center;
+        padding-top: 9px;
+    }
+
+    .btn-evaluate:hover {
+        width: 118px;
+        height: 40px;
+        color: white;
+        background-color: #ff718b;
+    }
 </style>
+
 
 <!-- Page Section Start -->
 <div class="page-section section section-padding">
@@ -104,13 +121,13 @@
                                     <?php foreach ($order_product as $key => $value): ?>
                                         <div class="row my-2 mx-1 justify-content-center d-flex "
                                             style="align-items: center;">
-                                            <div class="col-md-2 mb-4 mb-md-0 mt-3">
-                                                <div class="rounded-5 mb-4 overflow-hidden " data-ripple-color="light">
+                                            <div class="col-md-2 mt-3">
+                                                <div class="overflow-hidden " data-ripple-color="light">
                                                     <img src="<?= BASE_URL . $value['hinh_sp'] ?>" class="w-120"
                                                         height="150px" alt="anh san pham" />
                                                 </div>
                                             </div>
-                                            <div class="col-md-7 mb-4 mb-md-0 mt-3">
+                                            <div class="col-md-5 mb-4 mb-md-0 mt-3">
                                                 <p class="fw-bold fs-6">
                                                     <?= $value['ten_sp'] ?>
                                                 </p>
@@ -120,9 +137,9 @@
                                                     </span>
                                                 </p>
                                                 <p>
-                                                    <span class="text-muted me-2 ">Màu :</span>
-                                                    <button
-                                                        style="background-color: black;width: 20px;height: 20px;border-radius: 50%"></button>
+                                                    <span class="text-muted me-2">Màu :</span><span>
+                                                        <?= $value['mau'] ?>
+                                                    </span>
                                                 </p>
                                                 <p>
                                                     <span class="text-muted me-2">Số lượng :</span><span>
@@ -130,16 +147,23 @@
                                                     </span>
                                                 </p>
                                             </div>
-                                            <div class="col-md-3 mb-4 mb-md-0 mt-3">
+                                            <div class="col-md-2 mb-4 mb-md-0 mt-3">
                                                 <h5 class="mb-2">
                                                     <span class="fw-bold fs-5">
                                                         <?= number_format($value['thanh_tien'], 0, ',') ?> đ
                                                     </span>
                                                 </h5>
                                             </div>
+                                            <?php if ($order_detail['ten_trang_thai'] === "Đã giao"): ?>
+                                                <div class="col-md-2 mb-4 mb-md-0 mt-3 ">
+                                                    <a href="<?= BASE_URL ?>?act=my-evaluate&id=<?= $value['id_don_hang'] ?>&id_sp=<?= $value['id_sp'] ?>&mau=<?= $value['mau'] ?>&size=<?= $value['size'] ?>"
+                                                        class="btn-evaluate rounded-pill text-white fw-bold">
+                                                        ĐÁNH GIÁ</a>
+                                                </div>
+                                           
+                                            <?php endif; ?>
                                         </div>
-                                        <?php
-                                        $total += $value['thanh_tien'];
+                                        <?php $total += $value['thanh_tien'];
                                     endforeach; ?>
                                 </div>
                             </div>
@@ -187,9 +211,10 @@
                                 <a href="<?= BASE_URL ?>?act=change-order&id=<?= $order_detail['dh_id'] ?>">Hủy đơn hàng</a>
                             </div>
                         <?php endif; ?>
-                        <?php if ($order_detail['ten_trang_thai'] === "Đã giao"): ?>
+                        <?php if ($order_detail['ten_trang_thai'] === "Đang vận chuyển"): ?>
                             <div class="proceed-to-checkout section mt-30">
-                                <a href="<?= BASE_URL ?>?act=my-evaluate&id=<?= $order_detail['dh_id'] ?>">Đánh giá</a>
+                                <a href="<?= BASE_URL ?>?act=final-order&id=<?= $order_detail['dh_id'] ?>">Xác nhận giao
+                                    hàng</a>
                             </div>
                         <?php endif; ?>
                     </div>

@@ -62,7 +62,7 @@ function commentUpdate($id)
 
         } else {
             update('tb_binh_luan', $id, $data);
-            $_SESSION['success'] = "thao tác thành công";
+            $_SESSION['success'] = "Thao tác thành công";
         }
         header("location: " . BASE_URL_ADMIN . "?act=comment-update&id=$id");
         exit();
@@ -80,7 +80,7 @@ function commentDelete($id){
         e404();
     }
     delete2('tb_binh_luan', $id);
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=comments-list&id_sp=" . $comment['id_sp']);
     exit();
 }

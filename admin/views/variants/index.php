@@ -105,7 +105,7 @@
                                 <?= $value['ten_mau'] ?>
                             </td>
                             <td>
-                                <div class="py-3" style="background-color: <?= $value['ma_mau'] ?>"></div>
+                                <div class="py-3 border border-primary" style="background-color: <?= $value['ma_mau'] ?>;"></div>
                             </td>
                             <td>
                                 <?= $value['so_luong'] ?>

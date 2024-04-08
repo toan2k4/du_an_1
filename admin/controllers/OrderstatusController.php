@@ -31,7 +31,7 @@ function statusCreate()
         }
 
         insert('tb_trangthai_dh', $data);
-        $_SESSION['success'] = "thao tác thành công";
+        $_SESSION['success'] = "Thao tác thành công";
         header("location: " . BASE_URL_ADMIN . "?act=statuses");
         exit();
     }
@@ -67,7 +67,7 @@ function statusUpdate($id)
 
         } else {
             update('tb_trangthai_dh', $id, $data);
-            $_SESSION['success'] = "thao tác thành công";
+            $_SESSION['success'] = "Thao tác thành công";
         }
         header("location: " . BASE_URL_ADMIN . "?act=status-update&id=$id");
         exit();
@@ -89,7 +89,7 @@ function statusDelete($id)
             // debug($pro['id']);
         }
     }
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=statuses");
     exit();
 }

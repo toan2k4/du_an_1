@@ -1,5 +1,5 @@
 <!-- Page Banner Section Start -->
-<div class="page-banner-section section" style="background-image: url(<?= BASE_URL ?>/assets/user/assets/images/hero/hero-1.jpg)">
+<div class="page-banner-section section" style="background-image: url(assets/images/hero/hero-1.jpg)">
     <div class="container">
         <div class="row">
             <div class="page-banner-content col">
@@ -22,19 +22,23 @@
 
             <div class="contact-info-wrap col-md-6 col-12 mb-40">
                 <h3>Liên lạc</h3>
-                <p>Jadusona là thương hiệu tiên phong trong lĩnh vực nghiên cứu chất liệu an toàn, cao cấp dành cho trẻ sơ sinh và trẻ nhỏ. Chúng tôi tự tin mang tới những sản phẩm cao cấp chuẩn quốc tế - đồng hành cùng ba mẹ trong hành trình nuôi con khôn lớn</p>
+                <p>Tại thương hiệu của chúng tôi, chúng tôi không chỉ tạo ra sản phẩm và dịch vụ, mà còn xây dựng một
+                    mối quan hệ đặc biệt với khách hàng của mình. Qua việc liên tục lắng nghe phản hồi từ khách hàng và
+                    áp dụng các cải tiến, chúng tôi xây dựng sự tin cậy và lòng trung thành trong cộng đồng của mình.
+                   </p>
                 <ul class="contact-info">
                     <li>
                         <i class="fa fa-map-marker"></i>
-                        <p>Phố Trịnh Văn Bô<br>Hà Nội</br></p>
+                        <p>Ngõ 55 Hoàng Hoa Thám, Ba Đình, Hà Nội</p>
                     </li>
                     <li>
                         <i class="fa fa-phone"></i>
-                        <p><a href="#">+01 235 567 89</a><a href="#">+01 235 286 65</a></p>
+                        <p><a href="#">+0397183920</a><a href="#">+0354570412</a></p>
                     </li>
                     <li>
                         <i class="fa fa-globe"></i>
-                        <p><a href="#">hanghttph44322@fpt.edu.vn</a><a href="#">www.example.com</a></p>
+                        <p><a href="#">Trangg@example.com</a><a href="#">Toan.example.com</a><a
+                                href="#">Hang.example.com</a></p>
                     </li>
                 </ul>
             </div>
@@ -64,8 +68,9 @@
                             <div class="col-lg-6 col-12 mb-30"><input type="text" name="ten" placeholder="Tên của bạn">
                             </div>
                             <div class="col-lg-6 col-12 mb-30"><input type="email" name="email"
-                                    placeholder="Email"></div>
-                            <div class="col-12 mb-30"><textarea name="noi_dung" placeholder="Lời nhắn"></textarea></div>
+                                    placeholder="Địa chỉ email"></div>
+                            <div class="col-12 mb-30"><textarea name="noi_dung"
+                                    placeholder="Nội dung lời nhắn"></textarea></div>
                             <div class="col-12"><input type="submit" value="Gửi"></div>
                         </div>
                     </div>

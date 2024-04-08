@@ -51,7 +51,7 @@ function userCreate()
         }
 
         insert('tb_tai_khoan', $data);
-        $_SESSION['success'] = "thao tác thành công!";
+        $_SESSION['success'] = "Thao tác thành công!";
 
         header("location: " . BASE_URL_ADMIN . "?act=users");
         exit();
@@ -174,7 +174,7 @@ function userUpdate($id)
             }
 
             update('tb_tai_khoan', $id, $data);
-            $_SESSION['success'] = "thao tác thành công!";
+            $_SESSION['success'] = "Thao tác thành công!";
 
         }
         header("location: " . BASE_URL_ADMIN . "?act=user-update&id=" . $id);
@@ -263,7 +263,7 @@ function userDelete($id)
     if (!empty ($user['anh_tk']) && file_exists(PATH_UPLOAD . $user['anh_tk'])) { // có tồn tại file cũ
         unlink(PATH_UPLOAD . $user['anh_tk']);
     }
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=users");
     exit();
 }

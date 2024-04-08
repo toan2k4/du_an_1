@@ -79,7 +79,7 @@ match ($act) {
     
 
     // statuses
-    'statuses' => statusesListAll(),'blog-detail' => blogShowOne($_GET['id']),
+    'statuses' => statusesListAll(),
     'status-create' => statusCreate(),
     'status-update' => statusUpdate($_GET['id']),
     'status-delete' => statusDelete($_GET['id']),

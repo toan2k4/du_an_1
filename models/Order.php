@@ -66,19 +66,20 @@ if (!function_exists('showOneOrder')) {
     }
 }
 // Hien list san pham
+// Hien list san pham
 if (!function_exists('showProductOrder')) {
     function showProductOrder($tableName, $id)
     {
         try {
             $sql = "SELECT 
-                tb_chi_tiet_don_hang.id, 
-                tb_chi_tiet_don_hang.id_sp, 
+                tb_chi_tiet_don_hang.id as id_ctdh, 
                 tb_chi_tiet_don_hang.id_don_hang, 
                 tb_chi_tiet_don_hang.so_luong, 
                 tb_chi_tiet_don_hang.gia_sp,
                 tb_chi_tiet_don_hang.mau, 
                 tb_chi_tiet_don_hang.size, 
                 tb_chi_tiet_don_hang.thanh_tien, 
+                tb_chi_tiet_don_hang.id_sp, 
                 tb_san_pham.ten_sp, 
                 tb_san_pham.hinh_sp
             FROM tb_chi_tiet_don_hang 

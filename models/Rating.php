@@ -9,6 +9,8 @@ if (!function_exists('listRatingForProduct')) {
                         tb_danh_gia.noi_dung, 
                         tb_danh_gia.ngay_dg, 
                         tb_danh_gia.sao_dg, 
+                        tb_danh_gia.mau, 
+                        tb_danh_gia.size, 
                         tb_tai_khoan.anh_tk, 
                         tb_tai_khoan.ten_tk
                     FROM tb_danh_gia
