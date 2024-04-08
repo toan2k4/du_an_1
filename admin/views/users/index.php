@@ -44,7 +44,7 @@
                                     <?= $key + 1 ?>
                                 </td>
                                 <td> <?= $value['ten_tk'] ?> </td>
-                                <td><img src=" <?= BASE_URL. $value['anh_tk'] ?>" width="50"> </td>
+                                <td><img src=" <?= BASE_URL. $value['anh_tk'] ?>" width="70" height="70"> </td>
                                 <td> <?= $value['email_tk'] ?> </td>
                                 <td> <?= $value['ten_chuc_vu'] ?> </td>
                                 <td>

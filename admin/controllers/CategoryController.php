@@ -40,7 +40,7 @@ function categoryCreate()
         }
 
         insert('tb_danh_muc', $data);
-        $_SESSION['success'] = "thao tác thành công";
+        $_SESSION['success'] = "Thao tác thành công";
         header("location: " . BASE_URL_ADMIN . "?act=categories");
         exit();
     }
@@ -77,7 +77,7 @@ function categoryUpdate($id)
 
         } else {
             update('tb_danh_muc', $id, $data);
-            $_SESSION['success'] = "thao tác thành công";
+            $_SESSION['success'] = "Thao tác thành công";
         }
         header("location: " . BASE_URL_ADMIN . "?act=category-update&id=$id");
         exit();
@@ -99,7 +99,7 @@ function categoryDelete($id)
             // debug($pro['id']);
         }
     }
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=categories");
     exit();
 }

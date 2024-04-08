@@ -217,6 +217,6 @@ function variantDelete($id)
 {
     $id_sp = showOne('tb_bien_the_sp', $id);
     delete2('tb_bien_the_sp', $id);
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     variantListAll($id_sp['id_sp']);
 }
