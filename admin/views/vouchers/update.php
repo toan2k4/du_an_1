@@ -53,6 +53,11 @@
                         value="<?= $voucher['gia_km'] ?>">
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Mã khuyến mại</label>
+                    <input type="text" class="form-control" name="code_km" placeholder="Nhập Giá khuyến mại"
+                        value="<?= $voucher['code_km'] ?>">
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Số lượng</label>
                     <input type="text" class="form-control" name="so_luong" placeholder="Nhập Số lượng"
                         value="<?= $voucher['so_luong'] ?>">

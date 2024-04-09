@@ -52,7 +52,7 @@
                 <div class="mb-3">
                     <label class="form-label">Giá bán</label>
                     <input type="text" class="form-control" name="giam_gia"
-                    value="<?= $product['giam_gia'] ?>"
+                    value="<?=  $product['giam_gia'] ?>"
                     placeholder="Nhập giá bán">
                 </div>
                 <div class="mb-3">

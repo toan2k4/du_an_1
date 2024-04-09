@@ -63,7 +63,8 @@ match($act){
 
     'my-account' => showMyAccount($_GET['id']),
     'my-order' => showMyOrder($_GET['id']),
-    'my-evaluate' => showProOrder($_GET['id']),
+    'my-evaluate' => showProOrder($_GET['id'], $_GET['id_sp'], $_GET['mau'], $_GET['size'] ),
+    'final-order' => changeOrderFinal($_GET['id']),
 
     'register' => registerAccount(),
 

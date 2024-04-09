@@ -10,7 +10,7 @@
             <!-- Hero Content -->
             <div class="hero-content">
 
-                <h1>Giảm 10% <br> Bộ sưu tập thời trang mới nhất</h1>
+                <h1>Giảm 100K <br> Bộ sưu tập thời trang mới nhất</h1>
                 <a href="#">Xem thêm</a>
 
             </div>
@@ -23,7 +23,7 @@
             <!-- Hero Content -->
             <div class="hero-content">
 
-                <h1>Giảm 10% <br> Bộ sưu tập thời trang mới nhất</h1>
+                <h1>Giảm 100K <br> Bộ sưu tập thời trang mới nhất</h1>
                 <a href="#">Xem thêm</a>
 
             </div>
@@ -61,8 +61,6 @@
                     <div class="content bg-theme-one">
                         <h1>Đồ chơi cho trẻ em</h1>
                     </div>
-
-                    <span class="banner-offer">25% </span>
 
                 </a>
             </div>
@@ -158,7 +156,7 @@
                                     </h5>
                                     <h5 class="color">Color:
                                         <?php foreach ($colors as $color): ?>
-                                            <span style="background-color: <?= $color ?>"></span>
+                                            <span class="border border-dark-subtle rounded-circle" style="background-color: <?= $color ?>;"></span> 
                                         <?php endforeach; ?>
 
                                     </h5>

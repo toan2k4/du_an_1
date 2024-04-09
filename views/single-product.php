@@ -98,8 +98,9 @@
                                 <div class="colors">
                                     <h5>Màu:</h5>
                                     <div class="color-options">
-                                        <?php foreach ($colors as $key => $color): ?>
-                                            <button class="color-detail m-1" data-name="<?= $nameColor[$key] ?>"
+                                    <?php foreach ($colors as $key => $color): ?>
+                                            <button class="color-detail m-1 border border-dark-subtle rounded-circle"
+                                                data-name="<?= $nameColor[$key] ?>"
                                                 style="background-color:<?= $color ?>"></button>
                                         <?php endforeach; ?>
                                     </div>
@@ -297,11 +298,25 @@
 
                                                             </div>
                                                         </div>
+                                                        <div class="d-flex">
+                                                            <p class="mb-0">
+                                                                <small class="ms-2 text-black-50">
+                                                                    Size :
+                                                                    <?= $rate['size'] ?>
+                                                                </small>
+                                                            </p>
+                                                            <p class="mb-0">
+                                                                <small class="ms-2 text-black-50">
+                                                                    Màu :
+                                                                    <?= $rate['mau'] ?>
+                                                                </small>
+                                                            </p>
+                                                        </div>
                                                         <div>
                                                             <!-- <p class="h6 my-1"><?= $rate['noi_dung'] ?></p> -->
-                                                            <small class="text-black-50">
+                                                            <p class="text-black">
                                                                 <?= $rate['noi_dung'] ?>
-                                                            </small>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>

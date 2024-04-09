@@ -44,13 +44,13 @@
                 <tr>
                     <td>Giá sản phẩm</td>
                     <td>
-                        <?= $product['gia_sp'] ?>
+                        <?= number_format($product['gia_sp'], 0, ',')  ?>
                     </td>
                 </tr>
                 <tr>
                     <td>Giá Bán</td>
                     <td>
-                        <?= $product['giam_gia'] ?>
+                        <?= number_format($product['giam_gia'], 0, ',')  ?>
                     </td>
                 </tr>
                 <tr>
@@ -131,8 +131,7 @@
                                 <?= $value['ten_mau'] ?>
                             </td>
                             <td>
-                                <div class="py-3" style="background-color: <?= $value['ma_mau'] ?>"></div>
-                                
+                                <div class="py-3 border border-black" style="background-color: <?= $value['ma_mau'] ?>"></div>
                             </td>
                             <td>
                                 <?= $value['so_luong'] ?>

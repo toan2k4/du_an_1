@@ -194,4 +194,14 @@ function showForgotPassword()
     require_once PATH_VIEW . 'layouts/master.php';
 }
 
+function changeOrderFinal($id)
+{
+    $views = 'su_account/show_order';
+    update('tb_don_hang', $id, [
+        'id_trang_thai' => 6
+    ]);
+    header("location: " . BASE_URL . "?act=my-order&id=" . $id);
+}
+
+
 

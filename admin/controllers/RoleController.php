@@ -38,7 +38,7 @@ function roleCreate()
         }
 
         insert('tb_phan_quyen', $data);
-        $_SESSION['success'] = "thao tác thành công";
+        $_SESSION['success'] = "Thao tác thành công";
         header("location: " . BASE_URL_ADMIN . "?act=roles");
         exit();
     }
@@ -75,7 +75,7 @@ function roleUpdate($id)
 
         } else {
             update('tb_phan_quyen', $id, $data);
-            $_SESSION['success'] = "thao tác thành công";
+            $_SESSION['success'] = "Thao tác thành công";
         }
         header("location: " . BASE_URL_ADMIN . "?act=role-update&id=$id");
         exit();
@@ -98,7 +98,7 @@ function roleDelete($id)
         }
     }
     delete2('tb_phan_quyen', $id);
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=roles");
     exit();
 }

@@ -149,7 +149,7 @@
                                     <?= $value['thanh_tien'] ?>
                                 </td>
                                 <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=order-detail-pro&id=<?= $value['id_don_hang'] ?>"
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=product-detail&id=<?= $value['id_sp'] ?>"
                                         class="btn btn-info mb-2">Chi tiết</a>
                                 </td>
                             </tr>

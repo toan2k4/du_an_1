@@ -56,7 +56,7 @@ function voucherCreate()
         }
         // debug($data);
         insert('tb_khuyen_mai', $data);
-        $_SESSION['success'] = "thao tác thành công";
+        $_SESSION['success'] = "Thao tác thành công";
         header("location: " . BASE_URL_ADMIN . "?act=vouchers");
         exit();
     }
@@ -154,7 +154,7 @@ function voucherUpdate($id)
             $_SESSION['errors'] = $errors;
         } else {
             update('tb_khuyen_mai', $id, $data);
-            $_SESSION['success'] = "thao tác thành công";
+            $_SESSION['success'] = "Thao tác thành công";
         }
         header("location: " . BASE_URL_ADMIN . "?act=voucher-update&id=$id");
         exit();
@@ -169,7 +169,7 @@ function voucherUpdate($id)
 function voucherDelete($id)
 {
     delete2('tb_khuyen_mai', $id);
-    $_SESSION['success'] = "thao tác thành công";
+    $_SESSION['success'] = "Thao tác thành công";
     header("location: " . BASE_URL_ADMIN . "?act=vouchers");
     exit();
 }
