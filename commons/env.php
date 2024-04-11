@@ -11,8 +11,8 @@ define('PATH_UPLOAD', __DIR__ . '/../');
 
 
 
-define('BASE_URL', 'http://localhost/CODE/du_an_1/Git_du_an_4/du_an_1/');
-define('BASE_URL_ADMIN', 'http://localhost/CODE/du_an_1/Git_du_an_4/du_an_1/admin/');
+define('BASE_URL', 'http://localhost:81/DA1/duan1-lai/');
+define('BASE_URL_ADMIN', 'http://localhost:81/DA1/duan1-lai/admin/');
 
 
 

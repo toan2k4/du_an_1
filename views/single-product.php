@@ -99,9 +99,9 @@
                                     <h5>Màu:</h5>
                                     <div class="color-options">
                                     <?php foreach ($colors as $key => $color): ?>
-                                            <button class="color-detail m-1 border border-dark-subtle rounded-circle"
+                                            <button class="color-detail rounded-circle"
                                                 data-name="<?= $nameColor[$key] ?>"
-                                                style="background-color:<?= $color ?>"></button>
+                                                style="background-color:<?= $color ?>; border: 1px solid #cccc"></button>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -521,9 +521,8 @@
         var inputElement = document.querySelector('.pro-qty p');
         for (const color of colors) {
             color.addEventListener('click', () => {
-
                 for (var i = 0; i < colors.length; i++) {
-                    colors[i].style.border = "none";
+                    colors[i].style.border = "#cccc";
                 }
                 color.style.border = "2px solid";
                 inputElement.innerHTML = 1;

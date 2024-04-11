@@ -37,8 +37,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-10 mb-4 mb-md-0 mt-3">
-                                            <p class="fw-bold fs-6">
-                                                <?= $order_product_one['ten_sp'] ?>
+                                            <p class="fw-bold fs-6 pro-title">
+                                                <a href="<?= BASE_URL?>?act=single-product&id=<?= $order_product_one['id_sp']?>"> <?= $order_product_one['ten_sp'] ?></a>                                               
                                             </p>
                                             <p class="mb-1">
                                                 <span class="text-muted me-2">Kích thước :</span><span>

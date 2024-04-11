@@ -23,6 +23,9 @@
             <div class="col-lg-4 col-12 mb-40">
                 <div class="login-register-form-wrap">
                     <h3>ĐĂNG NHẬP</h3>
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <div class="alert alert-danger"><?= $_SESSION['error']?></div>
+                    <?php endif; unset($_SESSION['error']) ?>
                     <form action="" class="mb-30" method="post">
                         <div class="row">
                             <div class="col-12 mb-15"><input type="text" placeholder="Email" name="email"></div>

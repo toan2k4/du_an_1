@@ -43,8 +43,8 @@ function listProduct()
 {
     $views = 'list-product';
     $price = minMaxPrice();
-    $id_danh_muc = isset($_GET['id_danh_muc']) ? $_GET['id_danh_muc'] : null;
     $id_danh_muc = isset($_POST['id_danh_muc']) ? $_POST['id_danh_muc'] : null;
+    $id_danh_muc = isset($_GET['id_danh_muc']) ? $_GET['id_danh_muc'] : null;
     $search = isset($_POST['search']) ? $_POST['search'] : '';
     $priceMin = isset($_POST['priceMin']) ? $_POST['priceMin'] : '';
     $priceMax = isset($_POST['priceMax']) ? $_POST['priceMax'] : '';

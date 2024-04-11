@@ -45,7 +45,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Thu nhập (theo năm)</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            <span id="earnYear">
+                                <span id="earnYear">
                                     <?= number_format($moneyYear['tong']) ?>
                                 </span> VND
                             </div>
@@ -171,7 +171,16 @@
                     <div class="chart-pie pt-4 pb-2">
                         <canvas id="myPieChart"></canvas>
                     </div>
-
+                    <div class="mt-4 d-flex flex-column  small">
+                        <?php
+                        $mau = ['#4e73df', '#1cc88a', '#36b9cc', '#60616f', '#f6c23e'];
+                        foreach ($dataProduct as $key => $value):
+                            ?>
+                            <span class="mr-2 my-2">
+                                <i class="fas fa-circle " style="color:<?= $mau[$key] ?> ;"></i><?= $value['ten_sp'] ?>
+                            </span>
+                        <?php endforeach ?>
+                    </div>
                 </div>
             </div>
         </div>

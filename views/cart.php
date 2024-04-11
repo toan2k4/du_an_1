@@ -48,9 +48,9 @@
                                         $total += $product['price'] * $product['quantity'];
                                         ?>
                                         <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img
+                                            <td class="pro-thumbnail"><a href="<?= BASE_URL?>?act=single-product&id=<?= $product['id_sp']?>"><img
                                                         src="<?= BASE_URL . $product['hinh_sp'] ?>" alt="" /></a></td>
-                                            <td class="pro-title"><a href="#">
+                                            <td class="pro-title"><a href="<?= BASE_URL?>?act=single-product&id=<?= $product['id_sp']?>">
                                                     <?= $product['ten_sp'] ?>
                                                 </a></td>
                                             <td class="pro-price"><span class="amount">

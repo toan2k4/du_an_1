@@ -242,7 +242,8 @@ if (!function_exists('thongke_top_ban_chay')) {
                     JOIN 
                         tb_san_pham ON tb_san_pham.id = tb_chi_tiet_don_hang.id_sp
                     GROUP BY
-                         tb_san_pham.id;
+                         tb_san_pham.id
+                    ORDER BY  SUM(tb_chi_tiet_don_hang.so_luong) DESC
                     LIMIT 5;
                     ";
 

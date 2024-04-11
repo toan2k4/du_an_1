@@ -160,7 +160,6 @@ if (!function_exists('getSearchProduct')) {
 
             // debug($sql);
             $stmt->execute();
-
             return $stmt->fetchAll();
         } catch (\Exception $e) {
             // Xử lý ngoại lệ ở đây
